@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/qc-bouton.css">
+    <title>Vite App</title>
+    <style>
+      welcome-component {
+        --card-padding: 10px;
+        --card-border-radius: 5px;
+        --card-border-width: 1px;
+        --card-border-color: #000;
+        --card-background-color: white;
+        --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0;
+
+        & button {
+          font-size: 20px
+        }
+
+        & qc-bouton {
+          font-size: 20px
+        }
+
+      }
+
+      button {font-size: 10px;}
+    </style>
+  </head>
+  <body>
+    <welcome-component></welcome-component>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
