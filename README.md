@@ -1,6 +1,6 @@
-# Librairie de Composants QC
+# Librairie de Composants Web Standard
 
-Cette librairie fournit des composants personnalisés pour créer des alertes et des boutons stylisés dans vos applications web.
+Librairie de composants web standard développée avec Vite.js et Storybook.
 
 ## Clonage du Repository et Installation des Packages Node.js
 
