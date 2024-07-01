@@ -68,6 +68,31 @@ Assurez-vous d'inclure les dépendances suivantes dans votre projet :
 
 Consultez les sources dans le répertoire `dist` pour personnaliser le style et le comportement des composants.
 
+## Développement avec Storybook et Vite.js
+
+Ce projet utilise Storybook et Vite.js pour le développement des composants.
+
+### Storybook
+
+Storybook est un outil de développement pour les composants UI. Pour démarrer Storybook, exécutez la commande suivante dans votre terminal :
+
+```bash
+npm run storybook
+```
+
+Pour plus d'informations sur Storybook, visitez [Storybook](https://storybook.js.org/).
+
+### Vite.js
+
+Vite.js est utilisé pour la construction rapide de projets web modernes en développement. 
+
+Pour builder la librairie, utilisez la commande suivante :
+
+```bash
+npm run build
+```
+
+
 ## Licence
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
