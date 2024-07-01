@@ -1,6 +1,6 @@
 class QcBouton extends HTMLElement {
   static get observedAttributes() {
-    return ['label', 'style', 'href', 'class', 'display', 'size', 'icon', 'icon-position'];
+    return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position'];
   }
 
   constructor() {
@@ -15,7 +15,7 @@ class QcBouton extends HTMLElement {
   }
 
   get template() {
-    const buttonClass = this.className ? this.className + ' ' + this.currentStyle : this.currentStyle + ' ' + this.currentDisplay;
+    const buttonClass = this.className ? this.className + ' ' + this.currenttype : this.currenttype + ' ' + this.currentDisplay;
     return `
       ${this.href ? 
         `<a href="${this.href}" class="${buttonClass}">
@@ -36,9 +36,9 @@ class QcBouton extends HTMLElement {
     return this.getAttribute('label') || 'Bouton';
   }
 
-  get currentStyle() {
-    const style = this.getAttribute('style');
-    return ['principal', 'secondaire', 'tertiaire', 'avertissement'].includes(style) ? style : 'principal';
+  get currenttype() {
+    const type = this.getAttribute('type');
+    return ['principal', 'secondaire', 'tertiaire', 'avertissement'].includes(type) ? type : 'principal';
   }
 
   get currentDisplay() {

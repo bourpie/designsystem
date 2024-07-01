@@ -1,4 +1,4 @@
-import '../styles/qc-bouton.css'
+import '../styles/qc-styles.css'
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {

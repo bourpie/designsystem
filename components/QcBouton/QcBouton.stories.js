@@ -7,7 +7,7 @@ export default {
   tags: ['autodocs'],
   component: QcBouton,
   argTypes: {
-    style: {
+    type: {
       control: 'select',
       options: ['principal', 'secondaire', 'tertiaire', 'avertissement'],
     },
@@ -205,80 +205,82 @@ export default {
       <qc-bouton 
         ${args.size ? `size="${args.size}"` : ''} 
         ${args.href ? `href="${args.href}"` : ''} 
-        ${args.style ? `style="${args.style}"` : ''} 
+        ${args.type ? `type="${args.type}"` : ''} 
         ${args.display ? `display="${args.display}"` : ''} 
         ${args.icon ? `icon="${args.icon}"` : ''} 
         ${args.iconPosition ? `icon-position="${args.iconPosition}"` : ''}
         label="${label}">
-      </qc-bouton>`;
+      </qc-bouton>    
+      `;
   },
 };
 
 export const Primaire = {
   args: {
     label: 'Primaire',
-  },
+  }
 };
+
+Primaire.storyName = 'Bouton principal';
 
 export const Secondaire = {
   args: {
     label: 'Secondaire',
-    style: 'secondaire',
-  },
+    type: 'secondaire',
+  }
 };
+
+Secondaire.storyName = 'Bouton secondaire';
 
 export const Tertiaire = {
   args: {
     label: 'Tertiaire',
-    style: 'tertiaire',
+    type: 'tertiaire',
   },
 };
+
+Tertiaire.storyName = 'Bouton tertiaire';
 
 export const Avertissement = {
   args: {
     label: 'Avertissement',
-    style: 'avertissement',
+    type: 'avertissement',
   },
 };
 
-export const Lien = {
-  args: {
-    label: 'Lien',
-    style: 'principal',
-    href: 'https://www.google.com/',
-  },
-};
+Avertissement.storyName = 'Bouton avertissement';
 
 export const Block = {
   args: {
     label: 'Bloc',
-    style: 'principal',
+    type: 'principal',
     href: 'https://www.google.com/',
     display: 'block',
   },
 };
 
+Block.storyName = 'Bouton pleine largeur';
+
 export const IconLeft = {
   args: {
     label: 'Précédent',
-    style: 'principal',
+    type: 'principal',
     icon: 'lnr-arrow-left',
     iconPosition: 'left',
   },
 };
 
+IconLeft.storyName = 'Icône à gauche';
+
 export const IconRight = {
   args: {
     label: 'Suivant',
-    style: 'principal',
+    type: 'principal',
     icon: 'lnr-arrow-right',
     iconPosition: 'right',
   },
 };
 
-Lien.storyName = 'Bouton avec un lien';
-Block.storyName = 'Bouton pleine largeur';
-IconLeft.storyName = 'Icône à gauche';
 IconRight.storyName = 'Icône à droite';
 
 
