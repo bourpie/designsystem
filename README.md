@@ -2,6 +2,23 @@
 
 Cette librairie fournit des composants personnalisés pour créer des alertes et des boutons stylisés dans vos applications web.
 
+## Clonage du Repository et Installation des Packages Node.js
+
+1. Clonez ce repository localement :
+   ```bash
+   git clone https://github.com/bourpie/designsystem.git
+   ```
+
+2. Accédez au répertoire du projet :
+   ```bash
+   cd designsystem
+   ```
+
+3. Installez les dépendances Node.js :
+   ```bash
+   npm install
+   ```
+
 ## Dépendances
 
 Assurez-vous d'inclure les dépendances suivantes dans votre projet :
