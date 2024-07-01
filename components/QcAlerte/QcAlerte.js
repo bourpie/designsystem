@@ -16,14 +16,16 @@ class QcAlerte extends HTMLElement {
 
   get template() {
     return `
-      ${this.type === 'avertissement' ? 
-        `<svg class="lnr lnr-warning icone-alerte"><use xlink:href="#lnr-warning"></use></svg>` : 
-        `<svg class="lnr lnr-question-circle icone-alerte"><use xlink:href="#lnr-question-circle"></use></svg>`
-      }
-      <div role="alert">
-        ${this.message}
+      <div class="container"¨>
+        ${this.type === 'avertissement' ? 
+          `<svg class="lnr lnr-warning icone-alerte"><use xlink:href="#lnr-warning"></use></svg>` : 
+          `<svg class="lnr lnr-question-circle icone-alerte"><use xlink:href="#lnr-question-circle"></use></svg>`
+        }
+        <div role="alert">
+          ${this.message}
+        </div>
+        ${this.fermeture === 'oui' ? `<button aria-label="${this.closeButtonLabel}" class="close-btn"><svg class="lnr lnr-cross"><use xlink:href="#lnr-cross"></use></svg></button>` : ''}
       </div>
-      ${this.fermeture === 'oui' ? `<button aria-label="${this.closeButtonLabel}" class="close-btn"><svg class="lnr lnr-cross"><use xlink:href="#lnr-cross"></use></svg></button>` : ''}
     `;
   }
 

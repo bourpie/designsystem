@@ -1,27 +1,156 @@
+:root {
+  /* Couleurs d'arrière-plan */
+  --background-color: rgb(255, 255, 255);
+
+  /* Couleurs du texte */
+  --text-color: rgb(34, 54, 84);
+
+  /* Palette principale */
+  --blue-light: rgb(218, 230, 240);
+  --blue-lighter: rgb(74, 152, 217);
+  --blue: rgb(20, 114, 191);
+  --blue-piv: rgb(9, 87, 151);
+  --blue-medium: rgb(25, 64, 108);
+  --blue-dark: rgb(34, 54, 84);
+
+  /* Couleur d'accent */
+  --accent-color: rgb(229, 130, 113);
+
+  /* Niveaux de gris */
+  --gray-light: rgb(241, 241, 242);
+  --gray-lighter: rgb(197, 202, 210);
+  --gray: rgb(136, 147, 162);
+  --gray-medium: rgb(107, 119, 138);
+  --gray-dark: rgb(78, 86, 98);
+
+  /* Palettes fonctionnelles - Rouges */
+  --red-light: rgb(255, 219, 214);
+  --red: rgb(229, 130, 113);
+  --red-dark: rgb(203, 56, 31);
+  --red-darker: rgb(105, 37, 25);
+
+  /* Palettes fonctionnelles - Verts */
+  --green-light: rgb(215, 240, 187);
+  --green: rgb(79, 129, 61);
+  --green-dark: rgb(44, 64, 36);
+
+  /* Palettes fonctionnelles - Jaunes */
+  --yellow-light: rgb(248, 230, 154);
+  --yellow: rgb(224, 173, 3);
+  --yellow-dark: rgb(173, 120, 28);
+
+  /* Palettes fonctionnelles - Violet */
+  --purple: rgb(107, 79, 161);
+
+  /* Font size */
+  --font-size: 1rem;
+
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    :root {
+      --font-size: 0.875rem; /* 14px in rem */
+    }
+  }
+}
+
+.bg-bleu-piv {
+  background-color: var(--blue-piv);
+  color: white;
+}
+
+
+qc-recherche {
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    .input-container {
+      position: relative;
+      flex: 1;
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding: 0 1rem;
+        border: 1px solid var(--gray-medium);
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        background-color: #fff;
+        transition: border-color 0.15s ease-in-out;
+      }
+    }
+
+    .clear-btn {
+      background-color: white;
+      border: none;
+      padding: 0;
+      font-size: 1.25rem;
+      position: absolute;
+      right: 1rem;
+      top: .25rem;
+    }
+    qc-bouton {
+      button {
+        min-width: 0;
+        height: 100%;
+        padding: 0 1rem;
+      }
+      span {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+      }
+
+      .lnr {
+        margin: 0 ;
+      }
+    }
+  }
+}
+
+qc-recherche[variant="dark"] {
+  .input-container {
+
+    input {
+      border: 1px solid transparent;
+    }
+
+  }
+}
+
+
 qc-alerte {
     display: block;
-    position: relative;
     font-family: var(--font-family, 'Open Sans', 'Inter', sans-serif);
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
-    padding: 1rem 56px;
     color: #000;
   
     &[type="avertissement"] {
-      background-color: #F8E69A;
-      color: rgb(181, 131, 41);
+      background-color: var(--yellow-light);
+      color: var(--yellow-dark);
     }
   
     &[type="information"] {
-      background-color: rgb(217, 230, 240);
-      color: rgb(9, 87, 151);
+      background-color: var(--blue-light);
+      color: var(--blue-dark);
+    }
+
+    .container {
+      position: relative;
+      padding: 1rem 56px;
     }
   
     .lnr.icone-alerte {
       position: absolute;
       left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 1rem;
       font-size: 1.5rem;
     }
   
@@ -36,10 +165,17 @@ qc-alerte {
       color: inherit;
     }
   
-    p:last-of-type {
+    p:last-of-type, li:last-of-type {
       margin-bottom: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    qc-alerte {
+      font-size: 0.875rem; /* 14px en REM pour les écrans mobiles */
+    }
+  }
+  
   
   qc-bouton {
     button, a {
@@ -120,21 +256,21 @@ qc-alerte {
   
     .tertiaire {
       color: #095797;
-      background: none;
+      background: white;
   
       &:hover {
         text-decoration: underline;
-        background-color: rgba(197, 202, 210, 0.24);
+        background-color: rgb(197, 202, 210);
       }
   
       &:focus {
         border-color: #223654;
-        background-color: rgba(197, 202, 210, 0.24);
+        background-color: rgb(197, 202, 210);
         box-shadow: 0 0 0 2px #4a98d9;
       }
   
       &:active {
-        background-color: rgba(197, 202, 210, 0.16);
+        background-color: rgb(197, 202, 210);
       }
     }
   
@@ -190,5 +326,16 @@ qc-alerte {
     &.right {
       margin-left: 8px;
     }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
   }
   

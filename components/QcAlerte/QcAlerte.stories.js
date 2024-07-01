@@ -6,17 +6,15 @@ export default {
     argTypes: {
         message: {
             control: "text",
-            description: "Message à afficher dans l'alerte",
         },
         fermeture: {
             control: "radio",
             options: ["oui", "non"],
-            description: "Permet de fermer l'alerte",
         },
         type: {
             control: "radio",
             options: ["avertissement", "information"],
-            description: "Type d'alerte",
+            label: "Type d'alerte",
         }
     },
     render: ({ message, ...args }) => {
@@ -31,8 +29,14 @@ export default {
 
     export const Avertissement = {
         args: {
-            message: "Mon message",
             type: "avertissement",
+            message: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</p>
+
+            <p>Quisque non turpis sed justo dignissim accumsan. Aenean quis massa ut nisi tincidunt suscipit. Pellentesque habitant morbi tristique.</p>
+            
+            <p>Mauris non felis quis enim tristique suscipit. Sed euismod nisl eu lacus vehicula, nec pulvinar mi fermentum.</p>
+            `,
+
         },
     };
 

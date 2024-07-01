@@ -20,12 +20,12 @@ class QcBouton extends HTMLElement {
       ${this.href ? 
         `<a href="${this.href}" class="${buttonClass}">
           ${this.icon && this.iconPosition === 'left' ? `<svg class="lnr ${this.icon} left"><use xlink:href="#${this.icon}"></use></svg>` : ''}
-          ${this.label}
+          <span>${this.label}</span>
           ${this.icon && this.iconPosition === 'right' ? `<svg class="lnr ${this.icon} right"><use xlink:href="#${this.icon}"></use></svg>` : ''}
         </a>` : 
         `<button class="${buttonClass}">
           ${this.icon && this.iconPosition === 'left' ? `<svg class="lnr ${this.icon} left"><use xlink:href="#${this.icon}"></use></svg>` : ''}
-          ${this.label}
+          <span>${this.label}</span>
           ${this.icon && this.iconPosition === 'right' ? `<svg class="lnr ${this.icon} right"><use xlink:href="#${this.icon}"></use></svg>` : ''}
         </button>`
       }
