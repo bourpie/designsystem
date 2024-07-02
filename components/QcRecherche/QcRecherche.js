@@ -1,3 +1,6 @@
+import loupePivLight from './loupe-piv-light.svg';
+import loupePivDark from './loupe-piv-dark.svg';
+
 class QcRecherche extends HTMLElement {
   static get observedAttributes() {
     return ['placeholder', 'class', 'label', 'btnlabel', 'variant', 'action'];
@@ -32,7 +35,7 @@ class QcRecherche extends HTMLElement {
           <button type="button" aria-label="Effacer" class="clear-btn"><span class="lnr lnr-cross"></span></button>
           <span class="input-group-btn">
               <button aria-label="${this.btnlabel}" class="btn-search">
-              ${this.variant === 'dark' ? `<img src="loupe-piv-fonce.svg" alt="Rechercher" width="24" height="24" />` : `<img src="loupe-piv-droite.svg" alt="Rechercher" width="24" height="24" />`}
+              ${this.variant === 'dark' ? `<img src="${loupePivDark}" alt="Rechercher" width="24" height="24" />` : `<img src="${loupePivLight}" alt="Rechercher" width="24" height="24" />`}
               </button>
           </span> 
         </div>

@@ -1,4 +1,6 @@
 import { QcRecherche } from "../QcRecherche/QcRecherche.js";
+import LogoQuebec from "./logo-quebec.svg";
+import Loupe from "./loupe.svg";
 
 class QcHeader extends HTMLElement {
     static get observedAttributes() {
@@ -22,13 +24,13 @@ class QcHeader extends HTMLElement {
                 <div class="container">
                     <div class="piv">
                         <a class="qc-logo" href="https://quebec.ca/" aria-label="Québec.ca">
-                            <img src="logo-quebec.svg" alt="Québec.ca" width="200" height="72" />
+                            <img src="${LogoQuebec}" alt="Québec.ca" width="200" height="72" />
                         </a>
                         <p><a href="/">${this.titre}</a></p>
                     </div>
                     <nav>
                         <button aria-label="${this.btnlabel}" class="btn-search">
-                            <img src="loupe-piv-droite.svg" alt="Rechercher" width="24" height="24" />
+                            <img src="${Loupe}" alt="Rechercher" width="24" height="24" />
                         </button>
                         <ul ${this.langueurl ? `class="langue"` : ''}>
                             ${this.langueurl ? `<li><a href="${this.langueurl}">${this.languelabel}</a></li>` : ''}
