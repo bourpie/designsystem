@@ -1,8 +1,6 @@
-import { QcBouton } from "../QcBouton/QcBouton";
-
 class QcRecherche extends HTMLElement {
   static get observedAttributes() {
-    return ['placeholder', 'class', 'label', 'btnlabel', 'variant'];
+    return ['placeholder', 'class', 'label', 'btnlabel', 'variant', 'action'];
   }
 
   constructor() {
@@ -27,16 +25,17 @@ class QcRecherche extends HTMLElement {
 
   get template() {
     return `
-      <form class="container">
-        <div class="input-container">
+      <form method="get" action="${this.action}" class="container">
+        <div class="input-group">
           <label for="${this.uuid}" class="visually-hidden">${this.label}</label>
-          <input id="${this.uuid}" type="text" placeholder="${this.placeholder}">
-          <button type="button" aria-label="Effacer" class="clear-btn"><svg class="lnr lnr-cross"><use xlink:href="#lnr-cross"></use></svg></button>
+          <input id="${this.uuid}" type="text" placeholder="${this.placeholder}" class="form-control search-input" />
+          <button type="button" aria-label="Effacer" class="clear-btn"><span class="lnr lnr-cross"></span></button>
+          <span class="input-group-btn">
+              <button aria-label="${this.btnlabel}" class="btn-search">
+              ${this.variant === 'dark' ? `<img src="loupe-piv-fonce.svg" alt="Rechercher" width="24" height="24" />` : `<img src="loupe-piv-droite.svg" alt="Rechercher" width="24" height="24" />`}
+              </button>
+          </span> 
         </div>
-
-        
-        ${this.buttonTemplate}
-
       </form>
     `;
   }
@@ -57,12 +56,8 @@ class QcRecherche extends HTMLElement {
     return this.getAttribute('variant') || 'light';
   }
 
-  get buttonTemplate() {
-    if (this.variant === 'dark') {
-      return `<qc-bouton type="tertiaire" icon="lnr-magnifier" label="${this.btnlabel}"></qc-bouton>`;
-    } else {
-      return `<qc-bouton icon="lnr-magnifier" label="${this.btnlabel}"></qc-bouton>`;
-    }
+  get action() {
+    return this.getAttribute('action') || '/';
   }
 
   connectedCallback() {
@@ -71,6 +66,7 @@ class QcRecherche extends HTMLElement {
 
   clearInput() {
     this.querySelector('input').value = '';
+    this.querySelector('.search-input').focus();
   }
 
   render() {
@@ -78,6 +74,6 @@ class QcRecherche extends HTMLElement {
   }
 }
 
-customElements.define('qc-recherche', QcRecherche);
+customElements.get('qc-recherche') || customElements.define('qc-recherche', QcRecherche);
 
 export { QcRecherche };

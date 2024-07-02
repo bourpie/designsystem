@@ -7,16 +7,24 @@ export default {
     argTypes: {
         placeholder: {
             control: "text",
+            description: "Placeholder du champ de recherche.",
         },
         label: {
             control: "text",
+            description: "Libellé du champ de recherche pour les utilisateurs de lecteur d'écran.",
         },
         btnlabel: {
             control: "text",
+            description: "Libellé du bouton de recherche pour les utilisateurs de lecteur d'écran.",
         },
         variant: {
             control: "select",
             options: ["light", "dark"],
+            description: "Variante du composant.",
+        },
+        action: {
+            control: "text",
+            description: "URL de destination de la recherche.",
         }
     },
     render: ({ ...args }) => {
@@ -26,6 +34,7 @@ export default {
             ${args.label ? `label="${args.label}"` : ''}
             ${args.variant ? `variant="${args.variant}"` : ''}
             ${args.btnlabel ? `btnlabel="${args.btnlabel}"` : ''}
+            ${args.action ? `action="${args.action}"` : ''}
           >
           </qc-recherche>`;
       },
@@ -36,7 +45,7 @@ export default {
             placeholder: "Rechercher dans ce site",
             label: "Rechercher",
         },
-    };
+};
 
     export const Placeholder = {
         args: {

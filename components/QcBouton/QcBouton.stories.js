@@ -10,14 +10,17 @@ export default {
     type: {
       control: 'select',
       options: ['principal', 'secondaire', 'tertiaire', 'avertissement'],
+      description: 'Type de bouton',
     },
     size: {
       control: 'select',
       options: ['normal', 'compact'],
+      description: 'Taille du bouton',
     },
     display: {
       control: 'select',
       options: ['inline-block', 'block'],
+      description: 'Afficher le bouton en ligne ou en bloc',
     },
 
     icon: {
@@ -193,11 +196,13 @@ export default {
         "lnr-pointer-right",
         "lnr-pointer-down",
         "lnr-pointer-left"
-      ]
+      ],
+      description: 'Icône à afficher dans le bouton'
     },
     iconPosition: {
       control: 'radio',
       options: ['left', 'right'],
+      description: 'Position de l\'icône'
     }
   },
   render: ({ label, ...args }) => {

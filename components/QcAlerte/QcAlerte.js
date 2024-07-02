@@ -65,6 +65,6 @@ class QcAlerte extends HTMLElement {
   }
 }
 
-customElements.define('qc-alerte', QcAlerte);
+customElements.get('qc-alerte') || customElements.define('qc-alerte', QcAlerte);
 
 export { QcAlerte };

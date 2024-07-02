@@ -6,10 +6,12 @@ export default defineConfig({
   server: { https: true }, // Not needed for Vite 5+
   plugins: [ mkcert() ],
   build: {
+    minify: true,
     lib: {
-      entry: resolve(__dirname, 'lib/main.js'),
+      name: 'QcCompponents',
+      entry: resolve(__dirname, 'main.js'),
       fileName: 'qc-compponents',
-      formats: ['es'],
+      formats: ['es','iife'],
     }
   }
 })

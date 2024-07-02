@@ -69,6 +69,7 @@ class QcBouton extends HTMLElement {
   }
 }
 
-customElements.define('qc-bouton', QcBouton);
+
+customElements.get('qc-bouton') || customElements.define('qc-bouton', QcBouton);
 
 export { QcBouton };
