@@ -1,4 +1,4 @@
-import '../styles/qc-styles.css'
+import '../styles/globals.css'
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
