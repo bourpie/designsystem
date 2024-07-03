@@ -1,3 +1,6 @@
+import './QcBouton.css';
+
+
 class QcBouton extends HTMLElement {
   static get observedAttributes() {
     return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position'];

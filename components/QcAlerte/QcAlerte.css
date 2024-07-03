@@ -1,0 +1,50 @@
+qc-alerte {
+    display: block;
+    font-family: var(--font-family, 'Open Sans', 'Inter', sans-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+  
+    &[type="avertissement"] {
+      background-color: var(--yellow-light);
+      color: var(--yellow-dark);
+    }
+  
+    &[type="information"] {
+      background-color: var(--blue-light);
+      color: var(--blue-dark);
+    }
+
+    .container {
+      position: relative;
+      padding: 1rem 56px;
+    }
+  
+    .lnr.icone-alerte {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+    }
+  
+    .close-btn {
+      position: absolute;
+      right: 1rem;
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      padding: 0;
+      top: 0.65rem;
+      color: inherit;
+    }
+  
+    p:last-of-type, li:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      qc-alerte {
+        font-size: 0.875rem; /* 14px en REM pour les écrans mobiles */
+      }
+    }
+  }

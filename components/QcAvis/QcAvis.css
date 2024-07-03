@@ -1,0 +1,70 @@
+qc-avis {
+
+  .avis {
+    background-color: #ffffff;
+    border: 1px solid #c5cad2;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-size: 1rem;
+    color: var(--blue-piv);
+
+    .avis-img,
+    .avis-content {
+        padding: 1.5rem;
+    }
+
+    .lnr {
+        font-size: 1.5rem;
+    }
+
+    .avis-titre {
+      font-weight: bold;
+        margin: 0;
+    }
+
+    .avis-content {
+        max-width: 80%;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+  }
+
+  & .avis-general {
+      .avis-img {
+        background-color: var(--blue-light);
+        color: var(--blue-dark);
+    }
+  }
+
+  & .avis-succes {
+      .avis-img {
+          background-color: var(--green-light);
+          color: var(--green-dark);
+      }
+  }
+
+  & .avis-important {
+      .avis-img {
+        background-color: var(--yellow-light);
+        color: var(--yellow-dark);
+      }
+  }
+
+  & .avis-erreur {
+    .avis-img {
+        background-color: var(--red-light);
+        color: var(--red-dark);
+    }
+  }
+
+  & .avis-complementaire {
+    .avis-img {
+        background-color: var(--gray-light);
+        color: var(--blue-piv);
+    }
+  }
+}

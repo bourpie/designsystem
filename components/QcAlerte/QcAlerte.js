@@ -1,3 +1,5 @@
+import './QcAlerte.css'
+
 class QcAlerte extends HTMLElement {
   static get observedAttributes() {
     return ['message', 'type', 'class', 'fermeture'];

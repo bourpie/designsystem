@@ -1,6 +1,8 @@
 import loupePivLight from './loupe-piv-light.svg';
 import loupePivDark from './loupe-piv-dark.svg';
 
+import './QcRecherche.css';
+
 class QcRecherche extends HTMLElement {
   static get observedAttributes() {
     return ['placeholder', 'class', 'label', 'btnlabel', 'variant', 'action'];

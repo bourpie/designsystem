@@ -34,6 +34,7 @@ export default {
             ${args.contacturl ? `contacturl="${args.contacturl}"` : ''}
             ${args.contactlabel ? `contactlabel="${args.contactlabel}"` : ''}
             ${args.action ? `action="${args.action}"` : ''}
+            ${args.langueurl ? `langueurl="${args.langueurl}"` : ''}
           >
           </qc-header>`;
       },
@@ -42,5 +43,6 @@ export default {
     export const Default = {
         args: {
             titre: "Mon site",
+            langueurl: "https://www.quebec.ca/en"
         },
 };

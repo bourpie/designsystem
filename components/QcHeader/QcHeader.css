@@ -1,0 +1,101 @@
+qc-header {
+
+    min-height: 72px;
+    font-family: Roboto, 'sans serif';
+  
+    :has(qc-recherche){
+      padding-bottom: 1.5rem;
+    }
+  
+    .container {  
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .piv {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 63px;
+  
+      .qc-logo {
+        max-width: 20rem;
+        max-height: 7.2rem;
+    
+        svg {
+          width: 200px;
+          height: 72px;
+        }
+      }
+  
+      p {
+        margin: 0;
+        
+      }
+  
+      a {
+        color: white;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    nav {
+      display: flex;
+      flex-direction: row;
+      margin-left: auto;
+      align-items: center;
+      gap: 1.2rem;
+  
+      button {
+        padding: 0;
+        border: 0;
+        background: none;
+  
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+  
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+          line-height: 1.25;
+        }
+  
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1rem;
+        }
+  
+        &.langue {
+          a {
+            font-size: .8rem;
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 780px) {
+  
+      .container {
+        align-items: baseline;
+      }
+  
+      .piv {
+        flex-direction: column;
+        gap: 0;
+        align-items: baseline;
+        padding-bottom: 1rem;
+      }
+    }
+  }

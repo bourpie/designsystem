@@ -2,6 +2,8 @@ import { QcRecherche } from "../QcRecherche/QcRecherche.js";
 import LogoQuebec from "./logo-quebec.svg";
 import Loupe from "./loupe.svg";
 
+import "./QcHeader.css";
+
 class QcHeader extends HTMLElement {
     static get observedAttributes() {
         return ['titre', 'class', 'btnlabel', 'contacturl', 'contactlabel', 'recherche', 'langueurl', 'languelabel', 'action'];

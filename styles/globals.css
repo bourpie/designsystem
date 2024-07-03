@@ -1,0 +1,233 @@
+:root {
+  /* Couleurs d'arrière-plan */
+  --background-color: rgb(255, 255, 255);
+
+  /* Couleurs du texte */
+  --text-color: rgb(34, 54, 84);
+
+  /* Palette principale */
+  --blue-light: rgb(218, 230, 240);
+  --blue-lighter: rgb(74, 152, 217);
+  --blue: rgb(20, 114, 191);
+  --blue-piv: rgb(9, 87, 151);
+  --blue-medium: rgb(25, 64, 108);
+  --blue-dark: rgb(34, 54, 84);
+
+  /* Couleur d'accent */
+  --accent-color: rgb(229, 130, 113);
+
+  /* Niveaux de gris */
+  --gray-light: rgb(241, 241, 242);
+  --gray-lighter: rgb(197, 202, 210);
+  --gray: rgb(136, 147, 162);
+  --gray-medium: rgb(107, 119, 138);
+  --gray-dark: rgb(78, 86, 98);
+
+  /* Palettes fonctionnelles - Rouges */
+  --red-light: rgb(255, 219, 214);
+  --red: rgb(229, 130, 113);
+  --red-dark: rgb(203, 56, 31);
+  --red-darker: rgb(105, 37, 25);
+
+  /* Palettes fonctionnelles - Verts */
+  --green-light: rgb(215, 240, 187);
+  --green: rgb(79, 129, 61);
+  --green-dark: rgb(44, 64, 36);
+
+  /* Palettes fonctionnelles - Jaunes */
+  --yellow-light: rgb(248, 230, 154);
+  --yellow: rgb(224, 173, 3);
+  --yellow-dark: rgb(173, 120, 28);
+
+  /* Palettes fonctionnelles - Violet */
+  --purple: rgb(107, 79, 161);
+
+  /* Font size */
+  --font-size: 1rem;
+
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    :root {
+      --font-size: 0.875rem; /* 14px in rem */
+    }
+  }
+
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family, 'roboto', 'Open Sans', 'Inter', sans-serif);
+  font-size: 16px;
+}
+
+.container, 
+.container-fluid, 
+.container-xl, 
+.container-lg, 
+.container-md, 
+.container-sm {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 576px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md, .container-sm, .qc-container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg, .container-md, .container-sm, .container {
+    max-width: 992px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+
+.bg-bleu-piv {
+  background-color: var(--blue-piv);
+  color: white;
+  width: 100%;
+}
+
+body p,body ol,body ul {
+  font-size: 1rem;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
+  font-weight: 600;
+  font-style: normal;
+  font-family: Roboto,sans-serif;
+  color: #223654;
+}
+
+h1,.h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 2.7rem;
+  margin-top: 1.3rem;
+}
+
+h2,.h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0.7rem;
+  margin-top: 2.5rem;
+  line-height: 2.3rem;
+}
+
+h3,.h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 2.7rem;
+}
+
+h3.results-topic {
+  margin-top: 1rem;
+}
+
+h3.results-topic a {
+  font-weight: normal;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-variant-caps: all-small-caps;
+}
+
+h4,.h4 {
+  font-size: 1.3125rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+h5,.h5 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+h6,.h6 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.font-weight-bold-600 {
+  font-weight: 600 !important;
+}
+
+.font-weight-bold-500 {
+  font-weight: 500 !important;
+}
+
+.themeTitre {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+}
+
+.themeTitre:after {
+  content: "";
+  display: block;
+  margin: 0;
+  width: 3rem;
+  padding-top: 0.5rem;
+  border-bottom: 5px solid #f09686;
+}
+
+@media (min-width: 768px) {
+  .themeTitre {
+      font-size:3rem;
+      line-height: 3.5rem;
+  }
+}
+
+
+
+
+
+  
+
+  
+
+  /**
+  class utilitaires
+  */
+  .lnr {
+    display: inline-block;
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.05em;
+    font-weight: bold;
+  
+    &.left {
+      margin-right: 8px;
+    }
+  
+    &.right {
+      margin-left: 8px;
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+  
