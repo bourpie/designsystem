@@ -22,12 +22,12 @@ class QcBouton extends HTMLElement {
       ${this.href ? 
         `<a href="${this.href}" class="${buttonClass}">
           ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
-          <span>${this.label}</span>
+          <span class="btn-texte">${this.label}</span>
           ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
         </a>` : 
         `<button class="${buttonClass}">
           ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
-          <span>${this.label}</span>
+          <span class="btn-texte">${this.label}</span>
           ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
         </button>`
       }
