@@ -1,6 +1,5 @@
 import './QcBouton.css';
 
-
 class QcBouton extends HTMLElement {
   static get observedAttributes() {
     return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position'];
@@ -22,14 +21,14 @@ class QcBouton extends HTMLElement {
     return `
       ${this.href ? 
         `<a href="${this.href}" class="${buttonClass}">
-          ${this.icon && this.iconPosition === 'left' ? `<svg class="lnr ${this.icon} left"><use xlink:href="#${this.icon}"></use></svg>` : ''}
+          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
           <span>${this.label}</span>
-          ${this.icon && this.iconPosition === 'right' ? `<svg class="lnr ${this.icon} right"><use xlink:href="#${this.icon}"></use></svg>` : ''}
+          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
         </a>` : 
         `<button class="${buttonClass}">
-          ${this.icon && this.iconPosition === 'left' ? `<svg class="lnr ${this.icon} left"><use xlink:href="#${this.icon}"></use></svg>` : ''}
+          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
           <span>${this.label}</span>
-          ${this.icon && this.iconPosition === 'right' ? `<svg class="lnr ${this.icon} right"><use xlink:href="#${this.icon}"></use></svg>` : ''}
+          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
         </button>`
       }
     `;
