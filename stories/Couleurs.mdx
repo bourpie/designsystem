@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/blocks" 
+import { ColorPalette, ColorItem } from "@storybook/blocks";
+
+<Meta title="Bases/Couleurs" />
+
+# Couleur d'arrière-plan
+
+<h1 class="themeTitre">cbvcvbcvb</h1>
+
+Le blanc est la couleur d'arrière-plan par défaut pour les pages, garantissant une lisibilité optimale du texte et des éléments.
+
+Note : Les ratios de contraste sont calculés sur un fond blanc. Modifier l'arrière-plan peut compromettre l'accessibilité de plusieurs composants. Maintenir le fond blanc par défaut est fortement recommandé.
+
+<ColorItem title="Blanc" subtitle="rgb(255, 255, 255)" colors={['#FFFFFF']} />
+
+
+# Couleur du texte
+
+La couleur par défaut pour la plupart des éléments textuels sur les pages, tels que les paragraphes et les titres.
+
+<ColorItem title="Bleu foncé" subtitle="rgb(34, 54, 84)" colors={['#223654']} />
+
+# Palette principale
+La palette principale comprend 2 couleurs de base : une couleur principale et une couleur d'accent.
+
+Celles-ci doivent être prédominantes dans les interfaces.
+
+## Couleur principale
+La couleur principale est un groupe de 6 couleurs, de la plus pâle à la plus foncée. Cela donne aux concepteurs et développeurs web beaucoup de flexibilité lors de la création des interfaces.
+
+<ColorPalette>
+  <ColorItem title="Bleu pâle" subtitle="#DAE6F0" colors={['rgb(218, 230, 240)']} />
+  <ColorItem title="Bleu clair" subtitle="#4A98D9" colors={['rgb(74, 152, 217)']} />
+  <ColorItem title="Bleu" subtitle="#1472BF" colors={['rgb(20, 114, 191)']} />
+  <ColorItem title="Bleu PIV" subtitle="#095797" colors={['rgb(9, 87, 151)']} />
+  <ColorItem title="Bleu moyen" subtitle="#19406C" colors={['rgb(25,64,108)']} />
+  <ColorItem title="Bleu foncé" subtitle="#223654" colors={['rgb(34, 54, 84)']} />
+</ColorPalette>
