@@ -26,6 +26,10 @@ qc-alerte {
       top: 1rem;
       font-size: 1.5rem;
     }
+
+    a {
+      color: var(--blue-dark)
+    }
   
     .close-btn {
       position: absolute;
@@ -38,7 +42,7 @@ qc-alerte {
       color: inherit;
     }
   
-    p:last-of-type, li:last-of-type {
+    :last-child {
       margin-bottom: 0;
     }
 

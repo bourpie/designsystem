@@ -3,6 +3,7 @@ import { QcAlerte } from "./QcAlerte";
 export default {
     title: "Composants/QcAlerte",
     component: QcAlerte,
+    tags: ['autodocs'],
     argTypes: {
         message: {
             control: "text",
@@ -30,11 +31,13 @@ export default {
     export const Avertissement = {
         args: {
             type: "avertissement",
-            message: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</p>
-
-            <p>Quisque non turpis sed justo dignissim accumsan. Aenean quis massa ut nisi tincidunt suscipit. Pellentesque habitant morbi tristique.</p>
-            
-            <p>Mauris non felis quis enim tristique suscipit. Sed euismod nisl eu lacus vehicula, nec pulvinar mi fermentum.</p>
+            message: `
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>
+                <ul>
+                    <li>Dictumst est elementum, laoreet facilisi ridiculus etiam scelerisque vitae natoque!</li>
+                    <li>Cras nibh tempor pellentesque eleifend duis platea taciti diam consequat.</li>
+                    <li>Varius semper condimentum velit sagittis vitae nostra id neque sit.</li>
+                </ul>
             `,
 
         },
