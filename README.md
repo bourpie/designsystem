@@ -48,3 +48,11 @@ npm run storybook
 ```
 
 Cela lancera Storybook sur `http://localhost:6006` par défaut, où vous pourrez naviguer et tester vos composants dans un environnement isolé.
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE.md) pour plus de détails.
+
+## Auteur
+
+Pierre Bourgeois - [@bourpie](https://github.com/bourpie)
