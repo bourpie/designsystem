@@ -47,7 +47,7 @@ export default {
         },
 };
 
-    export const Placeholder = {
+    export const Header = {
         args: {
             placeholder: "Rechercher un produit",
             btnlabel: "Rechercher",
@@ -61,3 +61,6 @@ export default {
             `,
         ]
     };
+
+    Header.storyName = "Recherche dans le header";
+    

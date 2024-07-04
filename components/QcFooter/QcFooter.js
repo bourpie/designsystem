@@ -3,7 +3,7 @@ import qclogo from '../../public/piv-pied-page.svg';
 
 class QcFooter extends HTMLElement {
     static get observedAttributes() {
-        return ['mainlinks', 'centerlinks', 'copyright'];
+        return ['site-nom', 'site-url','mainlinks', 'centerlinks', 'copyright'];
     }
 
     constructor() {
@@ -16,6 +16,15 @@ class QcFooter extends HTMLElement {
             this.render();
         }
     }
+
+    get siteName() {
+        return this.getAttribute('site-nom') || 'Gouvernement du Québec';
+    }
+
+    get siteUrl() {
+        return this.getAttribute('site-url') || 'https://www.quebec.ca';
+    }
+
 
     get mainLinks() {
         try {
@@ -66,6 +75,12 @@ class QcFooter extends HTMLElement {
             <footer>
                 <section class="section-liens-principaux bg-bleu-dark">
                     <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <a class="footer-title" href="${this.siteUrl}">${this.siteName}</a>
+                                <h2 class="visually-hidden">Navigation de pied de page de Québec.ca</h2>
+                            </div>
+                        </div>
                         <div class="row">                            
                             ${mainLinksData.map(section => `
                                 <div class="col-12 col-md-6 col-lg-4">
@@ -85,14 +100,18 @@ class QcFooter extends HTMLElement {
 
                 <section class="section-liens-secondaires">
                     <div class="container">
-                        ${centerLinksData.map(section => `
-                            <h3 class="visually-hidden">${section.title}</h3>
-                            <ul class="row">
-                                ${section.links.map(link => `
-                                    <li class="col"><a href="${link.href}">${link.label}</a></li>
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                ${centerLinksData.map(section => `
+                                    <h3 class="visually-hidden">${section.title}</h3>
+                                    <ul class="list-inline mx-auto justify-content-center">
+                                        ${section.links.map(link => `
+                                            <li><a href="${link.href}">${link.label}</a></li>
+                                        `).join('')}
+                                    </ul>
                                 `).join('')}
-                            </ul>
-                        `).join('')}
+                            </div>
+                        </div>
                     </div>
                 </section>
     

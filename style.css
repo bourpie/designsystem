@@ -6,4 +6,5 @@ body {
 
 main {
    padding: 64px 0 100px 0;
+   flex: 1;
 }

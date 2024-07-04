@@ -20,23 +20,39 @@ qc-footer {
     .section-liens-principaux {
 
 
-        padding: 60px 0;
+        padding: 56px 0;
 
+        a.footer-title {
+            font-family: "Roboto", sans-serif;
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
 
+            &:hover {
+                text-decoration: underline;
+            }
+        }
 
         h3 {
             color: white;
-            margin: 0 0 1rem 0;
-            font-size: 1.25rem;
+            font-family: "Open Sans", sans-serif;
+            padding-bottom: 0;
+            margin-top: 40px;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: 700;
         }
 
         li {
             margin: 0.2rem 0;
+            font-size: 0.875rem;
         }
         
         a {
             color: white;
         }
+
 
     }
 
@@ -44,6 +60,12 @@ qc-footer {
         padding-top: 40px;
         padding-bottom: 12px;
         text-align: center;
+
+        li {
+            display: inline-block;
+            text-align: center;
+            padding: 0 15px 10px;
+        }
     }
 
     .section-liens-copyright {
@@ -54,6 +76,11 @@ qc-footer {
             line-height: 0.8rem;
             white-space: nowrap;
             font-size: 0.875rem;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
     }
