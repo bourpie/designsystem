@@ -9,3 +9,5 @@ import { QcRecherche } from './components/QcRecherche/QcRecherche.js'
 import { QcHeader } from './components/QcHeader/QcHeader.js'
 
 import { QcAvis } from './components/QcAvis/QcAvis.js'
+
+export { QcFooter } from './components/QcFooter/QcFooter.js'

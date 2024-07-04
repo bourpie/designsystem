@@ -1,0 +1,1 @@
+export { QcFooter } from './QcFooter.js'

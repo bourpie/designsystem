@@ -1,0 +1,60 @@
+qc-footer {
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            a {
+                text-decoration: none;
+            }
+
+            &:hover {
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+    .section-liens-principaux {
+
+
+        padding: 60px 0;
+
+
+
+        h3 {
+            color: white;
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        li {
+            margin: 0.2rem 0;
+        }
+        
+        a {
+            color: white;
+        }
+
+    }
+
+    .section-liens-secondaires {
+        padding-top: 40px;
+        padding-bottom: 12px;
+        text-align: center;
+    }
+
+    .section-liens-copyright {
+        padding: 0 0 2rem 0;
+        text-align: center;
+
+        a {
+            line-height: 0.8rem;
+            white-space: nowrap;
+            font-size: 0.875rem;
+        }
+
+    }
+}
