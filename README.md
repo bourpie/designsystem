@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ce projet est un système de design construit avec JavaScript vanille, bundlé avec Vite.js, et testé avec Storybook. La base de code permet la création de composants web standard, avec la possibilité de tester des composants isolés ainsi que des intégrations complexes.
+Ce projet est un système de design construit avec JavaScript vanille, bundlé avec Vite.js, et testé avec Storybook. La base de code permet la création de composants web standard, avec la possibilité de tester des composants isolés ainsi que des intégrations complexes avec [Storybook](https://storybook.js.org/)
 
 ## Démarrage
 
@@ -38,6 +38,7 @@ Pour construire la solution pour la production, utilisez la commande suivante :
 ```bash
 npm run build
 ```
+Cette commande créera un dossier `dist` à la racine du projet. À l'intérieur, vous trouverez les fichiers JavaScript, les styles CSS, et les images optimisées prêtes à être intégrées dans votre projet.
 
 ### Démarrer Storybook
 

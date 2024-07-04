@@ -1,5 +1,5 @@
 import './QcFooter.css';
-import qclogo from '../../public/piv-pied-page.svg';
+import qclogo from './piv-pied-page.svg';
 
 class QcFooter extends HTMLElement {
     static get observedAttributes() {
