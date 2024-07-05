@@ -1,0 +1,82 @@
+qc-input {
+    display: block;
+    position: relative;
+
+    label {
+        display: block;
+        font-family: 'Open Sans';
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .input {
+        padding: 8px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        border: 1px solid #6B778A;
+        height: 40px;
+
+        &:focus {
+            outline: 2px solid #4a98d9;
+            border: 2px solid #5b6476;
+        }
+
+        &.input-sm {
+            width: 100%;
+            max-width: 40px; /* Champs petit (jusqu’à 5 caractères) */
+        }
+
+        &.input-md {
+            width: 100%;
+            max-width: 156px; /* Champs moyen (jusqu’à 16 caractères) */
+        }
+
+        &.input-lg {
+            width: 100%;
+            max-width: 249px; /* Champs large (jusqu’à 26 caractères) */
+        }
+
+        &.input-xl {
+            width: 100%;
+            max-width: 528px; /* Champs extra-large (jusqu’à 58 caractères) */
+        }
+
+        &.input-multi {
+            width: 100%;
+            height: 100px; /* Champs multiligne */
+            resize: vertical;
+            margin-bottom: 4px;
+        }
+
+        &.input-error {
+            border-color: #ff4d4d;
+        }
+    }
+
+    .input-aide {
+        font-size: 14px;
+        color: #223654;
+    }
+
+    .input-info {
+        margin: 0;
+        position: absolute;
+        right: 0;
+        bottom: -14px;
+    }
+
+    .error-message {
+        color: #ff4d4d;
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    .form-group.has-error label {
+        color: #ff4d4d;
+    }
+
+    .champ-requis {
+        color: #ff4d4d;
+        font-size: 12px;
+    }
+}

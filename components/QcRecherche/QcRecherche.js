@@ -1,7 +1,7 @@
 import loupePivLight from './loupe-piv-light.svg';
 import loupePivDark from './loupe-piv-dark.svg';
-
 import './QcRecherche.css';
+import generateUUID from '../../helpers/generateUUID.js';
 
 class QcRecherche extends HTMLElement {
   static get observedAttributes() {
@@ -10,7 +10,7 @@ class QcRecherche extends HTMLElement {
 
   constructor() {
     super();
-    this.uuid = `input-${this.generateUUID()}`;
+    this.uuid = `input-${generateUUID()}`;
     this.render();
   }
 
@@ -18,14 +18,6 @@ class QcRecherche extends HTMLElement {
     if (oldValue !== newValue) {
       this.render();
     }
-  }
-
-  generateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      const r = (Math.random() * 16) | 0,
-        v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
   }
 
   get template() {
