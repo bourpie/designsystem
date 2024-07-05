@@ -71,10 +71,6 @@ qc-input {
         margin-top: 4px;
     }
 
-    .form-group.has-error label {
-        color: #cb381f;
-    }
-
     .champ-requis {
         color: #cb381f;
         font-size: 16px;
