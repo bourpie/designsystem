@@ -13,7 +13,8 @@ export default {
         required: { control: 'boolean' },
         aide: { control: 'text' },
         error: { control: 'boolean' },
-        errorMsg: { control: 'text' }, 
+        errorMsg: { control: 'text' },
+        placeholder: { control: 'text' },
     },
     render({...args}) {
         return `
@@ -27,6 +28,7 @@ export default {
                 ${args.aide ? `aide="${args.aide}"` : ''}
                 ${args.error ? `error` : ''}
                 ${args.errorMsg ? `errorMsg="${args.errorMsg}"` : ''}
+                ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
             ></qc-input>
         `
     },
@@ -34,5 +36,21 @@ export default {
 
 export const Default = {
     args: {
+        label: 'Label',
+        placeholder: 'Placeholder',
     }
 }
+
+Default.storyName = 'Champ de type texte';
+
+export const Erreur = {
+    args: {
+        label: 'Label',
+        placeholder: 'Placeholder',
+        error: true,
+        errorMsg: 'Ce champ est obligatoire',
+        required: true,
+    }
+}
+
+Erreur.storyName = 'Champ avec erreur';

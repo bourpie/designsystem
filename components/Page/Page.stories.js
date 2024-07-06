@@ -53,19 +53,8 @@ const centerLinks = [
 export default {
   title: 'Modules/Page',
   tags: ['autodocs'],
-  argTypes: {
-    header: {
-      control: 'object',
-      description: 'Header',
-    },
-    footer: {
-      control: 'object',
-      description: 'Footer',
-    },
-    tdm: {
-      control: 'object',
-      description: 'TDM',
-    },
+  parameters: {
+    layout: 'fullscreen',
   },
   render: () => {
     return `

@@ -77,4 +77,13 @@ qc-input {
         font-weight: bold;
         margin-left: 8px
     }
+
+    .is-disabled {
+
+        .input {
+            background-color: #f2f2f2;
+            border-color: #f2f2f2;
+            color: #6b778a;
+        }
+    }
 }
