@@ -15,3 +15,5 @@ import { QcFooter } from './components/QcFooter/QcFooter.js'
 import { QcTdm } from './components/QcTdm/QcTdm.js'
 
 import { QcUp } from './components/QcUp/QcUp.js'
+
+import { QcSocial } from './components/QcSocial/QcSocial.js'

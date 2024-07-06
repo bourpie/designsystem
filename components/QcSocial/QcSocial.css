@@ -1,0 +1,50 @@
+qc-social {
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding:0;
+        display: flex;
+        gap: 12px;
+
+    }
+
+    a {
+        display: block;
+        width: 37px;
+        height: 27px;
+        img {
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    img[src*="youtube"] {
+        height: 130%;
+        position: relative;
+        top: -3px;
+    }
+
+    .theme-dark {
+        background-color: #223654;
+        color: #ffffff;
+
+        h3 {
+            color: white;
+            font-family: "Open Sans", sans-serif;
+            padding-bottom: 0;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+    }
+    
+    .theme-light {
+        background-color: #ffffff;
+        color: #223654;
+    }
+
+}
+
+

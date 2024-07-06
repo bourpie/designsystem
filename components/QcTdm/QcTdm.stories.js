@@ -2,7 +2,7 @@ import { QcTdm } from './QcTdm.js';
 import { QcUp } from '../QcUp/QcUp.js';
 
 export default {
-  title: 'modules/QcTdm',
+  title: 'modèles/QcTdm',
   tags: ['autodocs'],
   component: QcTdm,
   argTypes: {

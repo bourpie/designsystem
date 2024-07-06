@@ -1,5 +1,5 @@
-import loupePivLight from './loupe-piv-light.svg';
-import loupePivDark from './loupe-piv-dark.svg';
+import loupePivLight from '../../assets/icons/loupe-piv-light.svg';
+import loupePivDark from '../../assets/icons/loupe-piv-dark.svg';
 import './QcRecherche.css';
 import generateUUID from '../../helpers/generateUUID.js';
 

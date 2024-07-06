@@ -1,6 +1,6 @@
 import { QcRecherche } from "../QcRecherche/QcRecherche.js";
-import LogoQuebec from "./logo-quebec.svg";
-import Loupe from "./loupe.svg";
+import LogoQuebec from "../../assets/logo-quebec.svg";
+import Loupe from "../../assets/icons/loupe.svg";
 
 import "./QcHeader.css";
 

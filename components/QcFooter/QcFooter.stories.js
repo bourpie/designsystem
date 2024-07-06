@@ -1,5 +1,5 @@
-import './QcFooter.css';
 import { QcFooter } from './QcFooter.js';
+import { QcSocial } from '../QcSocial/QcSocial.js';
 
 const mainLinks = [
   {
@@ -47,8 +47,26 @@ const centerLinks = [
   }
 ];
 
+const socialMedias = [
+  {
+    "icon": "/assets/icons/facebook-dark.svg",
+    "url": "https://facebook.com",
+    "text": "Facebook"
+  },
+  {
+    "icon": "/assets/icons/twitterX-dark.svg",
+    "url": "https://twitter.com",
+    "text": "Twitter"
+  },
+  {
+    "icon": "/assets/icons/youtube-dark.svg",
+    "url": "https://linkedin.com",
+    "text": "LinkedIn"
+  }
+];
+
 export default {
-  title: 'Modules/QcFooter',
+  title: 'Modèles/QcFooter',
   component: QcFooter,
   tags: ['autodocs'],
   argTypes: {
@@ -73,7 +91,7 @@ export default {
       description: 'Copyright',
     },
   },
-  render: ({ mainlinks, centerlinks, copyright }) => {
+  render: ({ mainlinks, centerlinks, copyright, showsocial, socialmedias }) => {
     return `
       <qc-footer 
         site-url='https://www.quebec.ca'
@@ -81,7 +99,14 @@ export default {
         mainlinks='${JSON.stringify(mainlinks).replace(/'/g, "&apos;")}' 
         centerlinks='${JSON.stringify(centerlinks).replace(/'/g, "&apos;")}' 
         copyright='${copyright.replace(/'/g, "&apos;")}'
-      ></qc-footer>
+      >
+        <qc-social
+          titre="Suivez-nous"
+          theme="dark"
+          medias='${JSON.stringify(socialmedias).replace(/'/g, "&apos;")}'
+        >
+        </qc-social>
+      </qc-footer>
     `;
   },
 };
@@ -91,5 +116,6 @@ export const Default = {
     mainlinks: mainLinks,
     centerlinks: centerLinks,
     copyright: '© 2024 Gouvernement du Québec. Tous droits réservés.',
+    socialmedias: socialMedias,
   },
 };

@@ -51,7 +51,7 @@ const centerLinks = [
   
 
 export default {
-  title: 'Modules/Page',
+  title: 'Modèles/Page',
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
