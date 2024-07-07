@@ -1,7 +1,7 @@
 import { QcInput } from "./QcInput.js";
 
 export default {
-    title: 'Composants/Formulaire/QcInput',
+    title: 'Formulaires/QcInput',
     component: QcInput,
     tags: ['autodocs'],
     argTypes: {

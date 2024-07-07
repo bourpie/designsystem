@@ -1,0 +1,31 @@
+import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
+import * as ButtonStories from "./QcBouton.stories";
+
+<Meta of={ButtonStories} />
+
+Quatre types de boutons sont disponibles : les boutons principaux, les boutons secondaires, les boutons tertiaires et les boutons d’avertissement. 
+
+**Usage**
+
+
+<Source of={ButtonStories.Tertiaire} language="tsx" />
+## Exemple
+
+<div style={{ display: "flex", gap: "1rem", paddingBlock: "1rem" }}>
+    <Story of={ButtonStories.Primaire} />
+    <Story of={ButtonStories.Secondaire} />
+    <Story of={ButtonStories.Tertiaire} />
+    <Story of={ButtonStories.Avertissement} />
+</div>
+
+## Usage
+
+Tester les différents états du composant à l'aide du formulaire ci-dessous.
+
+<Primary />
+
+<Controls />
+
+Pour plus d'information consulter la documentation du [Système de design gouvernemental](https://design.quebec.ca/design/composants/boutons).
+
+

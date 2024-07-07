@@ -16,14 +16,11 @@
       border-radius: 0;
       cursor: pointer;
     }
-  
-    .inline-block {
-      display: inline-block;
-    }
-  
+
     .block {
       display: block;
     }
+
   
     .compact {
       font-size: 14px;

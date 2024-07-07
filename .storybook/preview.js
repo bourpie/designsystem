@@ -2,6 +2,12 @@ import '../styles/globals.css'
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
+  options: {
+    storySort: {
+      order: ['Bases', 'Composants', 'Formulaires', 'Modèles', '*'],
+      method: 'alphabetical',
+    },
+  },
   parameters: {
     controls: {
       matchers: {
@@ -10,8 +16,6 @@ const preview = {
       },
     },
   },
-
-  tags: ['autodocs']
 };
 
 export default preview;
