@@ -8,11 +8,18 @@ qc-alerte {
     &[type="avertissement"] {
       background-color: var(--yellow-light);
       color: var(--yellow-dark);
+      a {
+        color: var(--yellow-dark)
+      }
     }
   
     &[type="information"] {
       background-color: var(--blue-light);
       color: var(--blue-dark);
+
+      a {
+        color: var(--blue-dark)
+      }
     }
 
     .container {
@@ -25,10 +32,6 @@ qc-alerte {
       left: 1rem;
       top: 1rem;
       font-size: 1.5rem;
-    }
-
-    a {
-      color: var(--blue-dark)
     }
   
     .close-btn {
