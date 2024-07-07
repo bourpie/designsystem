@@ -1,7 +1,7 @@
-import {QcHeader} from '../QcHeader/QcHeader';
-import {QcFooter} from '../QcFooter/QcFooter';
-import {QcTdm} from '../QcTdm/QcTdm';
-import {QcUp} from '../QcUp/QcUp';
+import {QcHeader} from '../../components/QcHeader/QcHeader';
+import {QcFooter} from '../../components/QcFooter/QcFooter';
+import {QcTdm} from '../../components/QcTdm/QcTdm';
+import {QcUp} from '../../components/QcUp/QcUp';
 
 const mainLinks = [
     {

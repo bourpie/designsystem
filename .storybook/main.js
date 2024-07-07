@@ -3,6 +3,8 @@ const config = {
   stories: [
     "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../components/**/*.mdx",
+    "../documentation/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../documentation/**/*.mdx",
   ],
 
   addons: [
