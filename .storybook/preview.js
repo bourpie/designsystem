@@ -2,13 +2,19 @@ import '../styles/globals.css'
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
-  options: {
-    storySort: {
-      order: ['Bases', 'Composants', 'Formulaires', 'Modèles', '*'],
-      method: 'alphabetical',
-    },
-  },
   parameters: {
+    options: {
+      storySort: {
+        method: 'configure',
+        includeNames: true,
+        order: [
+          'Bases', 
+          'Composants',
+          ['*', 'QcBouton', ['Docs']], 
+          'Formulaires', 
+          'Modèles', '*'],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

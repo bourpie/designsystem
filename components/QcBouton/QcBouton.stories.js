@@ -205,15 +205,7 @@ export default {
   },
   render: ({ label, ...args }) => {
     return `
-      <qc-bouton 
-        ${args.size ? `size="${args.size}"` : ''} 
-        ${args.href ? `href="${args.href}"` : ''} 
-        ${args.type ? `type="${args.type}"` : ''} 
-        ${args.display ? `display="${args.display}"` : ''} 
-        ${args.icon ? `icon="${args.icon}"` : ''} 
-        ${args.iconPosition ? `icon-position="${args.iconPosition}"` : ''}
-        label="${label}">
-      </qc-bouton>    
+      <qc-bouton label="${label}"${args.size ? ` size="${args.size}"` : ''}${args.href ? ` href="${args.href}"` : ''}${args.type ? ` type="${args.type}"` : ''}${args.display ? ` display="${args.display}"` : ''}${args.icon ? ` icon="${args.icon}"` : ''}${args.iconPosition ? ` icon-position="${args.iconPosition}"` : ''}></qc-bouton>    
       `;
   },
 };
