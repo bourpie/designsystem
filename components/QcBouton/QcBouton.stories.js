@@ -8,7 +8,7 @@ export default {
     type: {
       control: 'select',
       options: ['principal', 'secondaire', 'tertiaire', 'avertissement'],
-      description: 'Type de bouton',
+      description: 'Type de bouton (principal par défaut)',
     },
     size: {
       control: 'select',
@@ -212,7 +212,7 @@ export default {
 
 export const Primaire = {
   args: {
-    label: 'Primaire',
+    label: 'Principal',
   }
 };
 

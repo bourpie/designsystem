@@ -8,6 +8,7 @@ const preview = {
         method: 'configure',
         includeNames: true,
         order: [
+          'Introduction',
           'Bases', 
           'Composants',
           ['*', 'QcBouton', ['Docs']], 

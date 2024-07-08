@@ -1,0 +1,48 @@
+import { Meta } from "@storybook/blocks" 
+
+<Meta title="Introduction" />
+
+# Composants Web
+
+Ce projet est un système de design construit avec JavaScript vanille, et testé avec Storybook. La base de code permet la création de composants web standard, avec la possibilité de tester des composants isolés ainsi que des intégrations complexes avec Storybook. Le design gouvernemental s'articule autour de bases (couleurs, typographies), composants (boutons, champs de formulaire) et modèles pour créer des interfaces cohérentes et fonctionnelles. Pour plus d'information, consultez la page officielle au [design.quebec.ca/design](https://design.quebec.ca/design).
+
+## Démarrage
+
+Tout d'abord, clonez le dépôt depuis GitHub sur votre machine locale :
+```bash
+git clone https://github.com/bourpie/designsystem
+```
+
+## Installer les dépendances
+
+Naviguez vers le répertoire du projet et installez les dépendances nécessaires en utilisant npm :
+```bash
+cd designsystem
+npm install
+```
+
+## Démarrer l'environnement de développement
+
+Pour démarrer l'environnement de développement, utilisez la commande suivante :
+
+```bash
+npm run dev
+```
+
+## Builder la solution
+
+Pour construire la solution pour la production, utilisez la commande suivante :
+
+```bash
+npm run build
+```
+Cette commande créera un dossier `dist` à la racine du projet. À l'intérieur, vous trouverez les fichiers JavaScript, les styles CSS, et les images optimisées prêtes à être intégrées dans votre projet.
+
+## Démarrer Storybook
+
+Pour démarrer Storybook et visualiser vos composants, utilisez la commande suivante :
+
+```bash
+npm run storybook
+```
+Cela lancera Storybook sur `http://localhost:6006` par défaut, où vous pourrez naviguer et tester vos composants dans un environnement isolé.
