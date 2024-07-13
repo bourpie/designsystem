@@ -1,0 +1,26 @@
+qc-accordeon {
+  .accordion-toggle[aria-expanded="true"] + * {
+    display: block;
+  }
+
+  .accordion-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+
+    .icon {
+      position: absolute;
+      right: 8px;
+      transition: transform .3s ease; /* Animation de rotation */
+
+    }
+
+    &[aria-expanded="true"] .icon {
+      transform: rotate(180deg); /* Rotation lorsque le contenu est ouvert */
+    }
+  }
+}
+
+

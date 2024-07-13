@@ -1,1 +1,1 @@
-export { QcAlerte } from './QcAlerte'
+export { QcAlerte } from './QcAlerte.js'

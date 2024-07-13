@@ -1,1 +1,1 @@
-export { QcBouton } from './QcBouton'
+export { QcBouton } from './QcBouton.js'

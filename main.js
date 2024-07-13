@@ -17,3 +17,5 @@ import { QcTdm } from './components/QcTdm/QcTdm.js'
 import { QcUp } from './components/QcUp/QcUp.js'
 
 import { QcSocial } from './components/QcSocial/QcSocial.js'
+
+import { QcAccordeon } from './components/QcAccordeon/QcAccordeon.js'
