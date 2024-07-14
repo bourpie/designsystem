@@ -47,17 +47,6 @@ class QcAccordeon extends HTMLElement {
     });
   }
 
-  updateIcon() {
-    const isExpanded = this.toggleButton.getAttribute('aria-expanded') === 'true';
-    const icon = this.toggleButton.querySelector('.lnr');
-    if (isExpanded) {
-      icon.classList.remove('lnr-chevron-down');
-      icon.classList.add('lnr-chevron-up');
-    } else {
-      icon.classList.remove('lnr-chevron-up');
-      icon.classList.add('lnr-chevron-down');
-    }
-  }
 }
 
 customElements.get('qc-accordeon') || customElements.define('qc-accordeon', QcAccordeon);
