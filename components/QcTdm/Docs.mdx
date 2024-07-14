@@ -1,0 +1,33 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as TdmStories from "./QcTdm.stories";
+
+<Meta of={TdmStories} />
+
+# Table des matières
+
+`QcTdm` est un élément HTML personnalisé qui génère une table des matières (menu-ancres) interactive pour les titres (h2) ou tout autre élément ayant un attribut `tdm` dans un document.
+
+## Exemple basique
+
+<Source code={`<qc-tdm></qc-tdm>
+
+<h2 tdm>Section A</h2>
+<p>Contenu de la section A...</p>
+
+<h2 tdm>Section B</h2>
+<p>Contenu de la section B...</p>
+`} />
+
+## Exemple avec titres personnalisés
+
+<Source code={`<qc-tdm titre="Table des Matières"></qc-tdm>
+
+<h2 tdm tdm-titre="Première Section">Première Section</h2>
+<p>Contenu de la première section...</p>
+
+<h2 tdm tdm-titre="Deuxième Section">Deuxième Section</h2>
+<p>Contenu de la deuxième section...</p>
+`} />
+
+Voir aussi la [documentation du menu-ancres](https://design.quebec.ca/design/composants/navigation/menu-ancres) du Système de design gouvernemental.
+

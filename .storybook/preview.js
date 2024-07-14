@@ -21,10 +21,15 @@ const preview = {
             [
               'Docs', 
               '*'
+            ],
+            'QcTdm', 
+            [
+              'Docs', 
+              '*'
             ]
           ], 
           'Formulaires', 
-          'Modèles', 
+          'Modèles',
           '*'
         ],
       },

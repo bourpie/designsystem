@@ -29,8 +29,8 @@ export default {
 
     export const Primary = {
         args: {
-            titre: "Rechercher un produit",
-            texte: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.",
+            titre: "Titre du bouton",
+            texte: "Texte du contenu de l'accordéon",
         },
         decorators: [
             (Story) => Story()
@@ -45,15 +45,7 @@ export default {
           (Story) => `
               <nav>
                   ${Story()}
-                  <qc-accordeon>
-                  <button class="accordion-toggle">
-                  Titre <span class="icon lnr lnr-chevron-down"></span> 
-                  </button>
-                  <div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cui Tubuli nomen odio non est? Sed residamus, inquit, si placet. De vacuitate doloris eadem sententia erit. Duo Reges: constructio interrete. Bonum patria: miserum exilium. </p>
-                  <p>Ut id aliis narrare gestiant? Frater et T. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Cui Tubuli nomen odio non est? </p>
-                  </div>
-              </qc-accordeon>
+                  ${Story()}
               </nav>
           `,
       ]
