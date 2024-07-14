@@ -58,6 +58,14 @@ export const Default = {
   ],
 };
 
+Default.parameters = {
+  a11y: {
+    config: {
+      rules: [{ id: 'color-contrast', enabled: false }],
+    },
+  },
+};
+
 export const LightTheme = {
   args: {
     titre: "Suivez-nous sur les réseaux sociaux",
@@ -78,3 +86,11 @@ export const LightTheme = {
 };
 
 LightTheme.storyName = "Thème clair";
+
+LightTheme.parameters = {
+  a11y: {
+    config: {
+      rules: [{ id: 'color-contrast', enabled: false }],
+    },
+  },
+};

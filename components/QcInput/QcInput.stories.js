@@ -17,7 +17,7 @@ export default {
         placeholder: { control: 'text' },
     },
     render({...args}) {
-        return `
+        const qcInputTemplate = `
             <qc-input
                 ${args.label ? `label="${args.label}"` : ''} 
                 ${args.size ? `size="${args.size}"` : ''} 
@@ -30,7 +30,8 @@ export default {
                 ${args.errorMsg ? `errorMsg="${args.errorMsg}"` : ''}
                 ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
             ></qc-input>
-        `
+        `;
+        return qcInputTemplate.replace(/\s+/g, ' ').trim();
     },
 }
 

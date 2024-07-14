@@ -27,7 +27,7 @@ class QcInput extends HTMLElement {
                 class="input ${inputClass} ${errorClass}"
                 ${this.disabled ? 'disabled' : ''}
                 ${this.required ? 'required' : ''}
-                aria-describedby="${aideId} ${errorId}"
+                aria-describedby="${this.aide ? aideId : ''} ${this.error ? errorId : ''}"
               >${this.value}</textarea><div class="input-info" id="${aideId}">
               <small>Maximum de 500 caractères</small></div>`
             : `<input 
@@ -39,15 +39,15 @@ class QcInput extends HTMLElement {
                 value="${this.value}"
                 ${this.disabled ? 'disabled' : ''}
                 ${this.required ? 'required' : ''}
-                aria-describedby="${aideId} ${errorId}"
+                aria-describedby="${this.aide ? aideId : ''} ${this.error ? errorId : ''}"
               >`;
 
         return `
         <div class="form-group ${this.error ? 'has-error' : ''} ${this.disabled ? 'is-disabled' : ''}">
             <label for="${inputId}">${this.label}${this.required ? `<span class="champ-requis">*</span>` : ''}</label> 
-            ${this.aide ? `<div class="input-aide" id="${aideId}">${this.aide}</div>` : ''}
+            ${this.aide ? `<div class="input-aide" id="${aideId}">${this.aide}</div>` : `<div id="${aideId}" class="visually-hidden"></div>`}
             ${inputField}
-            ${this.error ? `<div class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</div>` : ''}
+            ${this.error ? `<div class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</div>` : `<div id="${errorId}" class="visually-hidden"></div>`}
         </div>
         `;
     }

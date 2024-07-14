@@ -25,6 +25,7 @@
     "vite-plugin-mkcert": "^1.17.5"
   },
   "dependencies": {
+    "@storybook/addon-a11y": "^8.2.2",
     "bootstrap": "^5.3.3"
   }
 }
