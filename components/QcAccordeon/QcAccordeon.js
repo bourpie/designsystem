@@ -15,6 +15,11 @@ class QcAccordeon extends HTMLElement {
 
   toggleContent() {
     const isExpanded = this.toggleButton.getAttribute('aria-expanded') === 'true';
+
+    if (!isExpanded) {
+      this.closeAllAccordions();
+    }
+
     this.toggleButton.setAttribute('aria-expanded', !isExpanded);
     this.content.setAttribute('aria-hidden', isExpanded);
 
@@ -24,9 +29,35 @@ class QcAccordeon extends HTMLElement {
       this.content.style.display = 'block';
     }
 
-   // this.updateIcon();
   }
 
+  closeAllAccordions() {
+    const accordions = document.querySelectorAll('qc-accordeon');
+    accordions.forEach((accordion) => {
+      const button = accordion.querySelector('.accordion-toggle');
+      const content = button.nextElementSibling;
+
+      button.setAttribute('aria-expanded', 'false');
+      content.setAttribute('aria-hidden', 'true');
+      content.style.display = 'none';
+
+      const icon = button.querySelector('.lnr');
+      icon.classList.remove('lnr-chevron-up');
+      icon.classList.add('lnr-chevron-down');
+    });
+  }
+
+  updateIcon() {
+    const isExpanded = this.toggleButton.getAttribute('aria-expanded') === 'true';
+    const icon = this.toggleButton.querySelector('.lnr');
+    if (isExpanded) {
+      icon.classList.remove('lnr-chevron-down');
+      icon.classList.add('lnr-chevron-up');
+    } else {
+      icon.classList.remove('lnr-chevron-up');
+      icon.classList.add('lnr-chevron-down');
+    }
+  }
 }
 
 customElements.get('qc-accordeon') || customElements.define('qc-accordeon', QcAccordeon);

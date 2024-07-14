@@ -1,0 +1,17 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as AccordeonStories from "./QcAccordeon.stories";
+
+<Meta of={AccordeonStories} />
+
+# Accordéon
+
+L’accordéon permet de réduire temporairement la quantité d’information affichée sur une page. Avec cette option, la personne survole le contenu et accède plus rapidement à l’information recherchée.
+
+<Source code={`<qc-accordeon>
+    <button class="accordion-toggle">Titre</button>
+    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</qc-accordeon>`} />
+
+## Exemple
+
+<Primary />

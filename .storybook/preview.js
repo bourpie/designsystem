@@ -5,15 +5,28 @@ const preview = {
   parameters: {
     options: {
       storySort: {
-        method: 'configure',
         includeNames: true,
         order: [
           'Introduction',
           'Bases', 
           'Composants',
-          ['*', 'QcBouton', ['Docs']], 
+          [
+            '*',
+            'QcBouton', 
+            [
+              'Docs', 
+              '*'
+            ], 
+            'QcAccordeon', 
+            [
+              'Docs', 
+              '*'
+            ]
+          ], 
           'Formulaires', 
-          'Modèles', '*'],
+          'Modèles', 
+          '*'
+        ],
       },
     },
     controls: {
@@ -26,3 +39,4 @@ const preview = {
 };
 
 export default preview;
+
