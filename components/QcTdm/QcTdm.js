@@ -42,7 +42,7 @@ class QcTdm extends HTMLElement {
 
     generateAnchors() {
         const anchors = [];
-        const headings = document.querySelectorAll('h2[tdm]');
+        const headings = document.querySelectorAll('.tdm');
         
         headings.forEach((heading, index) => {
             const anchorTitle = heading.getAttribute('tdm-titre') || heading.textContent.trim();
