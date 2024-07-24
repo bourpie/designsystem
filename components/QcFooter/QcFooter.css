@@ -1,6 +1,6 @@
 qc-footer  {
 
-  [slot="main-links"] {
+  [slot="liens-principaux"] {
 
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +50,7 @@ qc-footer  {
     }
   }
 
-  [slot="center-links"] {
+  [slot="liens-secondaires"] {
 
     padding-top: 2.5rem;
     padding-bottom: 0.75rem;

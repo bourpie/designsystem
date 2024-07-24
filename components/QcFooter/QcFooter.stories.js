@@ -4,7 +4,6 @@ import { QcSocial } from '../QcSocial/QcSocial.js';
 export default {
   title: 'Modèles/QcFooter',
   component: QcFooter,
-  tags: ['autodocs'],
   argTypes: {
     siteurl: {
       control: 'text',
@@ -21,7 +20,7 @@ export default {
           ${args.siteurl ? `site-url="${args.siteurl}"` : ''}
           ${args.sitenom ? `site-nom="${args.sitenom}"` : ''}
       >
-        <div slot="main-links">
+        <div slot="liens-principaux">
           <nav>
             <h3>Section 1</h3>
             <ul>
@@ -44,7 +43,7 @@ export default {
             </ul>
           </nav>
         </div>
-        <div slot="center-links">
+        <div slot="liens-secondaires">
           <ul>
             <li><a href="/accessibilite">Accessibilité</a></li>
             <li><a href="/plan-du-site">Plan du site</a></li>

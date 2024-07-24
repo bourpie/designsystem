@@ -26,10 +26,18 @@ const preview = {
             [
               'Docs', 
               '*'
-            ]
+            ],
           ], 
           'Formulaires', 
           'Modèles',
+          [
+            '*',
+            'QcFooter', 
+            [
+              'Docs', 
+              '*'
+            ]
+          ],
           '*'
         ],
       },

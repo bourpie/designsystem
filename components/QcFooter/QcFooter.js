@@ -104,7 +104,7 @@ class QcFooter extends HTMLElement {
                     </div>
                 </div>
                 <div class="row">
-                    <slot name="main-links"></slot>
+                    <slot name="liens-principaux"></slot>
                 </div>
             </div>
         </section>
@@ -113,7 +113,7 @@ class QcFooter extends HTMLElement {
           <div class="container">
             <div class="row">
               <div class="col-12 d-flex">
-                <slot name="center-links"></slot>
+                <slot name="liens-secondaires"></slot>
               </div>
             </div>
           </div>

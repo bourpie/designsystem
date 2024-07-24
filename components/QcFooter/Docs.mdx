@@ -1,0 +1,54 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as FooterStories from "./QcFooter.stories";
+
+<Meta of={FooterStories} />
+
+# Le pied de page
+
+## Propriétés
+
+Le composant accepte deux attributs principaux:
+
+- `site-nom` : Le nom du site à afficher dans le pied de page. Par défaut, il est défini à "Gouvernement du Québec".
+- `site-url` : L'URL du site. Par défaut, il est défini à "https://www.quebec.ca".
+
+## Slots
+
+Le composant `<qc-footer>` utilise des slots nommés pour insérer des contenus personnalisés. Voici les différents slots disponibles:
+
+#### `liens-principaux` 
+Utilisé pour insérer les liens principaux du site. Ce slot est destiné à contenir des éléments de navigation principaux.
+<Source code={`<div slot="liens-principaux">
+  <nav>
+    <h3>Titre de section</h3>
+    <ul>
+      <li><a href="#link1">Link 1</a></li>
+      <li><a href="#link2">Link 2</a></li>
+    </ul>
+  </nav>
+</div>`} />
+
+#### `liens-secondaires`
+Utilisé pour insérer des liens secondaires tels que les politiques du site et les informations d'accessibilité.
+<Source code={`<div slot="liens-secondaires">
+  <ul>
+    <ul>
+      <li><a href="#link1">Link 1</a></li>
+      <li><a href="#link2">Link 2</a></li>
+    </ul>
+</div>`} />
+
+#### `copyright` 
+Utilisé pour insérer les informations de copyright et autres informations légales.
+<Source code={`<div slot="copyright">
+  <ul>
+    <ul>
+      <li><a href="#link1">Link 1</a></li>
+      <li><a href="#link2">Link 2</a></li>
+    </ul>
+</div>`} />
+
+## Exemple complet
+
+<Primary />
+<Controls />
