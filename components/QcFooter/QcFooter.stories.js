@@ -42,6 +42,12 @@ export default {
               <li><a href="#link2">Link 2</a></li>
             </ul>
           </nav>
+          <qc-social
+            titre="Suivez-nous sur les réseaux sociaux"
+            theme="dark"
+            medias='[{"icon":"/assets/icons/facebook-dark.svg","url":"https://facebook.com","text":"Facebook"},{"icon":"/assets/icons/twitterX-dark.svg","url":"https://twitter.com","text":"Twitter"},{"icon":"/assets/icons/youtube-dark.svg","url":"https://linkedin.com","text":"LinkedIn"}]'
+          >
+          </qc-social>
         </div>
         <div slot="liens-secondaires">
           <ul>
