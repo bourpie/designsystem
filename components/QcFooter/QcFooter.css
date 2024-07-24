@@ -48,7 +48,7 @@ qc-footer  {
           max-width: 33.33333333%;
       }
 
-      @media (min-width: 1000px) {
+      @media (min-width: 1200px) {
 
             flex: 0 0 25%;
             max-width: 25%;

@@ -43,7 +43,7 @@ export default {
             </ul>
           </nav>
           <qc-social
-            titre="Suivez-nous sur les réseaux sociaux"
+            titre="Suivez-nous"
             theme="dark"
             medias='[{"icon":"/assets/icons/facebook-dark.svg","url":"https://facebook.com","text":"Facebook"},{"icon":"/assets/icons/twitterX-dark.svg","url":"https://twitter.com","text":"Twitter"},{"icon":"/assets/icons/youtube-dark.svg","url":"https://linkedin.com","text":"LinkedIn"}]'
           >
