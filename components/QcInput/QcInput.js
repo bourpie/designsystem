@@ -44,7 +44,7 @@ class QcInput extends HTMLElement {
 
         return `
         <div class="form-group ${this.error ? 'has-error' : ''} ${this.disabled ? 'is-disabled' : ''}">
-            <label for="${inputId}">${this.label}${this.required ? `<span class="champ-requis">*</span>` : ''}</label> 
+            <label for="${inputId}">${this.label}</label> 
             ${this.aide ? `<div class="input-aide" id="${aideId}">${this.aide}</div>` : `<div id="${aideId}" class="visually-hidden"></div>`}
             ${inputField}
             ${this.error ? `<div class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</div>` : `<div id="${errorId}" class="visually-hidden"></div>`}

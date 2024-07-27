@@ -44,6 +44,16 @@ export const Default = {
 
 Default.storyName = 'Champ de type texte';
 
+export const Requis = {
+    args: {
+        label: 'Label',
+        placeholder: 'Placeholder',
+        required: true,
+    }
+}
+
+Requis.storyName = 'Champ requis';
+
 export const Erreur = {
     args: {
         label: 'Label',
@@ -53,5 +63,3 @@ export const Erreur = {
         required: true,
     }
 }
-
-Erreur.storyName = 'Champ avec erreur';

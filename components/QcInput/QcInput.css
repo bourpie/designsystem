@@ -6,15 +6,15 @@ qc-input {
         display: block;
         font-family: 'Open Sans';
         font-weight: bold;
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .input {
-        padding: 8px;
-        margin: 5px 0;
+        padding: .5rem;
+        margin: .313rem 0;
         box-sizing: border-box;
         border: 1px solid #6B778A;
-        height: 40px;
+        height: 2.5rem;
 
         &:focus {
             outline: 2px solid #4a98d9;
@@ -23,29 +23,29 @@ qc-input {
 
         &.input-sm {
             width: 100%;
-            max-width: 40px; /* Champs petit (jusqu’à 5 caractères) */
+            max-width: 2.5rem; /* Champs petit (jusqu’à 5 caractères) */
         }
 
         &.input-md {
             width: 100%;
-            max-width: 156px; /* Champs moyen (jusqu’à 16 caractères) */
+            max-width: 9.75rem; /* Champs moyen (jusqu’à 16 caractères) */
         }
 
         &.input-lg {
             width: 100%;
-            max-width: 249px; /* Champs large (jusqu’à 26 caractères) */
+            max-width: 15.563rem; /* Champs large (jusqu’à 26 caractères) */
         }
 
         &.input-xl {
             width: 100%;
-            max-width: 528px; /* Champs extra-large (jusqu’à 58 caractères) */
+            max-width: 33rem; /* Champs extra-large (jusqu’à 58 caractères) */
         }
 
         &.input-multi {
             width: 100%;
             height: 100px; /* Champs multiligne */
             resize: vertical;
-            margin-bottom: 4px;
+            margin-bottom: .25rem;
         }
 
         &.input-error {
@@ -54,7 +54,7 @@ qc-input {
     }
 
     .input-aide {
-        font-size: 14px;
+        font-size: 0.875rem;
         color: #223654;
     }
 
@@ -62,28 +62,51 @@ qc-input {
         margin: 0;
         position: absolute;
         right: 0;
-        bottom: -14px;
+        bottom: -0.875rem;
     }
 
     .error-message {
         color: #cb381f;
-        font-size: 12px;
-        margin-top: 4px;
+        font-size: .75rem;
+
     }
 
     .champ-requis {
         color: #cb381f;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
-        margin-left: 8px
+        margin-left: .5rem;
     }
 
-    .is-disabled {
+    [disabled] {
+        background-color: #f2f2f2;
+        border-color: #f2f2f2;
+        color: #6b778a;
+    }
 
-        .input {
-            background-color: #f2f2f2;
-            border-color: #f2f2f2;
-            color: #6b778a;
+    :has([required]) {
+        label:after {
+            content: '*';
+            font-size: 1rem;
+            font-weight: bold;
+            margin-left: .5rem;
         }
     }
+
+    :has([required]:user-valid) {
+        label:after {
+            content: '*';
+            color: black;
+        }
+    }
+
+    :has([required]:user-invalid),
+    .has-error {
+        label:after {
+            content: '*';
+            color: #cb381f;
+        }
+    }
+
+
 }
