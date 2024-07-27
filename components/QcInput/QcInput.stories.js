@@ -6,7 +6,7 @@ export default {
     tags: ['autodocs'],
     argTypes: {
         label: { control: 'text' },
-        type: { control: 'select', options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'week'] },
+        type: { control: 'select', options: ['','text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'week'] },
         size: { control: 'select', options: ['sm', 'md', 'lg', 'xl', 'multi'] },
         value: { control: 'text' },
         disabled: { control: 'boolean' },
@@ -15,6 +15,8 @@ export default {
         error: { control: 'boolean' },
         errorMsg: { control: 'text' },
         placeholder: { control: 'text' },
+        maxlength: { control: 'number' },
+        maxlengthInfo: { control: 'text' },
     },
     render({...args}) {
         const qcInputTemplate = `
@@ -29,6 +31,8 @@ export default {
                 ${args.error ? `error` : ''}
                 ${args.errorMsg ? `errorMsg="${args.errorMsg}"` : ''}
                 ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
+                ${args.maxlength ? `maxlength="${args.maxlength}"` : ''}
+                ${args.maxlengthInfo ? `maxlength-info="${args.maxlengthInfo}"` : ''}
             ></qc-input>
         `;
         return qcInputTemplate.replace(/\s+/g, ' ').trim();
@@ -63,3 +67,16 @@ export const Erreur = {
         required: true,
     }
 }
+
+export const Multi = {
+    args: {
+        label: 'Label',
+        placeholder: 'Placeholder',
+        size:'multi',
+        maxlength: 500,
+        maxlengthInfo: 'Caractères maximum :',
+
+    }
+}
+
+Multi.storyName = 'Champ multi lignes';
