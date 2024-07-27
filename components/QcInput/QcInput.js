@@ -17,12 +17,9 @@ class QcInput extends HTMLElement {
         const aideId = `aide-${uniqueId}`;
         const errorId = `error-${uniqueId}`;
         const maxlengthInfoId = `maxlength-info-${uniqueId}`;
-        
         const inputClass = this.currentSize ? `input-${this.currentSize}` : '';
         const errorClass = this.error ? 'input-error' : '';
-
         const commonAttributes = this.getCommonAttributes(inputId, inputClass, aideId, errorId, errorClass);
-
         const inputField = this.currentSize === 'multi' 
             ? `<textarea ${commonAttributes} aria-labelledby="${inputId}-label">${this.value}</textarea>`
             : `<input ${commonAttributes} aria-labelledby="${inputId}-label" value="${this.value}">`;
@@ -30,12 +27,14 @@ class QcInput extends HTMLElement {
         return `
         <div class="form-group ${this.error ? 'has-error' : ''} ${this.disabled ? 'is-disabled' : ''}">
             <label id="${inputId}-label" for="${inputId}">${this.label}</label> 
-            ${this.aide ? `<div class="input-aide" id="${aideId}">${this.aide}</div>` : `<div id="${aideId}" class="visually-hidden"></div>`}
+            ${this.aide && `<div class="input-aide" id="${aideId}">${this.aide}</div>`}
             ${inputField}
-            <div class="input-info-container">
-                ${this.error ? `<small class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</small>` : '<small></small>'}   
-                ${this.currentSize === 'multi' && this.maxlength ? `<small class="maxlength-info" id="${maxlengthInfoId}">${this.maxlengthInfo} ${this.maxlength - (this.value.length || 0)}</small>` : '<small></small>'}
-            </div>
+            ${this.maxlengthInfo || this.error ? `
+                <div class="input-info-container">
+                    ${this.error ? `<small class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</small>` : '<small></small>'}   
+                    ${this.currentSize === 'multi' && this.maxlength ? `<small class="maxlength-info" id="${maxlengthInfoId}">${this.maxlengthInfo} ${this.maxlength - (this.value.length || 0)}</small>` : '<small></small>'}
+                </div>
+            ` : ''}
         </div>
         `;
     }
