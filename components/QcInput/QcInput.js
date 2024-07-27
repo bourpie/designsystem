@@ -12,26 +12,29 @@ class QcInput extends HTMLElement {
     }
 
     get template() {
-        const inputId = `input-${generateUUID()}`;
+        const uniqueId = generateUUID();
+        const inputId = `input-${uniqueId}`;
+        const aideId = `aide-${uniqueId}`;
+        const errorId = `error-${uniqueId}`;
+        const maxlengthInfoId = `maxlength-info-${uniqueId}`;
+        
         const inputClass = this.currentSize ? `input-${this.currentSize}` : '';
-        const aideId = `${inputId}-aide`;
-        const errorId = `${inputId}-error`;
         const errorClass = this.error ? 'input-error' : '';
 
         const commonAttributes = this.getCommonAttributes(inputId, inputClass, aideId, errorId, errorClass);
 
         const inputField = this.currentSize === 'multi' 
-            ? `<textarea ${commonAttributes}>${this.value}</textarea>`
-            : `<input ${commonAttributes} value="${this.value}">`;
+            ? `<textarea ${commonAttributes} aria-labelledby="${inputId}-label">${this.value}</textarea>`
+            : `<input ${commonAttributes} aria-labelledby="${inputId}-label" value="${this.value}">`;
 
         return `
         <div class="form-group ${this.error ? 'has-error' : ''} ${this.disabled ? 'is-disabled' : ''}">
-            <label for="${inputId}">${this.label}</label> 
+            <label id="${inputId}-label" for="${inputId}">${this.label}</label> 
             ${this.aide ? `<div class="input-aide" id="${aideId}">${this.aide}</div>` : `<div id="${aideId}" class="visually-hidden"></div>`}
             ${inputField}
             <div class="input-info-container">
                 ${this.error ? `<small class="error-message" id="${errorId}" aria-live="polite">${this.errorMsg}</small>` : '<small></small>'}   
-                ${this.currentSize === 'multi' && this.maxlength ? `<small class="maxlength-info" id="${inputId}-maxlength-info">${this.maxlengthInfo} ${this.maxlength - (this.value.length || 0)}</small>` : '<small></small>'}
+                ${this.currentSize === 'multi' && this.maxlength ? `<small class="maxlength-info" id="${maxlengthInfoId}">${this.maxlengthInfo} ${this.maxlength - (this.value.length || 0)}</small>` : '<small></small>'}
             </div>
         </div>
         `;
@@ -110,13 +113,21 @@ class QcInput extends HTMLElement {
     }
 
     connectedCallback() {
+        this.addEventListeners();
+    }
+
+    disconnectedCallback() {
+        this.removeEventListeners();
+    }
+
+    addEventListeners() {
         const inputField = this.querySelector('input, textarea');
         if (inputField) {
             inputField.addEventListener('input', this.updateMaxlengthInfo.bind(this));
         }
     }
 
-    disconnectedCallback() {
+    removeEventListeners() {
         const inputField = this.querySelector('input, textarea');
         if (inputField) {
             inputField.removeEventListener('input', this.updateMaxlengthInfo.bind(this));
@@ -127,13 +138,13 @@ class QcInput extends HTMLElement {
         const inputField = event.target;
         const maxlengthInfoElement = this.querySelector('.maxlength-info');
         if (maxlengthInfoElement && this.maxlength && this.currentSize === 'multi') {
-            maxlengthInfoElement.textContent = ` ${this.maxlengthInfo} ${this.maxlength - inputField.value.length}`;
+            maxlengthInfoElement.textContent = `${this.maxlengthInfo} ${this.maxlength - inputField.value.length}`;
         }
     }
 
     render() {
         this.innerHTML = this.template;
-        this.connectedCallback();  // Ensure event listeners are added after rendering
+        this.addEventListeners();  // Ensure event listeners are added after rendering
     }
 }
 
