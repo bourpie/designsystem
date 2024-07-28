@@ -8,7 +8,7 @@ qc-avis {
     font-family: 'Open Sans';
     font-weight: normal;
     font-size: 1rem;
-    color: var(--blue-piv);
+    color: var(--blue-dark);
 
     .avis-img,
     .avis-content {
