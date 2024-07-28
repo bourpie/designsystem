@@ -11,7 +11,7 @@
   --blue: rgb(20, 114, 191);
   --blue-piv: rgb(9, 87, 151);
   --blue-medium: rgb(25, 64, 108);
-  --blue-dark: #223654;
+  --blue-dark: rgb(34, 54, 84);
 
   /* Couleur d'accent */
   --accent-color: rgb(229, 130, 113);
@@ -37,7 +37,7 @@
   /* Palettes fonctionnelles - Jaunes */
   --yellow-light: rgb(248, 230, 154);
   --yellow: rgb(224, 173, 3);
-  --yellow-dark: #ad781c;
+  --yellow-dark: rgb(173, 120, 28);
 
   /* Palettes fonctionnelles - Violet */
   --purple: rgb(107, 79, 161);
@@ -258,6 +258,14 @@ p {
   /**
   class utilitaires
   */
+
+.unstyled {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
   .lnr {
     display: inline-block;
     fill: currentColor;

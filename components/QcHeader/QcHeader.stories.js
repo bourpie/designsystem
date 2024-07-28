@@ -58,10 +58,31 @@ export default {
                 ${Story()}
                 <qc-alerte 
                     type="avertissement" 
-                    fermeture="oui" message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>"}>
+                    fermeture="oui" message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>">
             </qc-alerte>
             `,
         ]
     };
 
     AvecAvis.storyName = "Avec une alerte";
+
+    
+    export const AvecNavigation = {
+        args: {
+            placeholder: "Rechercher un produit",
+            btnlabel: "Rechercher",
+            variant: "dark",
+        },
+        decorators: [
+            (Story) => `
+                ${Story()}
+                <qc-navigation></qc-navigation>
+                <qc-alerte 
+                    type="avertissement" 
+                    fermeture="oui" message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>">
+            </qc-alerte>
+            `,
+        ]
+    };
+
+    AvecNavigation.storyName = "Avec navigation";

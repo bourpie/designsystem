@@ -1,0 +1,101 @@
+.qc-navigation {
+    background-color: #19406c;
+    color: white;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        > li {
+            position: relative;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: normal;
+                display: block;
+                letter-spacing: 0;
+                font-size: 1.125rem;
+                line-height: 4rem;
+                padding-inline: 1rem;
+                border-top: 4px solid transparent;
+                border-bottom: 4px solid transparent;
+                transition: all .3s ease;
+
+                &:hover,
+                &[aria-current="page"] {
+                    color: white;
+                    border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+                }
+            }
+
+            .submenu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: white;
+                color: #000;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                z-index: 1000;
+                width: 15rem;
+                filter: drop-shadow(1px 5px 5px #919191);
+
+                li {
+                    
+                    border-left: 4px solid transparent;
+                    transition: all .3s ease;
+
+                    &:hover {
+                        border-left: 4px solid var(--blue-piv);
+                       
+                    }
+                }
+
+                a {
+                    color: #095797;
+                    padding: 8px 20px;
+                    text-decoration: none;
+                    font-size: .813rem; /* format mobile */
+                    line-height: 1rem; /* format mobile */
+                    border-radius: 0;
+
+                    @media (min-width: 768px) {
+                        font-size: 1rem; /* format bureau */
+                        line-height: 1.5rem; /* format bureau */
+                    }
+
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &.show {
+                    display: block;
+                }
+            }
+
+            .submenu-toggle {
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+                font-size: 10px;
+                padding: .35rem;
+                position: absolute;
+                top: 26px;
+                right: -8px;
+            }
+        }
+    }
+}
