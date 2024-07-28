@@ -45,4 +45,23 @@ export default {
             titre: "Mon site",
             langueurl: "https://www.quebec.ca/en"
         },
-};
+    };
+
+    export const AvecAvis = {
+        args: {
+            placeholder: "Rechercher un produit",
+            btnlabel: "Rechercher",
+            variant: "dark",
+        },
+        decorators: [
+            (Story) => `
+                ${Story()}
+                <qc-alerte 
+                    type="avertissement" 
+                    fermeture="oui" message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>"}>
+            </qc-alerte>
+            `,
+        ]
+    };
+
+    AvecAvis.storyName = "Avec une alerte";
