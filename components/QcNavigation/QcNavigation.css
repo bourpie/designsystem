@@ -1,5 +1,5 @@
 .qc-navigation {
-    background-color: #19406c;
+    background-color: var(--blue-dark);
     color: white;
 
     a {
