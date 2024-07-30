@@ -17,6 +17,7 @@
       langueurl="#" 
       languelabel="English">
     </qc-header>
+    <qc-navigation></qc-navigation>
     <qc-alerte type="avertissement" fermeture="oui" 
      message="<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. <a href='#'>Cras venenatis euismod</a> malesuada.</p>
                 <ul>
@@ -105,10 +106,53 @@
       </div>
     </main>
 
-    <qc-footer site-url="https://www.quebec.ca" site-nom="Québec.ca" mainlinks="[{&quot;title&quot;:&quot;Informations et services&quot;,&quot;links&quot;:[{&quot;label&quot;:&quot;Agriculture, environnement et ressources naturelles&quot;,&quot;href&quot;:&quot;/agriculture-environnement-et-ressources-naturelles&quot;},{&quot;label&quot;:&quot;Culture&quot;,&quot;href&quot;:&quot;/culture&quot;},{&quot;label&quot;:&quot;Éducation&quot;,&quot;href&quot;:&quot;/education&quot;},{&quot;label&quot;:&quot;Emploi&quot;,&quot;href&quot;:&quot;/emploi&quot;},{&quot;label&quot;:&quot;Entreprises&quot;,&quot;href&quot;:&quot;/entreprises-et-travailleurs-autonomes&quot;},{&quot;label&quot;:&quot;Famille et soutien aux personnes&quot;,&quot;href&quot;:&quot;/famille-et-soutien-aux-personnes&quot;}]},{&quot;title&quot;:&quot;Gouvernement&quot;,&quot;links&quot;:[{&quot;label&quot;:&quot;Ministères et organismes&quot;,&quot;href&quot;:&quot;/gouvernement/ministeres-et-organismes&quot;},{&quot;label&quot;:&quot;Services Québec&quot;,&quot;href&quot;:&quot;/services-quebec&quot;},{&quot;label&quot;:&quot;Gouvernement ouvert&quot;,&quot;href&quot;:&quot;/gouvernement/gouvernement-ouvert&quot;},{&quot;label&quot;:&quot;Travailler au gouvernement&quot;,&quot;href&quot;:&quot;/gouvernement/travailler-gouvernement&quot;},{&quot;label&quot;:&quot;Salle de nouvelles&quot;,&quot;href&quot;:&quot;/nouvelles&quot;},{&quot;label&quot;:&quot;Lois et règlements&quot;,&quot;href&quot;:&quot;http://www.publicationsduquebec.gouv.qc.ca/lois-et-reglements/&quot;}]},{&quot;title&quot;:&quot;Nous joindre&quot;,&quot;links&quot;:[{&quot;label&quot;:&quot;Renseignements généraux&quot;,&quot;href&quot;:&quot;/nous-joindre/renseignements-generaux&quot;},{&quot;label&quot;:&quot;Bureaux de services&quot;,&quot;href&quot;:&quot;https://www.localisateur.servicesquebec.gouv.qc.ca/&quot;}]}]" centerlinks="[{&quot;title&quot;:&quot;Liens centrés&quot;,&quot;links&quot;:[{&quot;label&quot;:&quot;Accessibilité&quot;,&quot;href&quot;:&quot;/accessibilite&quot;},{&quot;label&quot;:&quot;Plan du site&quot;,&quot;href&quot;:&quot;/plan-du-site&quot;},{&quot;label&quot;:&quot;Accès à l'information&quot;,&quot;href&quot;:&quot;/acces-information&quot;},{&quot;label&quot;:&quot;Politique de confidentialité&quot;,&quot;href&quot;:&quot;/politique-confidentialite&quot;},{&quot;label&quot;:&quot;Conditions d'utilisation&quot;,&quot;href&quot;:&quot;/conditions-utilisation&quot;},{&quot;label&quot;:&quot;À propos&quot;,&quot;href&quot;:&quot;/a-propos&quot;}]}]" copyright="© 2024 Gouvernement du Québec. Tous droits réservés.">
-      <qc-social titre="Suivez-nous sur les réseaux sociaux" theme="dark" medias="[{&quot;icon&quot;:&quot;/assets/icons/facebook-dark.svg&quot;,&quot;url&quot;:&quot;https://facebook.com&quot;,&quot;text&quot;:&quot;Facebook&quot;},{&quot;icon&quot;:&quot;/assets/icons/twitterX-dark.svg&quot;,&quot;url&quot;:&quot;https://twitter.com&quot;,&quot;text&quot;:&quot;Twitter&quot;},{&quot;icon&quot;:&quot;/assets/icons/youtube-dark.svg&quot;,&quot;url&quot;:&quot;https://linkedin.com&quot;,&quot;text&quot;:&quot;LinkedIn&quot;}]">
+    <qc-footer 
+      site-url="https://www.quebec.ca"
+      site-nom="Gouvernement du Québec"
+  >
+    <div slot="liens-principaux">
+      <nav>
+        <h3>Section 1</h3>
+        <ul>
+          <li><a href="#link1">Link 1</a></li>
+          <li><a href="#link2">Link 2</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <h3>Section 1</h3>
+        <ul>
+          <li><a href="#link1">Link 1</a></li>
+          <li><a href="#link2">Link 2</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <h3>Section 1</h3>
+        <ul>
+          <li><a href="#link1">Link 1</a></li>
+          <li><a href="#link2">Link 2</a></li>
+        </ul>
+      </nav>
+      <qc-social
+        titre="Suivez-nous"
+        theme="dark"
+        medias='[{"icon":"/assets/icons/facebook-dark.svg","url":"https://facebook.com","text":"Facebook"},{"icon":"/assets/icons/twitterX-dark.svg","url":"https://twitter.com","text":"Twitter"},{"icon":"/assets/icons/youtube-dark.svg","url":"https://linkedin.com","text":"LinkedIn"}]'
+      >
       </qc-social>
-    </qc-footer>
+    </div>
+    <div slot="liens-secondaires">
+      <ul>
+        <li><a href="/accessibilite">Accessibilité</a></li>
+        <li><a href="/plan-du-site">Plan du site</a></li>
+        <li><a href="/acces-information">Accès à l'information</a></li>
+        <li><a href="/politique-confidentialite">Politique de confidentialité</a></li>
+        <li><a href="/conditions-utilisation">Conditions d'utilisation</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+      </ul>
+    </div>
+    <div slot="copyright">
+    <a href="/droit-auteur">© Gouvernement du Québec,&nbsp;2024</a>
+    </div>
+  </qc-footer>
 
   
     <script type="module" src="./main.js"></script>
