@@ -59,7 +59,7 @@ npm run dev
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE.md) pour plus de détails.
+Ce projet est sous [licence MIT](https://opensource.org/license/MIT) pour plus de détails.
 
 ## Auteur
 
