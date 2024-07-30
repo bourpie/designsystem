@@ -107,6 +107,19 @@ class QcNavigation extends HTMLElement {
             :host {
                 display: block;
             }
+            .container {
+                width: 100%;
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+    
+            @media (min-width: 1200px) {
+                .container {
+                    max-width: 1110px;
+                }
+            }
         `;
 
         this.shadowRoot.innerHTML = `

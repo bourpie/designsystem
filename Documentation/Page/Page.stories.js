@@ -6,12 +6,36 @@ export default {
   render: () => {
     return `
       <qc-header></qc-header>
+      <qc-navigation>
+        <ul>
+          <li>
+            <a href="#">À propos</a>
+          </li>
+          <li>
+            <a>Contenu</a>
+          </li>
+          <li>
+            <a href="#">Design</a>
+          </li>
+          <li>
+            <a href="#">Ressources</a>
+            <button>
+              <span class="lnr lnr-chevron-down"></span>
+            </button>
+            <ul>
+              <li><a href="#">Articles</a></li>
+              <li><a href="#">Vidéos</a></li>
+            </ul>
+          </li>
+        </ul>
+    </qc-navigation>
       <main>
-      <div class="container py-5">
-        <div class="row">
+        <div class="container py-5">
+          <div class="row">
             <div class="col-md-10">
            </div>
       </main>
+
       <qc-footer 
       site-url="https://www.quebec.ca"
       site-nom="Gouvernement du Québec"
