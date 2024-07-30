@@ -1,8 +1,8 @@
 # Design System
 
-## Introduction
+Exemple [Storybook](https://storybook.js.org/) qui illustre l'intégration du système de design du gouvernement du Québec (non affilié) avec des composants Web standard en JavaScript vanille. Bien que cet exemple ne soit pas complet, il peut servir de point de départ pour vos projets.
 
-Ce projet est un système de design construit avec JavaScript vanille, bundlé avec Vite.js, et testé avec Storybook. La base de code permet la création de composants web standard, avec la possibilité de tester des composants isolés ainsi que des intégrations complexes avec [Storybook](https://storybook.js.org/)
+Voir trousse officiel de développement avec Svelte [ici](https://design.quebec.ca/ressources/trousse-developpement).
 
 ## Démarrage
 
