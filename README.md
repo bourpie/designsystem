@@ -63,4 +63,4 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE.md) pour plus 
 
 ## Auteur
 
-Pierre Bourgeois - [@bourpie](https://github.com/bourpie)
+[@bourpie](https://github.com/bourpie)
