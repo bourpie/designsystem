@@ -4,7 +4,7 @@ Exemple [Storybook](https://storybook.js.org/) qui illustre l'intégration du sy
 
 ![Storybook](storybook.png)
 
-Voir trousse officiel de développement avec Svelte [ici](https://design.quebec.ca/ressources/trousse-developpement).
+Voir trousse officiel de développement du design système du gouverment avec Svelte [ici](https://design.quebec.ca/ressources/trousse-developpement).
 
 ## Démarrage
 
