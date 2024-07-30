@@ -33,6 +33,7 @@ qc-navigation {
                 transition: all .3s ease;
 
                 &:hover,
+                &:focus,
                 &[aria-current="page"] {
                     color: white;
                     border-bottom: 4px solid rgba(255, 255, 255, 0.5);
