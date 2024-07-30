@@ -23,13 +23,31 @@ cd designsystem
 npm install
 ```
 
-### Démarrer l'environnement de développement
+### Démarrer Storybook
+
+[Storybook](https://storybook.js.org/) est un environnement permettant de créer des composants et des pages d’interface utilisateur de manière isolée. On s'en sert pour le développement, les tests et la documentation de l’interface utilisateur. C’est open source et gratuit.
+
+![Storybook](storybook.png)
+
+Pour démarrer Storybook et visualiser vos composants, utilisez la commande suivante :
+
+```bash
+npm run storybook
+```
+
+Cela lancera Storybook sur `http://localhost:6006` par défaut, où vous pourrez naviguer et tester vos composants dans un environnement isolé.
+
+### Démarrer l'environnement de développement (optionnel)
+
+L'environnement de développement ([vite.js](https://vitejs.dev/)) permet de faire des tests d'intégration sur une page Web standard.Voir le fichier `index.html` (utilise le javascript et le css non compilés), et le fichier `exemple.html` (utilise le javascript et le css compilés du dossier `dist`) 
 
 Pour démarrer l'environnement de développement, utilisez la commande suivante :
 
 ```bash
 npm run dev
 ```
+
+
 
 ### Builder la solution
 
@@ -40,15 +58,6 @@ npm run build
 ```
 Cette commande créera un dossier `dist` à la racine du projet. À l'intérieur, vous trouverez les fichiers JavaScript, les styles CSS, et les images optimisées prêtes à être intégrées dans votre projet.
 
-### Démarrer Storybook
-
-Pour démarrer Storybook et visualiser vos composants, utilisez la commande suivante :
-
-```bash
-npm run storybook
-```
-
-Cela lancera Storybook sur `http://localhost:6006` par défaut, où vous pourrez naviguer et tester vos composants dans un environnement isolé.
 
 ## Licence
 
