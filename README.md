@@ -2,6 +2,8 @@
 
 Exemple [Storybook](https://storybook.js.org/) qui illustre l'intégration du système de design du gouvernement du Québec (non affilié) avec des composants Web standard en JavaScript vanille. Bien que cet exemple ne soit pas complet, il peut servir de point de départ pour vos projets.
 
+![Storybook](storybook.png)
+
 Voir trousse officiel de développement avec Svelte [ici](https://design.quebec.ca/ressources/trousse-developpement).
 
 ## Démarrage
@@ -27,8 +29,6 @@ npm install
 
 [Storybook](https://storybook.js.org/) est un environnement permettant de créer des composants et des pages d’interface utilisateur de manière isolée. On s'en sert pour le développement, les tests et la documentation de l’interface utilisateur. C’est open source et gratuit.
 
-![Storybook](storybook.png)
-
 Pour démarrer Storybook et visualiser vos composants, utilisez la commande suivante :
 
 ```bash
@@ -36,6 +36,15 @@ npm run storybook
 ```
 
 Cela lancera Storybook sur `http://localhost:6006` par défaut, où vous pourrez naviguer et tester vos composants dans un environnement isolé.
+
+### Compiler la solution
+
+Pour construire la solution pour la production, utilisez la commande suivante :
+
+```bash
+npm run build
+```
+Cette commande créera un dossier `dist` à la racine du projet. À l'intérieur, vous trouverez les fichiers JavaScript, les styles CSS, et les images optimisées prêtes à être intégrées dans votre projet.
 
 ### Démarrer l'environnement de développement (optionnel)
 
@@ -46,17 +55,6 @@ Pour démarrer l'environnement de développement, utilisez la commande suivante 
 ```bash
 npm run dev
 ```
-
-
-
-### Builder la solution
-
-Pour construire la solution pour la production, utilisez la commande suivante :
-
-```bash
-npm run build
-```
-Cette commande créera un dossier `dist` à la racine du projet. À l'intérieur, vous trouverez les fichiers JavaScript, les styles CSS, et les images optimisées prêtes à être intégrées dans votre projet.
 
 
 ## Licence
