@@ -27,6 +27,11 @@ const preview = {
               'Docs', 
               '*'
             ],
+            'QcNavigation',
+            [
+              'Docs',
+              '*'
+            ]
           ], 
           'Formulaires', 
           'Modèles',

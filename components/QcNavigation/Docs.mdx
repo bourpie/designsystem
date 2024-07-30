@@ -1,0 +1,86 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as NavStories from "./QcNavigation.stories";
+
+<Meta of={NavStories} />
+
+# Navigation principale
+
+Le composant `<qc-navigation>` est conçu pour simplifier la création de menus de navigation accessibles et fonctionnels. Il ajoute automatiquement les attributs nécessaires pour l'accessibilité et le bon fonctionnement du menu.
+
+<Primary />
+<Controls />
+
+## Usage 
+
+Pour utiliser le composant, vous pouvez simplement insérer une liste de liens, et optionnellement, un bouton avec une icone pour afficher une sous-liste de base dans votre document. Le composant se chargera d'ajouter les attributs nécessaires pour l'accessibilité et la gestion des sous-menus.
+
+Voici un exemple de code HTML à utiliser :
+
+<Source code={`<qc-navigation>
+      <ul>
+        <li>
+          <a href="#">À propos</a>
+        </li>
+        <li>
+          <a>Contenu</a>
+        </li>
+        <li>
+          <a href="#">Design</a>
+        </li>
+        <li>
+          <a href="#">Ressources</a>
+          <button>
+            <span class="lnr lnr-chevron-down"></span>
+          </button>
+          <ul>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Vidéos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </qc-navigation>`} />
+
+## Fonctionnalités
+
+### Accessibilité :
+
+- Les rôles ARIA et les attributs nécessaires sont ajoutés automatiquement pour garantir que le menu est accessible.
+- Chaque lien `<a>` reçoit le rôle `menuitem`.
+- Chaque bouton de sous-menu reçoit les attributs `aria-haspopup`, `aria-expanded`, et `aria-label`.
+
+### Sous-menus :
+
+- Les sous-menus sont gérés automatiquement. Les boutons de sous-menu reçoivent une icône qui change selon l'état (déployé/réduit).
+- Les sous-menus sont masqués par défaut et affichés lorsque le bouton de sous-menu correspondant est cliqué.
+
+## Exemple de structure générée
+
+Voici un aperçu de la structure HTML générée après l'initialisation du composant :
+
+<Source code={`<qc-navigation>
+    <ul role="menubar">
+        <li role="none">
+            <a href="#" role="menuitem">À propos</a>
+        </li>
+        <li role="none">
+            <a href="#" role="menuitem">Contenu</a>
+            <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Développer le sous-menu">
+                <span class="lnr lnr-chevron-down"></span>
+            </button>
+            <ul class="submenu" role="menu" aria-label="Sous-menu Contenu">
+                <li role="none"><a href="#" role="menuitem">Articles</a></li>
+                <li role="none"><a href="#" role="menuitem">Vidéos</a></li>
+            </ul>
+        </li>
+        <li role="none">
+            <a href="#" role="menuitem">Design</a>
+        </li>
+        <li role="none">
+            <a href="#" role="menuitem">Ressources</a>
+        </li>
+    </ul>
+</qc-navigation>`} />
+
+## Todos
+
+- Version mobile

@@ -1,18 +1,20 @@
-import './QcNavigation.css';
+import './QcNavigation.css'
 
 class QcNavigation extends HTMLElement {
     constructor() {
         super();
+        this.attachShadow({ mode: 'open' });
         this.render();
     }
 
     connectedCallback() {
-        this.render();
         this.addEventListeners();
+        this.enhanceAccessibility();
     }
 
     addEventListeners() {
-        const toggleButtons = this.querySelectorAll('.submenu-toggle');
+        // Utilisez this pour cibler les éléments en dehors du shadow DOM
+        const toggleButtons = this.querySelectorAll('button');
         toggleButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
@@ -20,7 +22,7 @@ class QcNavigation extends HTMLElement {
             });
         });
 
-        // Add click event listener to close the submenu when clicking outside
+        // Ajouter un écouteur d'événement global pour fermer les sous-menus lorsqu'on clique à l'extérieur
         document.addEventListener('click', (event) => {
             const isClickInside = this.contains(event.target) || event.target.closest('qc-navigation');
             if (!isClickInside) {
@@ -31,7 +33,7 @@ class QcNavigation extends HTMLElement {
 
     toggleSubmenu(button) {
         const submenu = button.nextElementSibling;
-        if (submenu && submenu.classList.contains('submenu')) {
+        if (submenu && submenu.tagName.toLowerCase() === 'ul') {
             const isExpanded = submenu.classList.toggle('show');
             button.setAttribute('aria-expanded', isExpanded);
             this.updateButtonIcon(button, isExpanded);
@@ -54,8 +56,8 @@ class QcNavigation extends HTMLElement {
     }
 
     closeAllSubmenus() {
-        const submenus = this.querySelectorAll('.submenu');
-        const toggleButtons = this.querySelectorAll('.submenu-toggle');
+        const submenus = this.querySelectorAll('ul');
+        const toggleButtons = this.querySelectorAll('button');
         submenus.forEach(submenu => submenu.classList.remove('show'));
         toggleButtons.forEach(button => {
             button.setAttribute('aria-expanded', 'false');
@@ -63,43 +65,64 @@ class QcNavigation extends HTMLElement {
         });
     }
 
-    get template() {
-        return `
-            <nav class="qc-navigation" aria-label="Navigation principale">
+    enhanceAccessibility() {
+        const nav = this.shadowRoot.querySelector('nav');
+        const ulElements = this.querySelectorAll('ul');
+
+        nav.setAttribute('role', 'navigation');
+        nav.setAttribute('aria-label', 'Navigation principale');
+
+        ulElements.forEach((ul, ulIndex) => {
+            ul.setAttribute('role', 'menubar');
+            const liElements = ul.children;
+
+            Array.from(liElements).forEach((li, liIndex) => {
+                li.setAttribute('role', 'none');
+                const anchor = li.querySelector('a');
+                const button = li.querySelector('button');
+                const submenu = li.querySelector('ul');
+
+                if (anchor) {
+                    anchor.setAttribute('role', 'menuitem');
+                }
+
+                if (button) {
+                    button.classList.add('submenu-toggle');
+                    button.setAttribute('aria-haspopup', 'true');
+                    button.setAttribute('aria-expanded', 'false');
+                    button.setAttribute('aria-label', 'Développer le sous-menu');
+                    button.nextElementSibling.setAttribute('role', 'menu');
+                }
+
+                if (submenu) {
+                    submenu.classList.add('submenu');
+                    submenu.setAttribute('aria-label', `Sous-menu ${anchor ? anchor.textContent.trim() : 'sans titre'}`);
+                }
+            });
+        });
+    }
+
+    render() {
+        const styles = `
+            :host {
+                display: block;
+            }
+        `;
+
+        this.shadowRoot.innerHTML = `
+            <style>${styles}</style>
+            <nav>
                 <div class="container">
                     <div class="row">
-                        <ul class="unstyled" role="menubar">
-                            <li role="none">
-                                <a href="#" role="menuitem">À propos</a>
-                            </li>
-                            <li role="none">
-                                <a href="#" role="menuitem">Contenu</a>
-                                <button class="submenu-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Développer le sous-menu">
-                                    <span class="lnr lnr-chevron-down"></span>
-                                </button>
-                                <ul class="submenu" aria-label="Sous-menu Contenu">
-                                    <li role="none"><a href="#" role="menuitem">Articles</a></li>
-                                    <li role="none"><a href="#" role="menuitem">Vidéos</a></li>
-                                </ul>
-                            </li>
-                            <li role="none">
-                                <a href="#" role="menuitem" aria-current="page">Design</a>
-                            </li>
-                            <li role="none">
-                                <a href="#" role="menuitem">Ressources</a>
-                            </li>
-                        </ul>
+                        <slot></slot>
                     </div>
                 </div>
             </nav>
         `;
-    }
-
-    render() {
-        this.innerHTML = this.template;
     }
 }
 
 customElements.get('qc-navigation') || customElements.define('qc-navigation', QcNavigation);
 
 export { QcNavigation };
+
