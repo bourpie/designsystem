@@ -10,7 +10,7 @@ export default {
           <a href="#">À propos</a>
         </li>
         <li>
-          <a>Contenu</a>
+          <a href="#">Contenu</a>
         </li>
         <li>
           <a href="#">Design</a>

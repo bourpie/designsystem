@@ -7,7 +7,7 @@ export default {
   argTypes: {
     type: {
       control: 'select',
-      options: ['principal', 'secondaire', 'tertiaire', 'avertissement'],
+      options: ['principal', 'secondaire', 'tertiaire', 'avertissement', 'session'],
       description: 'Type de bouton (principal par défaut)',
     },
     size: {
@@ -277,6 +277,15 @@ export const IconRight = {
 };
 
 IconRight.storyName = 'Icône à droite';
+
+export const Session = {
+  args: {
+    label: 'Connexion',
+    type: 'session',
+  },
+};
+
+Session.storyName = 'Bouton de session';
 
 
 

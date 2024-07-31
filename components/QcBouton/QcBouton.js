@@ -40,7 +40,7 @@ class QcBouton extends HTMLElement {
 
   get currenttype() {
     const type = this.getAttribute('type');
-    return ['principal', 'secondaire', 'tertiaire', 'avertissement'].includes(type) ? type : 'principal';
+    return ['principal', 'secondaire', 'tertiaire', 'avertissement', 'session'].includes(type) ? type : 'principal';
   }
 
   get currentDisplay() {

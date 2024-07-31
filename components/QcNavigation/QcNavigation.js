@@ -41,7 +41,7 @@ class QcNavigation extends HTMLElement {
     }
 
     updateButtonIcon(button, isExpanded) {
-        const icon = button.querySelector('span');
+        const icon = button.querySelector('li button span');
         if (isExpanded) {
             icon.classList.remove('lnr-chevron-down');
             icon.classList.add('lnr-chevron-up');
@@ -119,6 +119,10 @@ class QcNavigation extends HTMLElement {
                 .container {
                     max-width: 1110px;
                 }
+            }
+
+            .row {
+                display: flex;
             }
         `;
 

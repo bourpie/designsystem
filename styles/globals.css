@@ -2,6 +2,14 @@
   /* Couleurs d'arrière-plan */
   --background-color: rgb(255, 255, 255);
 
+  /* Pour pâlir légèrement le fond*/
+
+  --hover-bg-color: hsl(
+    213, 
+    43%, 
+    calc(23% + 5%) 
+  );
+
   /* Couleurs du texte */
   --text-color: rgb(34, 54, 84);
 
@@ -11,7 +19,7 @@
   --blue: rgb(20, 114, 191);
   --blue-piv: rgb(9, 87, 151);
   --blue-medium: rgb(25, 64, 108);
-  --blue-dark: rgb(34, 54, 84);
+  --blue-dark: #223654;
 
   /* Couleur d'accent */
   --accent-color: rgb(229, 130, 113);

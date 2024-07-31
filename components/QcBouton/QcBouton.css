@@ -114,6 +114,16 @@
         background-color: #eb705a;
       }
     }
+
+    .session {
+      color: white;
+      border-color: white;
+      background-color: var(--blue-dark);
+
+      &:hover, &:focus {
+        background-color: var(--hover-bg-color);
+      }
+    }
   
     .icon {
       width: 20px;
