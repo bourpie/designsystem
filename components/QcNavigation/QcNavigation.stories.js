@@ -7,7 +7,7 @@ export default {
     return `<qc-navigation>
       <ul>
         <li>
-          <a href="#">À propos</a>
+          <a aria-current="page" href="#">À propos</a>
         </li>
         <li>
           <a href="#">Contenu</a>

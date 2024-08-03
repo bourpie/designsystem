@@ -1,0 +1,53 @@
+qc-ariane ol {
+    list-style: none;
+    font-size: 0.75rem;
+    padding: 0;
+    color: var(--blue-dark);
+    font-family: "Open Sans", sans-serif;
+  }
+
+qc-ariane ol a {
+    color: var(--blue-dark);
+    font-weight: 300;
+    text-decoration: none;
+  }
+  qc-ariane ol a::after {
+    position: relative;
+    display: inline-block;
+  }
+  qc-ariane ol a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+  }
+  qc-ariane ol a:focus {
+    color: var(--blue-dark);
+    text-decoration: underline;
+  }
+  qc-ariane ol a:visited {
+    color: var(--blue-dark);
+  }
+  qc-ariane ol li {
+    padding: 0;
+    display: inline;
+  }
+  qc-ariane ol li {
+    color: var(--blue-dark);
+    font-weight: 600;
+  }
+  qc-ariane ol li:after {
+    content: "";
+    display: inline-block;
+    background-image: url("./chevron-fil.svg");
+    width: 4px;
+    height: 7px;
+    background-size: cover;
+    top: -1px;
+    left: 7px;
+    position: relative;
+    border: 0;
+    transform: none;
+    margin-right: 0.8rem;
+  }
+  qc-ariane ol li:last-child:after {
+    display: none;
+  }

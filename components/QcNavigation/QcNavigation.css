@@ -49,7 +49,7 @@ qc-navigation {
 
                 &:hover,
                 &:focus,
-                &[aria-current="page"] {
+                &[aria-current] {
                     color: white;
                     border-bottom: 4px solid rgba(255, 255, 255, 0.5);
                 }

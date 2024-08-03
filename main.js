@@ -21,3 +21,5 @@ import { QcSocial } from './components/QcSocial/QcSocial.js'
 import { QcAccordeon } from './components/QcAccordeon/QcAccordeon.js'
 
 import { QcNavigation } from './components/QcNavigation/QcNavigation.js'
+
+import { QcAriane } from './components/QcAriane/QcAriane.js'
