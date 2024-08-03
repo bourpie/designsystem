@@ -29,6 +29,13 @@ class QcNavigation extends HTMLElement {
                 this.closeAllSubmenus();
             }
         });
+
+        // Ajouter un écouteur d'événement pour fermer le sous-menu avec la touche Esc
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                this.closeAllSubmenus();
+            }
+        });
     }
 
     toggleSubmenu(button) {
@@ -56,8 +63,8 @@ class QcNavigation extends HTMLElement {
     }
 
     closeAllSubmenus() {
-        const submenus = this.querySelectorAll('ul');
-        const toggleButtons = this.querySelectorAll('button');
+        const submenus = this.querySelectorAll('ul.show');
+        const toggleButtons = this.querySelectorAll('button[aria-expanded="true"]');
         submenus.forEach(submenu => submenu.classList.remove('show'));
         toggleButtons.forEach(button => {
             button.setAttribute('aria-expanded', 'false');
@@ -142,4 +149,3 @@ class QcNavigation extends HTMLElement {
 customElements.get('qc-navigation') || customElements.define('qc-navigation', QcNavigation);
 
 export { QcNavigation };
-
