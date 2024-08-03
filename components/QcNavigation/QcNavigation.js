@@ -25,7 +25,10 @@ class QcNavigation extends HTMLElement {
         // Ajouter un écouteur d'événement global pour fermer les sous-menus lorsqu'on clique à l'extérieur
         document.addEventListener('click', (event) => {
             const isClickInside = this.contains(event.target) || event.target.closest('qc-navigation');
-            if (!isClickInside) {
+            const isClickOnInteractiveElement = event.target.closest('button, a');
+            
+            // Fermer les sous-menus si le clic est à l'intérieur du composant mais pas sur un élément interactif
+            if (!isClickInside || (isClickInside && !isClickOnInteractiveElement)) {
                 this.closeAllSubmenus();
             }
         });
