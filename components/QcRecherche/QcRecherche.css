@@ -1,70 +1,61 @@
-qc-recherche {
-    .container {
-      display: flex;
-      flex-direction: row;
-  
-      .input-container {
-        position: relative;
-        flex: 1;
-  
-        input {
-          font-size: var(--qc-font-size-100);
-          line-height: var(--qc-line-height-100);
-          padding: 0.6rem 1.2rem 0.6rem 1.2rem;
-          margin: 1.5rem 0 1rem 0;
-          color: #495057;
-          background-color: var(--qc-color-white);
-          background-clip: padding-box;
-          border-top: 1px solid #000;
-          border-left: 1px solid #000;
-          border-bottom: 1px solid #000;
-          border-right: var(--qc-color-white);
-          width: 85%;
-          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-          vertical-align: middle;
-          height: 3.9rem;
-        }
-      }
-  
-      .clear-btn {
-        background-color: white;
-        border: none;
-        padding: 0;
-        font-size: 1.5rem;
-        position: absolute;
-        right: 3rem;
-        top: .25rem;
-        z-index: 7;
-        color: black;
-      }
-  
-        button.btn-search {
-          height: 100%;
-          width: 39px;
-          height: 42px;
-          background-color: var(--blue-piv);
-          fill: white;
-          border: none;
-  
-          svg {
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-  
-        }
-    }
-  }
+qc-recherche .container {
+  display: flex;
+  flex-direction: row;
+}
 
-  qc-recherche[variant="dark"] {
-    .container {
-  
-      .form-control {
-        border-right: 1px solid transparent
-      }
-      button.btn-search {
-        background-color: white;
-        fill: black;
-      }
-    }
-  
-  }
+qc-recherche .input-container {
+  position: relative;
+  flex: 1;
+}
+
+qc-recherche .input-container input {
+  font-size: var(--qc-font-size-100);
+  line-height: var(--qc-line-height-100);
+  padding: 0.6rem 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+  color: #495057;
+  background-color: var(--qc-color-white);
+  background-clip: padding-box;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: var(--qc-color-white);
+  width: 85%;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  vertical-align: middle;
+  height: 3.9rem;
+}
+
+qc-recherche .clear-btn {
+  background-color: white;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 3rem;
+  top: 0.25rem;
+  z-index: 7;
+  color: black;
+}
+
+qc-recherche button.btn-search {
+  width: 39px;
+  height: 42px;
+  background-color: var(--blue-piv);
+  fill: white;
+  border: none;
+}
+
+qc-recherche button.btn-search svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+qc-recherche[variant="dark"] .container .form-control {
+  border-right: 1px solid transparent;
+}
+
+qc-recherche[variant="dark"] button.btn-search {
+  background-color: white;
+  fill: black;
+}

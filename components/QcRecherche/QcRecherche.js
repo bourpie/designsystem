@@ -5,7 +5,7 @@ import generateUUID from '../../helpers/generateUUID.js';
 
 class QcRecherche extends HTMLElement {
   static get observedAttributes() {
-    return ['placeholder', 'class', 'label', 'btnlabel', 'variant', 'action'];
+    return ['placeholder', 'class', 'label', 'btnlabel', 'variant', 'action', 'id', 'name', 'value'];
   }
 
   constructor() {
@@ -24,13 +24,20 @@ class QcRecherche extends HTMLElement {
     return `
       <form method="get" action="${this.action}" class="container">
         <div class="input-group">
-          <label for="${this.uuid}" class="visually-hidden">${this.label}</label>
-          <input id="${this.uuid}" type="text" placeholder="${this.placeholder}" class="form-control search-input" />
+          <label for="${this.inputId}" class="visually-hidden">${this.label}</label>
+          <input 
+            id="${this.inputId}" 
+            name="${this.inputName}"
+            type="text" 
+            placeholder="${this.placeholder}" 
+            class="form-control search-input" 
+            value="${this.inputValue}" 
+          />
           <button type="button" aria-label="Effacer" class="clear-btn"><span class="lnr lnr-cross"></span></button>
           <span class="input-group-btn">
-              <button aria-label="${this.btnlabel}" class="btn-search">
+            <button aria-label="${this.btnlabel}" class="btn-search">
               ${this.variant === 'dark' ? `<img src="${loupePivDark}" alt="Rechercher" width="24" height="24" />` : `<img src="${loupePivLight}" alt="Rechercher" width="24" height="24" />`}
-              </button>
+            </button>
           </span> 
         </div>
       </form>
@@ -57,13 +64,26 @@ class QcRecherche extends HTMLElement {
     return this.getAttribute('action') || '/';
   }
 
+  get inputId() {
+    return this.getAttribute('id') || this.uuid;
+  }
+
+  get inputName() {
+    return this.getAttribute('name') || '';
+  }
+
+  get inputValue() {
+    return this.getAttribute('value') || '';
+  }
+
   connectedCallback() {
     this.querySelector('.clear-btn').addEventListener('click', this.clearInput.bind(this));
   }
 
   clearInput() {
-    this.querySelector('input').value = '';
-    this.querySelector('.search-input').focus();
+    const input = this.querySelector('input');
+    input.value = '';
+    input.focus();
   }
 
   render() {

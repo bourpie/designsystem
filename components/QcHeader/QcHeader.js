@@ -6,7 +6,7 @@ import "./QcHeader.css";
 
 class QcHeader extends HTMLElement {
     static get observedAttributes() {
-        return ['titre', 'class', 'btnlabel', 'contacturl', 'contactlabel', 'recherche', 'langueurl', 'languelabel', 'action'];
+        return ['titre', 'class', 'btnlabel', 'contacturl', 'contactlabel', 'recherche', 'langueurl', 'languelabel', 'action', 'name', 'query'];
     }
 
     constructor() {
@@ -40,7 +40,7 @@ class QcHeader extends HTMLElement {
                         </ul>
                     </nav>
                 </div>
-                ${this.recherche === 'oui' ? `<qc-recherche variant="dark" action="${this.action}"></qc-recherche>` : ''}
+                ${this.recherche === 'oui' ? `<qc-recherche variant="dark" action="${this.action}" name="${this.name}" value="${this.query}"></qc-recherche>` : ''}
             </header>
         `;
     }
@@ -81,6 +81,14 @@ class QcHeader extends HTMLElement {
         return this.getAttribute('action') || '/';
     }
 
+    get name() {
+        return this.getAttribute('name') || 'search';
+    }
+
+    get query() {
+        return this.getAttribute('query') || '';
+    }
+
     render() {
         this.innerHTML = this.template;
 
@@ -96,7 +104,9 @@ class QcHeader extends HTMLElement {
         if (this.recherche === 'oui') {
             const qcRecherche = this.querySelector('qc-recherche');
             if (qcRecherche) {
-                qcRecherche.setAttribute('action', this.action); 
+                qcRecherche.setAttribute('action', this.action);
+                qcRecherche.setAttribute('name', this.name);
+                qcRecherche.setAttribute('value', this.query);
                 const input = qcRecherche.querySelector('input');
                 if (input) {
                     input.focus();
@@ -108,7 +118,9 @@ class QcHeader extends HTMLElement {
     updateSearchAction() {
         const qcRecherche = this.querySelector('qc-recherche');
         if (qcRecherche) {
-            qcRecherche.setAttribute('action', this.action); 
+            qcRecherche.setAttribute('action', this.action);
+            qcRecherche.setAttribute('name', this.name);
+            qcRecherche.setAttribute('value', this.query);
         }
     }
 }

@@ -25,6 +25,14 @@ export default {
         action: {
             control: "text",
             description: "URL de destination de la recherche.",
+        },
+        name: {
+            control: "text",
+            description: "Nom de l'input pour la recherche.",
+        },
+        value: {
+            control: "text",
+            description: "Valeur initiale du champ de recherche.",
         }
     },
     render: ({ ...args }) => {
@@ -35,32 +43,37 @@ export default {
             ${args.variant ? `variant="${args.variant}"` : ''}
             ${args.btnlabel ? `btnlabel="${args.btnlabel}"` : ''}
             ${args.action ? `action="${args.action}"` : ''}
+            ${args.name ? `name="${args.name}"` : ''}
+            ${args.value ? `value="${args.value}"` : ''}
           >
           </qc-recherche>`;
       },
-    };
-
-    export const Default = {
-        args: {
-            placeholder: "Rechercher dans ce site",
-            label: "Rechercher",
-        },
 };
 
-    export const Header = {
-        args: {
-            placeholder: "Rechercher un produit",
-            btnlabel: "Rechercher",
-            variant: "dark",
-        },
-        decorators: [
-            (Story) => `
-                <div class="bg-bleu-piv p-4">
-                    ${Story()}
-                </div>
-            `,
-        ]
-    };
+export const Default = {
+    args: {
+        placeholder: "Rechercher dans ce site",
+        label: "Rechercher",
+        name: "search",
+        value: "",
+    },
+};
 
-    Header.storyName = "Recherche dans le header";
-    
+export const Header = {
+    args: {
+        placeholder: "Rechercher un produit",
+        btnlabel: "Rechercher",
+        variant: "dark",
+        name: "header-search",
+        value: "Initial value",
+    },
+    decorators: [
+        (Story) => `
+            <div class="bg-bleu-piv p-4">
+                ${Story()}
+            </div>
+        `,
+    ]
+};
+
+Header.storyName = "Recherche dans le header";
