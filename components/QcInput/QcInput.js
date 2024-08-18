@@ -137,16 +137,15 @@ class QcInput extends HTMLElement {
         const inputField = event.target;
         const maxlengthInfoElement = this.querySelector('.maxlength-info');
         if (maxlengthInfoElement && this.maxlength && this.currentSize === 'multi') {
-            maxlengthInfoElement.textContent = `${this.maxlengthInfo} ${this.maxlength - inputField.value.length}`;
+          maxlengthInfoElement.textContent = `${this.maxlengthInfo} ${this.maxlength - inputField.value.length}`;
         }
-    }
-
-    render() {
+      }
+    
+      render() {
         this.innerHTML = this.template;
         this.addEventListeners();  // Ensure event listeners are added after rendering
+      }
     }
-}
-
-customElements.get('qc-input') || customElements.define('qc-input', QcInput);
-
-export { QcInput };
+    
+    customElements.get('qc-input') || customElements.define('qc-input', QcInput);
+    export { QcInput };

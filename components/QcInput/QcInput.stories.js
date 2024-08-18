@@ -5,25 +5,64 @@ export default {
     component: QcInput,
     tags: ['autodocs'],
     argTypes: {
-        label: { control: 'text' },
-        type: { control: 'select', options: ['','text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'week'] },
-        size: { control: 'select', options: ['sm', 'md', 'lg', 'xl', 'multi'] },
-        value: { control: 'text' },
-        disabled: { control: 'boolean' },
-        required: { control: 'boolean' },
-        aide: { control: 'text' },
-        error: { control: 'boolean' },
-        errorMsg: { control: 'text' },
-        placeholder: { control: 'text' },
-        maxlength: { control: 'number' },
-        maxlengthInfo: { control: 'text' },
-    },
+        label: { 
+          control: 'text', 
+          description: 'Le texte de l\'étiquette pour le champ de saisie.' 
+        },
+        type: { 
+          control: 'select', 
+          options: ['', 'text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'week'],
+          description: 'Le type de champ de saisie.' 
+        },
+        size: { 
+          control: 'select', 
+          options: ['sm', 'md', 'lg', 'xl', 'multi'],
+          description: 'La taille du champ de saisie.' 
+        },
+        value: { 
+          control: 'text', 
+          description: 'La valeur actuelle du champ de saisie.' 
+        },
+        disabled: { 
+          control: 'boolean', 
+          description: 'Désactive le champ de saisie si vrai.' 
+        },
+        required: { 
+          control: 'boolean', 
+          description: 'Rend le champ de saisie obligatoire si vrai.' 
+        },
+        aide: { 
+          control: 'text', 
+          description: 'Texte d\'aide affiché sous le champ de saisie.' 
+        },
+        error: { 
+          control: 'boolean', 
+          description: 'Affiche un état d\'erreur si vrai.' 
+        },
+        errorMsg: { 
+          control: 'text', 
+          description: 'Le message d\'erreur à afficher en cas d\'erreur.' 
+        },
+        placeholder: { 
+          control: 'text', 
+          description: 'Le texte d\'espace réservé à afficher dans le champ de saisie.' 
+        },
+        maxlength: { 
+          control: 'number', 
+          description: 'La longueur maximale autorisée pour le champ de saisie.' 
+        },
+        maxlengthInfo: { 
+          control: 'text', 
+          description: 'Texte d\'information à utiliser avec le champ de taille multi pour indiquer la longueur maximale du champ de saisie.' 
+        },
+    }, 
     render({...args}) {
         const qcInputTemplate = `
             <qc-input
                 ${args.label ? `label="${args.label}"` : ''} 
                 ${args.size ? `size="${args.size}"` : ''} 
                 ${args.type ? `type="${args.type}"` : ''}
+                ${args.value ? `name="${args.name}"` : ''}
                 ${args.value ? `value="${args.value}"` : ''}
                 ${args.disabled ? `disabled` : ''}
                 ${args.required ? `required` : ''}
