@@ -20,28 +20,52 @@ class QcRecherche extends HTMLElement {
     }
   }
 
+  connectedCallback() {
+    const clearBtn = this.querySelector('.clear-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', this.clearInput.bind(this));
+    }
+  }
+
+  clearInput() {
+    const input = this.querySelector('input');
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  render() {
+    this.innerHTML = this.template;
+  }
+
   get template() {
     return `
       <form method="get" action="${this.action}" class="container">
         <div class="input-group">
           <label for="${this.inputId}" class="visually-hidden">${this.label}</label>
-          <input 
-            id="${this.inputId}" 
+          <input
+            id="${this.inputId}"
             name="${this.inputName}"
-            type="text" 
-            placeholder="${this.placeholder}" 
-            class="form-control search-input" 
-            value="${this.inputValue}" 
+            type="text"
+            placeholder="${this.placeholder}"
+            class="form-control search-input"
+            value="${this.inputValue}"
           />
           <button type="button" aria-label="Effacer" class="clear-btn"><span class="lnr lnr-cross"></span></button>
           <span class="input-group-btn">
             <button aria-label="${this.btnlabel}" class="btn-search">
-              ${this.variant === 'dark' ? `<img src="${loupePivDark}" alt="Rechercher" width="24" height="24" />` : `<img src="${loupePivLight}" alt="Rechercher" width="24" height="24" />`}
+              ${this.generateSearchIcon()}
             </button>
-          </span> 
+          </span>
         </div>
       </form>
     `;
+  }
+
+  generateSearchIcon() {
+    const iconSrc = this.variant === 'dark' ? loupePivDark : loupePivLight;
+    return `<img src="${iconSrc}" alt="Rechercher" width="24" height="24" />`;
   }
 
   get placeholder() {
@@ -75,22 +99,6 @@ class QcRecherche extends HTMLElement {
   get inputValue() {
     return this.getAttribute('value') || '';
   }
-
-  connectedCallback() {
-    this.querySelector('.clear-btn').addEventListener('click', this.clearInput.bind(this));
-  }
-
-  clearInput() {
-    const input = this.querySelector('input');
-    input.value = '';
-    input.focus();
-  }
-
-  render() {
-    this.innerHTML = this.template;
-  }
 }
-
 customElements.get('qc-recherche') || customElements.define('qc-recherche', QcRecherche);
-
 export { QcRecherche };
