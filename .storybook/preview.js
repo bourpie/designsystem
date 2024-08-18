@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
@@ -8,38 +8,48 @@ const preview = {
         includeNames: true,
         order: [
           'Introduction',
-          'Bases', 
+          'Bases',
           'Composants',
           [
             '*',
-            'QcBouton', 
+            'QcBouton',
             [
-              'Docs', 
-              '*'
-            ], 
-            'QcAccordeon', 
-            [
-              'Docs', 
+              'Docs',
               '*'
             ],
-            'QcTdm', 
+            'QcAccordeon',
             [
-              'Docs', 
+              'Docs',
+              '*'
+            ],
+            'QcTdm',
+            [
+              'Docs',
               '*'
             ],
             'QcNavigation',
             [
               'Docs',
               '*'
+            ],
+            'QcRecherche',
+            [
+              'Docs',
+              '*'
             ]
-          ], 
-          'Formulaires', 
+          ],
+          'Formulaires',
           'Modèles',
           [
             '*',
-            'QcFooter', 
+            'QcHeader',
             [
-              'Docs', 
+              'Docs',
+              '*'
+            ],
+            'QcFooter',
+            [
+              'Docs',
               '*'
             ]
           ],
@@ -57,4 +67,3 @@ const preview = {
 };
 
 export default preview;
-

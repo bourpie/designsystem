@@ -2,7 +2,6 @@ import { QcRecherche } from "./QcRecherche";
 
 export default {
   title: "Composants/QcRecherche",
-  tags: ['autodocs'],
   component: QcRecherche,
   argTypes: {
     placeholder: {

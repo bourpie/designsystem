@@ -1,0 +1,32 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as HeaderStories from "./QcHeader.stories";
+
+<Meta of={HeaderStories} />
+
+# QcHeader
+
+Le composant `<qc-header>` est un en-tête personnalisable, conçu pour être utilisé dans différentes parties de votre application, comme le haut de la page principale ou des sections spécifiques.
+
+## Exemples d'utilisation
+
+<Story of={HeaderStories.Default} />
+
+```jsx
+<qc-header
+  titre="Mon site"
+  btnlabel="Rechercher"
+  contacturl="/contact"
+  contactlabel="Nous joindre"
+  recherche="oui"
+  langueurl="/en"
+  languelabel="English"
+  action="/search"
+  name="search"
+  query=""
+>
+</qc-header>
+````
+
+## Propriétés
+
+<Controls />

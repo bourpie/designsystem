@@ -1,0 +1,31 @@
+import { Meta, Primary, Controls, Story, Source, Title } from "@storybook/blocks";
+import * as SearchStories from "./QcRecherche.stories";
+
+<Meta of={SearchStories} />
+
+# QcRecherche
+
+Le composant `<qc-recherche>` est un champ de recherche personnalisable, conçu pour être utilisé dans différentes parties de votre application, comme le header ou la page principale.
+
+## Exemples d'utilisation
+
+<Story of={SearchStories.Header} />
+
+```jsx
+
+<qc-recherche 
+  placeholder="Rechercher dans ce site" 
+  label="Rechercher" 
+  btnlabel="Rechercher" 
+  variant="dark" 
+  action="/search" 
+  name="search" 
+  value="" 
+>
+<qc-recherche>
+
+````
+
+## Propriétés
+
+<Controls />

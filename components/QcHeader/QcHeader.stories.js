@@ -2,7 +2,6 @@ import { QcHeader } from "./QcHeader";
 
 export default {
     title: "Modèles/QcHeader",
-    tags: ['autodocs'],
     component: QcHeader,
     argTypes: {
         titre: {
