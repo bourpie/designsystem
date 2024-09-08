@@ -77,8 +77,11 @@ class QcHeader extends HTMLElement {
         return this.getAttribute('languelabel') || 'English';
     }
 
+    // Modification ici pour gérer la langue dans l'action
     get action() {
-        return this.getAttribute('action') || '/';
+        const currentLang = document.documentElement.lang || 'fr'; // Obtention de la langue du document
+        const baseAction = this.getAttribute('action') || '/';
+        return `${baseAction}?lang=${currentLang}`; // Ajout de la langue à l'URL d'action
     }
 
     get name() {
@@ -104,7 +107,7 @@ class QcHeader extends HTMLElement {
         if (this.recherche === 'oui') {
             const qcRecherche = this.querySelector('qc-recherche');
             if (qcRecherche) {
-                qcRecherche.setAttribute('action', this.action);
+                qcRecherche.setAttribute('action', this.action); // Met à jour l'action avec la langue
                 qcRecherche.setAttribute('name', this.name);
                 qcRecherche.setAttribute('value', this.query);
                 const input = qcRecherche.querySelector('input');
@@ -118,7 +121,7 @@ class QcHeader extends HTMLElement {
     updateSearchAction() {
         const qcRecherche = this.querySelector('qc-recherche');
         if (qcRecherche) {
-            qcRecherche.setAttribute('action', this.action);
+            qcRecherche.setAttribute('action', this.action); // Met à jour l'action avec la langue
             qcRecherche.setAttribute('name', this.name);
             qcRecherche.setAttribute('value', this.query);
         }

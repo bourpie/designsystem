@@ -54,7 +54,7 @@ class QcRecherche extends HTMLElement {
           />
           <button type="button" aria-label="Effacer" class="clear-btn"><span class="lnr lnr-cross"></span></button>
           <span class="input-group-btn">
-            <button aria-label="${this.btnlabel}" class="btn-search">
+            <button type="submit" aria-label="${this.btnlabel}" class="btn-search">
               ${this.generateSearchIcon()}
             </button>
           </span>
@@ -85,7 +85,9 @@ class QcRecherche extends HTMLElement {
   }
 
   get action() {
-    return this.getAttribute('action') || '/';
+    const currentLang = document.documentElement.lang || 'fr'; // Obtention de la langue du document
+    const baseAction = this.getAttribute('action') || '/';
+    return `${baseAction}?lang=${currentLang}`; // Ajout de la langue à l'URL d'action
   }
 
   get inputId() {
@@ -93,12 +95,14 @@ class QcRecherche extends HTMLElement {
   }
 
   get inputName() {
-    return this.getAttribute('name') || '';
+    return this.getAttribute('name') || 'query'; // Utilisation de 'query' comme nom par défaut
   }
 
   get inputValue() {
-    return this.getAttribute('value') || '';
+    const urlParams = new URLSearchParams(window.location.search);
+    return this.getAttribute('value') || urlParams.get('query') || ''; // Récupération de la valeur à partir de l'URL
   }
 }
+
 customElements.get('qc-recherche') || customElements.define('qc-recherche', QcRecherche);
 export { QcRecherche };
