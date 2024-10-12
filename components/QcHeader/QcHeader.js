@@ -6,7 +6,7 @@ import "./QcHeader.css";
 
 class QcHeader extends HTMLElement {
     static get observedAttributes() {
-        return ['titre', 'class', 'btnlabel', 'contacturl', 'contactlabel', 'recherche', 'langueurl', 'languelabel', 'action', 'name', 'query'];
+        return ['titre', 'class', 'btnlabel', 'contacturl', 'contactlabel', 'recherche', 'langueurl', 'languelabel', 'action', 'name', 'query', 'placeholder'];
     }
 
     constructor() {
@@ -40,7 +40,7 @@ class QcHeader extends HTMLElement {
                         </ul>
                     </nav>
                 </div>
-                ${this.recherche === 'oui' ? `<qc-recherche variant="dark" action="${this.action}" name="${this.name}" value="${this.query}"></qc-recherche>` : ''}
+                ${this.recherche === 'oui' ? `<qc-recherche variant="dark" placeholder="${this.placeholder}" action="${this.action}" name="${this.name}" value="${this.query}"></qc-recherche>` : ''}
             </header>
         `;
     }
@@ -75,6 +75,10 @@ class QcHeader extends HTMLElement {
 
     get languelabel() {
         return this.getAttribute('languelabel') || 'English';
+    }
+
+    get placeholder() {
+        return this.getAttribute('placeholder');
     }
 
     // Modification ici pour gérer la langue dans l'action

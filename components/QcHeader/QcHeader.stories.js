@@ -31,6 +31,10 @@ export default {
         query: {
             control: "text",
             description: "Valeur initiale du champ de recherche.",
+        },
+        placeholder: {
+            control: "text",
+            description: "Placeholder du champ de recherche.",
         }
     },
     render: ({ ...args }) => {
@@ -44,6 +48,7 @@ export default {
             ${args.langueurl ? `langueurl="${args.langueurl}"` : ''}
             ${args.name ? `name="${args.name}"` : ''}
             ${args.query ? `query="${args.query}"` : ''}
+            ${args.placeholder ? `query="${args.placeholder}"` : ''}
           >
           </qc-header>`;
       },
