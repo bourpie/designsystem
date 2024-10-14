@@ -1,1 +1,1 @@
-export { QcTag } from './QcTag.js';
+export { QcTag } from './QcTag.js'

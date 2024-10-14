@@ -1,1 +1,0 @@
-export { QcEtiquette } from './QcEtiquette.js'

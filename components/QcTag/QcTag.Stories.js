@@ -5,25 +5,25 @@ export default {
   tags: ['autodocs'],
   component: QcTag,
   argTypes: {
-    tag: {
+    label: {
       control: 'text',
-      description: 'Nom du tag',
+    },
+    href: {
+      control: 'text',
     },
   },
-  render: ({ tag, ...args }) => {
+  render({label,href,...args}) {
     return `
-      <qc-tag tag="${tag}"${args.tag ? ` size="${args.tag}"` : ''}></qc-tag>    
+      <qc-tag label="${label}" href="${href}"></qc-tag>    
       `;
   },
 };
 
-export const Primaire = {
+export const Default = {
   args: {
-    tag: 'Mon étiquette',
+      label: 'Étiquette',
+      href: 'https://www.google.fr',
   }
-};
+}
 
-Primaire.storyName = 'Bouton principal';
-
-
-
+Default.storyName = 'Étiquette';

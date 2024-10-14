@@ -24,6 +24,4 @@ import { QcNavigation } from './components/QcNavigation/QcNavigation.js'
 
 import { QcAriane } from './components/QcAriane/QcAriane.js'
 
-import { QcEtiquette } from './components/QcEtiquette/QcEtiquette.js'
-
 import { QcTag } from './components/QcTag/QcTag.js'
