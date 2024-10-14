@@ -36,6 +36,12 @@ const preview = {
             [
               'Docs',
               '*'
+            ],
+            // Ajout de QcTag ici
+            'QcTag',
+            [
+              'Docs',
+              '*'
             ]
           ],
           'Formulaires',

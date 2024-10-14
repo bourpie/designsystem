@@ -1,0 +1,60 @@
+import { Meta, Primary, Controls, Source, Title } from "@storybook/blocks";
+import * as TagStories from "./QcTag.stories";
+
+<Meta of={TagStories} />
+
+# Composant QcTag
+
+Le composant `<qc-tag>` est conçu pour afficher soit un lien cliquable, soit une case à cocher. Il permet d'ajouter un tag stylisé dans vos applications web tout en respectant les normes d'accessibilité. 
+
+<Primary />
+<Controls />
+
+## Usage
+
+Le composant `QcTag` est flexible et peut être utilisé comme un lien ou une case à cocher, en fonction de la valeur de l'attribut `type`.
+
+- **Type `link`** : Le composant agit comme un lien classique, redirigeant l'utilisateur vers une URL définie.
+- **Type `checkbox`** : Le composant devient une case à cocher interactive.
+
+Voici un exemple de code pour l'utiliser comme un lien ou une case à cocher :
+
+<Source code={`<qc-tag label="Visiter Google" href="https://www.google.com" type="link"></qc-tag>
+
+<qc-tag label="Accepter les conditions" type="checkbox"></qc-tag>`} />
+
+## Fonctionnalités
+
+### 1. Utilisation en tant que lien
+
+Lorsque `type="link"`, le composant affiche un lien `<a>` cliquable avec le texte défini par la propriété `label`. Le lien redirige vers l'URL spécifiée par l'attribut `href`.
+
+### 2. Utilisation en tant que case à cocher
+
+Lorsque `type="checkbox"`, le composant se transforme en une case à cocher avec un label. L'utilisateur peut cocher ou décocher la case, soit par un clic, soit en utilisant les touches **Espace** ou **Entrée** pour une interaction clavier.
+
+- Le composant gère automatiquement l'état `aria-checked` pour indiquer si la case est cochée ou non.
+- La case à cocher est cachée, mais l'état est visible via le style du label.
+
+### 3. Accessibilité
+
+Le composant est conforme aux normes d'accessibilité :
+- Les rôles ARIA appropriés sont ajoutés, tels que `role="checkbox"` et `aria-checked`, pour indiquer l'état de la case à cocher.
+- La navigation au clavier est prise en charge, permettant aux utilisateurs de naviguer via **Tab** et d'activer la case à cocher avec **Espace** ou **Entrée**.
+- Un contour visible (focus) est appliqué lorsqu'on navigue au clavier.
+
+## Exemple d'utilisation
+
+### 1. Lien cliquable
+
+Le composant peut être utilisé pour afficher un lien cliquable comme ceci :
+
+<Source code={`<qc-tag label="Visiter Google" href="https://www.google.com" type="link"></qc-tag>`} />
+
+### 2. Case à cocher interactive
+
+Le composant peut être utilisé comme une case à cocher interactive, voici un exemple :
+
+<Source code={`<qc-tag label="Accepter les conditions" type="checkbox" checked="true"></qc-tag>`} />
+
+Dans cet exemple, la case à cocher est pré-cochée. L'utilisateur peut la décocher en cliquant dessus ou en appuyant sur **Espace** ou **Entrée**.

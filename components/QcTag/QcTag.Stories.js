@@ -2,7 +2,6 @@ import { QcTag } from './QcTag';
 
 export default {
   title: 'Composants/QcTag',
-  tags: ['autodocs'],
   component: QcTag,
   argTypes: {
     label: {
@@ -14,7 +13,7 @@ export default {
     },
     type: {
       control: {
-        type: 'radio',
+        type: 'select',
         options: ['link', 'checkbox'],
       },
     },
