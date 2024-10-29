@@ -3,6 +3,7 @@ import { QcTag } from './QcTag';
 export default {
   title: 'Composants/QcTag',
   component: QcTag,
+  tags: ['autodocs'],
   argTypes: {
     label: {
       control: 'text',
@@ -11,12 +12,12 @@ export default {
       control: 'text',
       if: { arg: 'type', eq: 'link' },  // Le href n'est pertinent que pour les liens
     },
-    type: {
-      control: {
-        type: 'select',
-        options: ['link', 'checkbox'],
-      },
+    type: { 
+      control: 'select', 
+      options: ['link', 'checkbox'],
+      description: 'Le type de champ de saisie.' 
     },
+
   },
   render({label, href, type}) {
     // On s'assure que l'attribut href n'est pas ajouté pour les checkboxes
