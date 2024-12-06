@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="QcControls" constructor="qcbouton" version="0.0.1" display-name-key="QcBouton" description-key="Composant QcBouton" control-type="standard">
+    <property name="label" display-name-key="Label" description-key="Texte du bouton" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="type" display-name-key="Type" description-key="Type de bouton" of-type="Enum" usage="bound" required="false">
+      <value name="principal" display-name-key="Principal">principal</value>
+      <value name="secondaire" display-name-key="Secondaire">secondaire</value>
+      <value name="tertiaire" display-name-key="Tertiaire">tertiaire</value>
+      <value name="avertissement" display-name-key="Avertissement">avertissement</value>
+      <value name="session" display-name-key="Session">session</value>
+    </property>
+    <property name="icon" display-name-key="Icon" description-key="Classe de l'icône" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="iconPosition" display-name-key="IconPosition" description-key="Position de l'icône" of-type="Enum" usage="bound" required="false">
+      <value name="left" display-name-key="Gauche">left</value>
+      <value name="right" display-name-key="Droite">right</value>
+    </property>
+    <property name="href" display-name-key="Href" description-key="Lien URL" of-type="SingleLine.Text" usage="bound" required="false" />
+    <property name="onClick" display-name-key="OnClick" description-key="Événement au clic" of-type="SingleLine.Text" usage="bound" required="false" />
+    
+<resources>
+  <code path="index.ts" order="1"/>
+  <css path="../../components/QcBouton/QcBouton.css" order="1" />
+</resources>
+  </control>
+</manifest>
