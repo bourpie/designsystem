@@ -1,8 +1,6 @@
-import './QcBouton.css';
-
 class QcBouton extends HTMLElement {
   static get observedAttributes() {
-    return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position'];
+    return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position', 'btn-action'];
   }
 
   constructor() {
@@ -17,18 +15,19 @@ class QcBouton extends HTMLElement {
   }
 
   get template() {
-    const buttonClass = this.className ? this.className + ' ' + this.currenttype : this.currenttype + ' ' + this.currentDisplay;
+    const buttonClass = this.className ? this.className + ' ' + this.currenttype : this.currenttype + ' ' + this.currentDisplay + ' ' + this.currentSize;
+
     return `
       ${this.href ? 
         `<a href="${this.href}" class="${buttonClass}">
-          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
+          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon} left"></span>` : ''}
           <span class="btn-texte">${this.label}</span>
-          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
+          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon} right"></span>` : ''}
         </a>` : 
-        `<button class="${buttonClass}">
-          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon}"></span>` : ''}
+        `<button ${this.currentAction ? ` type="${this.currentAction}"` : ''} class="${buttonClass}">
+          ${this.icon && this.iconPosition === 'left' ? `<span class="lnr ${this.icon} left"></span>` : ''}
           <span class="btn-texte">${this.label}</span>
-          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon}"></span>` : ''}
+          ${this.icon && this.iconPosition === 'right' ? `<span class="lnr ${this.icon} right"></span>` : ''}
         </button>`
       }
     `;
@@ -66,11 +65,16 @@ class QcBouton extends HTMLElement {
     return this.getAttribute('href');
   }
 
+  get currentAction() {
+    const action = this.getAttribute('btn-action');
+    // Si l'attribut 'btn-action' est défini et sa valeur est 'submit', on retourne null
+    return action === 'submit' ? null : action;  // Retourne null si 'btn-action' est 'submit', sinon la valeur de 'btn-action'
+  }
+  
   render() {
     this.innerHTML = this.template;
   }
 }
-
 
 customElements.get('qc-bouton') || customElements.define('qc-bouton', QcBouton);
 

@@ -201,11 +201,16 @@ export default {
       control: 'radio',
       options: ['left', 'right'],
       description: 'Position de l\'icône'
+    },
+    btnAction: {
+      control: 'radio',
+      options: ['button'],
+      description: 'Type bouton (par défaut: "button")'
     }
   },
-  render: ({ label, ...args }) => {
+  render: ({ label, btnAction, ...args }) => {
     return `
-      <qc-bouton label="${label}"${args.size ? ` size="${args.size}"` : ''}${args.href ? ` href="${args.href}"` : ''}${args.type ? ` type="${args.type}"` : ''}${args.display ? ` display="${args.display}"` : ''}${args.icon ? ` icon="${args.icon}"` : ''}${args.iconPosition ? ` icon-position="${args.iconPosition}"` : ''}></qc-bouton>    
+      <qc-bouton label="${label}"${args.size ? ` size="${args.size}"` : ''}${args.href ? ` href="${args.href}"` : ''}${args.type ? ` type="${args.type}"` : ''}${args.display ? ` display="${args.display}"` : ''}${args.icon ? ` icon="${args.icon}"` : ''}${args.iconPosition ? ` icon-position="${args.iconPosition}"` : ''}${btnAction ? ` btn-action="${btnAction}"` : ''}></qc-bouton>    
       `;
   },
 };
@@ -286,6 +291,3 @@ export const Session = {
 };
 
 Session.storyName = 'Bouton de session';
-
-
-
