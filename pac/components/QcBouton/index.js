@@ -1,1 +1,0 @@
-export { QcBouton } from './QcBouton.js'
