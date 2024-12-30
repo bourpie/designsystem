@@ -6,6 +6,16 @@ sharedStyles.replaceSync(`
     :host {
         display: block;
         position: relative;
+        --input-border-color: #6b778a;
+        --input-focus-outline: #4a98d9;
+        --input-focus-border: #5b6476;
+        --input-error-border: #cb381f;
+        --input-disabled-bg: #f2f2f2;
+        --input-disabled-color: #6b778a;
+        --input-aide-color: #223654;
+        --error-message-color: #cb381f;
+        --required-indicator-color: #cb381f;
+        --required-indicator-valid-color: black;
     }
 
     label {
@@ -19,13 +29,13 @@ sharedStyles.replaceSync(`
         padding: 0.5rem;
         margin: 0.313rem 0;
         box-sizing: border-box;
-        border: 1px solid #6b778a;
+        border: 1px solid var(--input-border-color);
         height: 2.5rem;
     }
 
     .input:focus {
-        outline: 2px solid #4a98d9;
-        border: 2px solid #5b6476;
+        outline: 2px solid var(--input-focus-outline);
+        border: 2px solid var(--input-focus-border);
     }
 
     .input.input-sm {
@@ -56,12 +66,12 @@ sharedStyles.replaceSync(`
     }
 
     .input.input-error {
-        border-color: #cb381f;
+        border-color: var(--input-error-border);
     }
 
     .input-aide {
         font-size: 0.875rem;
-        color: #223654;
+        color: var(--input-aide-color);
     }
 
     .input-info-container {
@@ -78,20 +88,20 @@ sharedStyles.replaceSync(`
     }
 
     .error-message {
-        color: #cb381f;
+        color: var(--error-message-color);
     }
 
     .champ-requis {
-        color: #cb381f;
+        color: var(--required-indicator-color);
         font-size: 1rem;
         font-weight: bold;
         margin-left: 0.5rem;
     }
 
     [disabled] {
-        background-color: #f2f2f2;
-        border-color: #f2f2f2;
-        color: #6b778a;
+        background-color: var(--input-disabled-bg);
+        border-color: var(--input-disabled-bg);
+        color: var(--input-disabled-color);
     }
 
     :has([required]) label::after {
@@ -99,20 +109,20 @@ sharedStyles.replaceSync(`
         font-size: 1rem;
         font-weight: bold;
         margin-left: 0.5rem;
+        color: var(--required-indicator-color);
     }
 
     :has([required]:user-valid) label::after {
         content: '*';
-        color: black;
+        color: var(--required-indicator-valid-color);
     }
 
     :has([required]:user-invalid),
     .has-error label::after {
         content: '*';
-        color: #cb381f;
+        color: var(--required-indicator-color);
     }
 `);
-
 
 class QcInput extends HTMLElement {
   static get observedAttributes() {
@@ -122,8 +132,121 @@ class QcInput extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
-    shadow.adoptedStyleSheets = [sharedStyles]; // Utiliser la feuille de style partagée
+    shadow.adoptedStyleSheets = [sharedStyles];
+    this.defaultAttributes = {
+      label: 'Mon champ',
+      placeholder: '',
+      type: 'text',
+      size: 'md',
+      value: '',
+      aide: '',
+      errorMsg: '',
+      maxlength: '',
+      maxlengthInfo: '',
+    };
     this.render();
+  }
+
+  getAttributeOrDefault(attr) {
+    return this.getAttribute(attr) ?? this.defaultAttributes[attr] ?? null;
+  }
+
+  setAttributeIfValue(attr, value) {
+    if (value !== null && value !== undefined) {
+      this.setAttribute(attr, value);
+    } else {
+      this.removeAttribute(attr);
+    }
+  }
+
+  get label() {
+    return this.getAttributeOrDefault('label');
+  }
+  set label(value) {
+    this.setAttributeIfValue('label', value);
+  }
+
+  get placeholder() {
+    return this.getAttributeOrDefault('placeholder');
+  }
+  set placeholder(value) {
+    this.setAttributeIfValue('placeholder', value);
+  }
+
+  get type() {
+    return this.getAttributeOrDefault('type');
+  }
+  set type(value) {
+    this.setAttributeIfValue('type', value);
+  }
+
+  get size() {
+    const size = this.getAttributeOrDefault('size');
+    return ['sm', 'md', 'lg', 'xl', 'multi'].includes(size) ? size : 'md';
+  }
+  set size(value) {
+    this.setAttributeIfValue('size', value);
+  }
+
+  get value() {
+    return this.getAttributeOrDefault('value');
+  }
+  set value(value) {
+    this.setAttributeIfValue('value', value);
+  }
+
+  get disabled() {
+    return this.hasAttribute('disabled');
+  }
+  set disabled(value) {
+    this.setAttributeIfValue('disabled', value ? '' : null);
+  }
+
+  get required() {
+    return this.hasAttribute('required');
+  }
+  set required(value) {
+    this.setAttributeIfValue('required', value ? '' : null);
+  }
+
+  get aide() {
+    return this.getAttributeOrDefault('aide');
+  }
+  set aide(value) {
+    this.setAttributeIfValue('aide', value);
+  }
+
+  get errorMsg() {
+    return this.getAttributeOrDefault('errorMsg');
+  }
+  set errorMsg(value) {
+    this.setAttributeIfValue('errorMsg', value);
+  }
+
+  get error() {
+    return this.hasAttribute('error');
+  }
+  set error(value) {
+    this.setAttributeIfValue('error', value ? '' : null);
+  }
+
+  get maxlength() {
+    return this.currentSize === 'multi' ? (this.getAttributeOrDefault('maxlength') || 500) : this.getAttributeOrDefault('maxlength');
+  }
+  set maxlength(value) {
+    this.setAttributeIfValue('maxlength', value);
+  }
+
+  get maxlengthInfo() {
+    return this.getAttributeOrDefault('maxlength-info');
+  }
+  set maxlengthInfo(value) {
+    this.setAttributeIfValue('maxlength-info', value);
+  }
+
+  get currentSize() {
+    const size = this.getAttribute('size');
+    return ['sm', 'md', 'lg', 'xl', 'multi'].includes(size) ? size : 'md';
   }
 
   get template() {
@@ -165,75 +288,6 @@ class QcInput extends HTMLElement {
       ${this.required ? 'required' : ''}
       aria-describedby="${this.aide ? aideId : ''} ${this.error ? errorId : ''}"
     `;
-  }
-
-  get label() {
-    return this.getAttribute('label') || 'Mon champ';
-  }
-  
-  set label(value) {
-    if (value) {
-      this.setAttribute('label', value);
-    } else {
-      this.removeAttribute('label');
-    }
-  }
-  
-  get placeholder() {
-    return this.getAttribute('placeholder') || '';
-  }
-  
-  set placeholder(value) {
-    if (value) {
-      this.setAttribute('placeholder', value);
-    } else {
-      this.removeAttribute('placeholder');
-    }
-  }  
-
-  get type() {
-    return this.getAttribute('type') || 'text';
-  }
-
-  get size() {
-    return this.getAttribute('size') || 'md';
-  }
-
-  get value() {
-    return this.getAttribute('value') || '';
-  }
-
-  get disabled() {
-    return this.hasAttribute('disabled');
-  }
-
-  get required() {
-    return this.hasAttribute('required');
-  }
-
-  get aide() {
-    return this.getAttribute('aide') || '';
-  }
-
-  get currentSize() {
-    const size = this.getAttribute('size');
-    return ['sm', 'md', 'lg', 'xl', 'multi'].includes(size) ? size : 'md';
-  }
-
-  get errorMsg() {
-    return this.getAttribute('errorMsg') || '';
-  }
-
-  get error() {
-    return this.hasAttribute('error');
-  }
-
-  get maxlength() {
-    return this.currentSize === 'multi' ? (this.getAttribute('maxlength') || 500) : this.getAttribute('maxlength') || '';
-  }
-
-  get maxlengthInfo() {
-    return this.getAttribute('maxlength-info') || '';
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

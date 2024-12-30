@@ -1,3 +1,119 @@
+const sharedStyles = new CSSStyleSheet();
+sharedStyles.replaceSync(`
+  :host {
+    display: inline-block;
+
+    /* Default CSS Variables */
+    --blue-dark: #095797;
+    --hover-bg-color: #1472bf;
+    --font-family: 'Open Sans', 'Inter', sans-serif;
+  }
+
+  button, a {
+    font-family: var(--font-family, 'Open Sans', 'Inter', sans-serif);
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    box-sizing: border-box;
+    min-width: 112px;
+    padding: 14px 22px;
+    transition: all 0.24s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .compact {
+    font-size: 14px;
+    line-height: 20px;
+    min-width: 80px;
+    padding: 7px 15px;
+    border: 1px solid transparent;
+  }
+
+  /* Principal */
+  .principal {
+    color: #fff;
+    border-color: var(--blue-dark);
+    background-color: var(--blue-dark);
+    box-shadow: 0 1px 4px rgba(34, 54, 84, 0.24);
+  }
+
+  .principal:hover {
+    border-color: var(--hover-bg-color);
+    background-color: var(--hover-bg-color);
+  }
+
+  .principal:focus {
+    border-color: #223654;
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 2px 8px rgba(34, 54, 84, 0.24), 0 0 0 2px #4a98d9;
+  }
+
+  .principal:active {
+    border-color: #3783c9;
+    background-color: #3783c9;
+  }
+
+  /* Secondaire */
+  .secondaire {
+    color: var(--blue-dark);
+    background-color: #fff;
+    border-color: var(--blue-dark);
+  }
+
+  .secondaire:hover {
+    background-color: rgba(9, 87, 151, 0.16);
+  }
+
+  .secondaire:focus {
+    border-color: #223654;
+    background-color: rgba(9, 87, 151, 0.16);
+    box-shadow: 0 0 0 2px #4a98d9;
+  }
+
+  .secondaire:active {
+    background-color: rgba(9, 87, 151, 0.08);
+  }
+
+  /* Session */
+  .session {
+    color: white;
+    border-color: white;
+    background-color: var(--blue-dark);
+  }
+
+  .session:hover {
+    background-color: var(--hover-bg-color);
+  }
+
+  .session:focus {
+    background-color: var(--hover-bg-color);
+  }
+
+  /* Icones */
+  .icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  .icon.left {
+    margin-right: 8px;
+  }
+
+  .icon.right {
+    margin-left: 8px;
+  }
+`);
+
 class QcBouton extends HTMLElement {
   static get observedAttributes() {
     return ['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position', 'btn-action'];
@@ -6,6 +122,7 @@ class QcBouton extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' }); // Shadow DOM
+    this.shadowRoot.adoptedStyleSheets = [sharedStyles];
     this.render();
   }
 
@@ -13,6 +130,36 @@ class QcBouton extends HTMLElement {
     if (oldValue !== newValue) {
       this.render();
     }
+  }
+
+  static defineAttribute(name, defaultValue = null) {
+    Object.defineProperty(this.prototype, name, {
+      get() {
+        return this.getAttribute(name) || defaultValue;
+      },
+      set(value) {
+        if (value) {
+          this.setAttribute(name, value);
+        } else {
+          this.removeAttribute(name);
+        }
+      },
+    });
+  }
+
+  get currentType() {
+    const type = this.getAttribute('type');
+    return ['principal', 'secondaire', 'tertiaire', 'avertissement', 'session'].includes(type) ? type : 'principal';
+  }
+
+  get currentDisplay() {
+    const display = this.getAttribute('display');
+    return ['inline-block', 'block'].includes(display) ? display : 'inline-block';
+  }
+
+  get currentSize() {
+    const size = this.getAttribute('size');
+    return ['normal', 'compact'].includes(size) ? size : 'normal';
   }
 
   get template() {
@@ -35,215 +182,14 @@ class QcBouton extends HTMLElement {
     `;
   }
 
-  get styles() {
-    return `
-      :host {
-        display: inline-block;
-      }
-
-      button, a {
-        font-family: var(--font-family, 'Open Sans', 'Inter', sans-serif);
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 24px;
-        box-sizing: border-box;
-        min-width: 112px;
-        padding: 14px 22px;
-        transition: all 0.24s ease-in-out;
-        text-align: center;
-        vertical-align: middle;
-        text-decoration: none;
-        border: 2px solid transparent;
-        border-radius: 0;
-        cursor: pointer;
-      }
-
-      .block {
-        display: block;
-      }
-
-      .compact {
-        font-size: 14px;
-        line-height: 20px;
-        min-width: 80px;
-        padding: 7px 15px;
-        border: 1px solid transparent;
-      }
-
-      /* Principal */
-      .principal {
-        color: #fff;
-        border-color: #095797;
-        background-color: #095797;
-        box-shadow: 0 1px 4px rgba(34, 54, 84, 0.24);
-      }
-
-      .principal:hover {
-        border-color: #1472bf;
-        background-color: #1472bf;
-      }
-
-      .principal:focus {
-        border-color: #223654;
-        background-color: #1472bf;
-        box-shadow: 0 2px 8px rgba(34, 54, 84, 0.24), 0 0 0 2px #4a98d9;
-      }
-
-      .principal:active {
-        border-color: #3783c9;
-        background-color: #3783c9;
-      }
-
-      /* Secondaire */
-      .secondaire {
-        color: #095797;
-        background-color: #fff;
-        border-color: #095797;
-      }
-
-      .secondaire:hover {
-        background-color: rgba(9, 87, 151, 0.16);
-      }
-
-      .secondaire:focus {
-        border-color: #223654;
-        background-color: rgba(9, 87, 151, 0.16);
-        box-shadow: 0 0 0 2px #4a98d9;
-      }
-
-      .secondaire:active {
-        background-color: rgba(9, 87, 151, 0.08);
-      }
-
-      /* Tertiaire */
-      .tertiaire {
-        color: #095797;
-        background: white;
-      }
-
-      .tertiaire:hover {
-        text-decoration: underline;
-        background-color: rgb(197, 202, 210);
-      }
-
-      .tertiaire:focus {
-        border-color: #223654;
-        background-color: rgb(197, 202, 210);
-        box-shadow: 0 0 0 2px #4a98d9;
-      }
-
-      .tertiaire:active {
-        background-color: rgb(197, 202, 210);
-      }
-
-      /* Avertissement */
-      .avertissement {
-        color: #fff;
-        border-color: #cb381f;
-        background-color: #cb381f;
-      }
-
-      .avertissement:hover {
-        border-color: #b52e16;
-        background-color: #b52e16;
-      }
-
-      .avertissement:focus {
-        border-color: #223654;
-        background-color: #b52e16;
-        box-shadow: 0 0 0 2px #4a98d9;
-      }
-
-      .avertissement:active {
-        border-color: #eb705a;
-        background-color: #eb705a;
-      }
-
-      /* Session */
-      .session {
-        color: white;
-        border-color: white;
-        background-color: var(--blue-dark);
-      }
-
-      .session:hover {
-        background-color: var(--hover-bg-color);
-      }
-
-      .session:focus {
-        background-color: var(--hover-bg-color);
-      }
-
-      /* Icones */
-      .icon {
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-      }
-
-      .icon.left {
-        margin-right: 8px;
-      }
-
-      .icon.right {
-        margin-left: 8px;
-      }
-    `;
-  }
-
   render() {
-    this.shadowRoot.innerHTML = `
-      <style>${this.styles}</style>
-      ${this.template}
-    `;
-  }
-
-  // Getters et setters
-  get label() {
-    return this.getAttribute('label') || 'Bouton';
-  }
-
-  set label(value) {
-    if (value) {
-      this.setAttribute('label', value);
-    } else {
-      this.removeAttribute('label');
-    }
-  }
-
-  get currentType() {
-    const type = this.getAttribute('type');
-    return ['principal', 'secondaire', 'tertiaire', 'avertissement', 'session'].includes(type) ? type : 'principal';
-  }
-
-  get currentDisplay() {
-    const display = this.getAttribute('display');
-    return ['inline-block', 'block'].includes(display) ? display : 'inline-block';
-  }
-
-  get currentSize() {
-    const size = this.getAttribute('size');
-    return ['normal', 'compact'].includes(size) ? size : 'normal';
-  }
-
-  get icon() {
-    return this.getAttribute('icon');
-  }
-
-  get iconPosition() {
-    const position = this.getAttribute('icon-position');
-    return ['left', 'right'].includes(position) ? position : 'left';
-  }
-
-  get href() {
-    return this.getAttribute('href');
-  }
-
-  get currentAction() {
-    const action = this.getAttribute('btn-action');
-    return action === 'submit' ? null : action;
+    this.shadowRoot.innerHTML = `${this.template}`;
   }
 }
+
+['label', 'type', 'href', 'class', 'display', 'size', 'icon', 'icon-position', 'btn-action'].forEach(attr => {
+  QcBouton.defineAttribute(attr, attr === 'label' ? 'Bouton' : null);
+});
 
 customElements.define('qc-bouton', QcBouton);
 
