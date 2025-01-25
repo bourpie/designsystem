@@ -11,21 +11,22 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.1.0",
-    "@storybook/addon-essentials": "^8.4.7",
-    "@storybook/addon-interactions": "^8.4.7",
-    "@storybook/addon-links": "^8.4.7",
-    "@storybook/blocks": "^8.4.7",
-    "@storybook/html": "^8.4.7",
-    "@storybook/html-vite": "^8.4.7",
-    "@storybook/test": "^8.4.7",
-    "storybook": "^8.4.7",
+    "@chromatic-com/storybook": "^3.2.4",
+    "@storybook/addon-essentials": "^8.5.1",
+    "@storybook/addon-interactions": "^8.5.1",
+    "@storybook/addon-links": "^8.5.1",
+    "@storybook/addon-mdx-gfm": "^8.5.1",
+    "@storybook/blocks": "^8.5.1",
+    "@storybook/html": "^8.5.1",
+    "@storybook/html-vite": "^8.5.1",
+    "@storybook/test": "^8.5.1",
+    "storybook": "^8.5.1",
     "storybook-addon-pseudo-states": "^4.0.2",
     "vite": "^5.4.10",
     "vite-plugin-mkcert": "^1.17.5"
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-a11y": "^8.5.1",
     "bootstrap": "^5.3.3"
   }
 }

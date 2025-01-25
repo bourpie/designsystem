@@ -1,121 +1,140 @@
 import { QcInput } from "./QcInput.js";
 
 export default {
-    title: 'Formulaires/QcInput',
-    component: QcInput,
-    tags: ['autodocs'],
-    argTypes: {
-        label: { 
-          control: 'text', 
-          description: 'Le texte de l\'étiquette pour le champ de saisie.' 
-        },
-        type: { 
-          control: 'select', 
-          options: ['', 'text', 'email', 'password', 'number', 'tel', 'url', 'search', 'date', 'time', 'datetime-local', 'month', 'week'],
-          description: 'Le type de champ de saisie.' 
-        },
-        size: { 
-          control: 'select', 
-          options: ['sm', 'md', 'lg', 'xl', 'multi'],
-          description: 'La taille du champ de saisie.' 
-        },
-        value: { 
-          control: 'text', 
-          description: 'La valeur actuelle du champ de saisie.' 
-        },
-        disabled: { 
-          control: 'boolean', 
-          description: 'Désactive le champ de saisie si vrai.' 
-        },
-        required: { 
-          control: 'boolean', 
-          description: 'Rend le champ de saisie obligatoire si vrai.' 
-        },
-        aide: { 
-          control: 'text', 
-          description: 'Texte d\'aide affiché sous le champ de saisie.' 
-        },
-        error: { 
-          control: 'boolean', 
-          description: 'Affiche un état d\'erreur si vrai.' 
-        },
-        errorMsg: { 
-          control: 'text', 
-          description: 'Le message d\'erreur à afficher en cas d\'erreur.' 
-        },
-        placeholder: { 
-          control: 'text', 
-          description: 'Le texte d\'espace réservé à afficher dans le champ de saisie.' 
-        },
-        maxlength: { 
-          control: 'number', 
-          description: 'La longueur maximale autorisée pour le champ de saisie.' 
-        },
-        maxlengthInfo: { 
-          control: 'text', 
-          description: 'Texte d\'information à utiliser avec le champ de taille multi pour indiquer la longueur maximale du champ de saisie.' 
-        },
-    }, 
-    render({...args}) {
-        const qcInputTemplate = `
-            <qc-input
-                ${args.label ? `label="${args.label}"` : ''} 
-                ${args.size ? `size="${args.size}"` : ''} 
-                ${args.type ? `type="${args.type}"` : ''}
-                ${args.value ? `name="${args.name}"` : ''}
-                ${args.value ? `value="${args.value}"` : ''}
-                ${args.disabled ? `disabled` : ''}
-                ${args.required ? `required` : ''}
-                ${args.aide ? `aide="${args.aide}"` : ''}
-                ${args.error ? `error` : ''}
-                ${args.errorMsg ? `errorMsg="${args.errorMsg}"` : ''}
-                ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
-                ${args.maxlength ? `maxlength="${args.maxlength}"` : ''}
-                ${args.maxlengthInfo ? `maxlength-info="${args.maxlengthInfo}"` : ''}
-            ></qc-input>
-        `;
-        return qcInputTemplate.replace(/\s+/g, ' ').trim();
+  title: 'Formulaires/QcInput',
+  component: QcInput,
+  argTypes: {
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl', 'multi'],
+      description: 'Taille du champ',
     },
-}
+    required: {
+      control: 'boolean',
+      description: 'Champ obligatoire',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Champ désactivé',
+    },
+    error: {
+      control: 'boolean',
+      description: 'Afficher une erreur',
+    },
+    errorMsg: {
+      control: 'text',
+      description: 'Message d\'erreur',
+    },
+    aide: {
+      control: 'text',
+      description: 'Message d\'aide',
+    },
+    label: {
+      control: 'text',
+      description: 'Libellé du champ',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Texte indicatif',
+    },
+    value: {
+      control: 'text',
+      description: 'Valeur du champ',
+    },
+  },
+  render: ({ ...args }) => {
+    return `
+    <qc-input
+      ${args.size ? `size="${args.size}"` : ''}
+      ${args.required ? 'required' : ''}
+      ${args.disabled ? 'disabled' : ''}
+      ${args.error ? 'error="true"' : ''}
+      ${args.errorMsg ? `errorMsg="${args.errorMsg}"` : ''}
+      ${args.aide ? `aide="${args.aide}"` : ''}
+      ${args.label ? `label="${args.label}"` : ''}
+      ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
+      ${args.value ? `value="${args.value}"` : ''}>
+    </qc-input>`;
+  },
+};
 
-export const Default = {
-    args: {
-        label: 'Label',
-        placeholder: 'Placeholder',
-    }
-}
+export const ParDefaut = {
+  args: {
+    label: 'Champ par défaut',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-Default.storyName = 'Champ de type texte';
+export const Petit = {
+  args: {
+    label: 'Petit champ',
+    size: 'sm',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-export const Requis = {
-    args: {
-        label: 'Label',
-        placeholder: 'Placeholder',
-        required: true,
-    }
-}
+export const Moyen = {
+  args: {
+    label: 'Champ moyen',
+    size: 'md',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-Requis.storyName = 'Champ requis';
+export const Grand = {
+  args: {
+    label: 'Grand champ',
+    size: 'lg',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-export const Erreur = {
-    args: {
-        label: 'Label',
-        placeholder: 'Placeholder',
-        error: true,
-        errorMsg: 'Ce champ est obligatoire',
-        required: true,
-    }
-}
+export const TresGrand = {
+  args: {
+    label: 'Très grand champ',
+    size: 'xl',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-export const Multi = {
-    args: {
-        label: 'Label',
-        placeholder: 'Placeholder',
-        size:'multi',
-        maxlength: 500,
-        maxlengthInfo: 'Caractères maximum :',
+export const Multiligne = {
+  args: {
+    label: 'Champ multiligne',
+    size: 'multi',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-    }
-}
+export const Obligatoire = {
+  args: {
+    label: 'Champ obligatoire',
+    required: true,
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
 
-Multi.storyName = 'Champ multi lignes';
+export const Desactive = {
+  args: {
+    label: 'Champ désactivé',
+    disabled: true,
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
+
+export const AvecErreur = {
+  args: {
+    label: 'Champ avec erreur',
+    error: true,
+    errorMsg: 'Ce champ est obligatoire',
+    placeholder: 'Saisissez du texte ici...',
+    required: true,
+  },
+};
+
+export const AvecAide = {
+  args: {
+    label: 'Champ avec aide',
+    aide: 'Ceci est un message d\'aide',
+    placeholder: 'Saisissez du texte ici...',
+  },
+};
