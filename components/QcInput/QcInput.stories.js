@@ -41,6 +41,14 @@ export default {
       control: 'text',
       description: 'Valeur du champ',
     },
+    maxLength: {
+      control: 'number',
+      description: 'Nombre maximum de caractères',
+     },
+     maxlengthTxt: {
+      control: 'text', 
+      description: 'Template du texte pour le compteur. Utilisez {count} pour afficher le nombre',
+     },
   },
   render: ({ ...args }) => {
     return `
@@ -53,7 +61,9 @@ export default {
       ${args.aide ? `aide="${args.aide}"` : ''}
       ${args.label ? `label="${args.label}"` : ''}
       ${args.placeholder ? `placeholder="${args.placeholder}"` : ''}
-      ${args.value ? `value="${args.value}"` : ''}>
+      ${args.value ? `value="${args.value}"` : ''}
+      ${args.maxLength ? `maxLength="${args.maxLength}"` : ''}
+      ${args.maxlengthTxt ? `maxlengthTxt="${args.maxlengthTxt}"` : ''}>
     </qc-input>`;
   },
 };
@@ -138,3 +148,22 @@ export const AvecAide = {
     placeholder: 'Saisissez du texte ici...',
   },
 };
+
+export const MultiligneAvecMaxLength = {
+  args: {
+    label: 'Champ multiligne avec limite',
+    size: 'multi',
+    maxLength: '200',
+    placeholder: 'Maximum 200 caractères...',
+  },
+ };
+ 
+ export const MultiligneAvecTemplate = {
+  args: {
+    label: 'Champ multiligne avec template',
+    size: 'multi',
+    maxLength: '300',
+    maxlengthTxt: 'Il vous reste {count} caractères',
+    placeholder: 'Saisissez votre texte...',
+  },
+ };
