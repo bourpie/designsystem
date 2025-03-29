@@ -139,7 +139,7 @@ sharedStyles.replaceSync(`
 class QcInput extends HTMLElement {
     static get observedAttributes() {
         return ['id', 'label', 'placeholder', 'class', 'value', 'required', 'disabled',
-            'name', 'size', 'aide', 'error', 'errorMsg', 'maxLength', 'maxlengthTxt'];
+            'name', 'size', 'aide', 'error', 'errorMsg', 'maxLength', 'maxlengthTxt', 'type'];
     }
 
     constructor() {
@@ -169,6 +169,7 @@ class QcInput extends HTMLElement {
         const errorMsg = this.getAttribute('errorMsg');
         const aide = this.getAttribute('aide');
         const isDisabled = this.hasAttribute('disabled');
+        const inputType = this.getAttribute('type') || 'text'; // Récupérer le type d'input
 
         const template = document.createElement('template');
         template.innerHTML = `
@@ -187,7 +188,7 @@ class QcInput extends HTMLElement {
                </div>
            ` : `
             
-           <input type="text" class="input input-${size}" id="${id}">
+           <input type="${inputType}" class="input input-${size}" id="${id}">
            
            ${hasError ? `
                 <div class="error-message" id="${errorId}" aria-live="polite">${errorMsg}</div>
@@ -210,6 +211,9 @@ class QcInput extends HTMLElement {
     }
 
     initializeAttributes() {
+
+        console.log('[QcInput] initializeAttributes: Initializing...');
+
         const attributes = {
             required: this.hasAttribute('required'),
             disabled: this.hasAttribute('disabled'),
@@ -238,9 +242,19 @@ class QcInput extends HTMLElement {
             }
         }
         if (attributes.class) this.formGroupElement.className = `form-control ${attributes.class}`;
+
+
+        // Log après avoir potentiellement défini la valeur initiale
+        if (attributes.value) {
+             console.log('[QcInput] initializeAttributes: Initial value set from attribute:', attributes.value);
+        }
     }
 
     setupEventListeners() {
+
+        // Log avant d'ajouter l'écouteur
+        console.log('[QcInput] setupEventListeners: Attaching input listener to:', this.inputElement);
+
         this.inputElement.addEventListener('input', this.handleInputChange.bind(this));
         if (this.isMultiline()) {
             this.inputElement.addEventListener('input', this.updateCharacterCount.bind(this));
@@ -262,13 +276,15 @@ class QcInput extends HTMLElement {
     }
 
     handleInputChange(event) {
-        const value = event.target.value;
-        this.dispatchEvent(new CustomEvent('input', {
-            detail: { value },
-            bubbles: true,
-            composed: true
-        }));
+
+        // Log dès l'entrée dans le handler
+        console.log('[QcInput] handleInputChange: Event triggered! Internal input value:', event.target.value);
+
+        // Log avant de dispatcher l'événement
+        console.log('[QcInput] handleInputChange: Dispatching "input" event from qc-input element.');
+
         this.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
+
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -277,7 +293,7 @@ class QcInput extends HTMLElement {
         if (name === 'maxLength') this._maxLength = newValue || '500';
         if (name === 'maxlengthTxt') this._maxlengthTxt = newValue || '{count} caractères restants';
 
-        if (name === 'size' || name === 'error' || name === 'errorMsg') {
+        if (name === 'size' || name === 'error' || name === 'errorMsg' || name === 'type') {
             this.renderInput();
             return;
         }
@@ -331,6 +347,12 @@ class QcInput extends HTMLElement {
                     }
                 }
             },
+            type: () => {
+                // Si l'input n'est pas un textarea, on peut changer son type directement
+                if (!this.isMultiline()) {
+                    this.inputElement.type = newValue || 'text';
+                }
+            }
         };
 
         if (attributeHandlers[name]) {
@@ -339,12 +361,22 @@ class QcInput extends HTMLElement {
     }
 
     get value() {
-        return this.inputElement?.value;
+        const val = this.inputElement?.value;
+        console.log('[QcInput] get value(): Returning ->', val);
+        return val;
     }
 
     set value(newValue) {
+        console.log('[QcInput] set value(): Received ->', newValue);
         if (this.inputElement) {
             this.inputElement.value = newValue;
+             console.log('[QcInput] set value(): Internal input value set to ->', this.inputElement.value);
+             // Si la valeur est définie programmatiquement, mettre à jour le compteur si nécessaire
+             if (this.isMultiline()) {
+                this.updateCharacterCount();
+             }
+        } else {
+             console.error('[QcInput] set value(): ERROR - this.inputElement is not defined!');
         }
     }
 }

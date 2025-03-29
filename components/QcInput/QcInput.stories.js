@@ -9,6 +9,11 @@ export default {
       options: ['sm', 'md', 'lg', 'xl', 'multi'],
       description: 'Taille du champ',
     },
+    type: {
+      control: 'select',
+      options: ['text', 'password', 'email', 'number', 'date', 'search', 'tel', 'url'],
+      description: 'Type de champ',
+    },
     required: {
       control: 'boolean',
       description: 'Champ obligatoire',
@@ -54,6 +59,7 @@ export default {
     return `
     <qc-input
       ${args.size ? `size="${args.size}"` : ''}
+      ${args.type ? `type="${args.type}"` : ''}
       ${args.required ? 'required' : ''}
       ${args.disabled ? 'disabled' : ''}
       ${args.error ? 'error="true"' : ''}
@@ -68,102 +74,62 @@ export default {
   },
 };
 
-export const ParDefaut = {
+// Ajouter à la suite des autres stories existantes
+
+export const TypesChamps = {
   args: {
-    label: 'Champ par défaut',
+    label: 'Champ par défaut (texte)',
     placeholder: 'Saisissez du texte ici...',
   },
 };
 
-export const Petit = {
+export const MotDePasse = {
   args: {
-    label: 'Petit champ',
+    label: 'Mot de passe',
+    type: 'password',
+    placeholder: 'Entrez votre mot de passe',
+  },
+};
+
+export const Courriel = {
+  args: {
+    label: 'Adresse courriel',
+    type: 'email',
+    placeholder: 'exemple@domaine.com',
+  },
+};
+
+export const Numerique = {
+  args: {
+    label: 'Valeur numérique',
+    type: 'number',
+    placeholder: '0',
     size: 'sm',
-    placeholder: 'Saisissez du texte ici...',
   },
 };
 
-export const Moyen = {
+export const DatePicker = {
   args: {
-    label: 'Champ moyen',
+    label: 'Date',
+    type: 'date',
     size: 'md',
-    placeholder: 'Saisissez du texte ici...',
   },
 };
 
-export const Grand = {
+export const Recherche = {
   args: {
-    label: 'Grand champ',
-    size: 'lg',
-    placeholder: 'Saisissez du texte ici...',
-  },
-};
-
-export const TresGrand = {
-  args: {
-    label: 'Très grand champ',
+    label: 'Recherche',
+    type: 'search',
+    placeholder: 'Rechercher...',
     size: 'xl',
-    placeholder: 'Saisissez du texte ici...',
   },
 };
 
-export const Multiligne = {
+export const Telephone = {
   args: {
-    label: 'Champ multiligne',
-    size: 'multi',
-    placeholder: 'Saisissez du texte ici...',
+    label: 'Numéro de téléphone',
+    type: 'tel',
+    placeholder: '(000) 000-0000',
+    size: 'lg',
   },
 };
-
-export const Obligatoire = {
-  args: {
-    label: 'Champ obligatoire',
-    required: true,
-    placeholder: 'Saisissez du texte ici...',
-  },
-};
-
-export const Desactive = {
-  args: {
-    label: 'Champ désactivé',
-    disabled: true,
-    placeholder: 'Saisissez du texte ici...',
-  },
-};
-
-export const AvecErreur = {
-  args: {
-    label: 'Champ avec erreur',
-    error: true,
-    errorMsg: 'Ce champ est obligatoire',
-    placeholder: 'Saisissez du texte ici...',
-    required: true,
-  },
-};
-
-export const AvecAide = {
-  args: {
-    label: 'Champ avec aide',
-    aide: 'Ceci est un message d\'aide',
-    placeholder: 'Saisissez du texte ici...',
-  },
-};
-
-export const MultiligneAvecMaxLength = {
-  args: {
-    label: 'Champ multiligne avec limite',
-    size: 'multi',
-    maxLength: '200',
-    placeholder: 'Maximum 200 caractères...',
-  },
- };
- 
- export const MultiligneAvecTemplate = {
-  args: {
-    label: 'Champ multiligne avec template',
-    size: 'multi',
-    maxLength: '300',
-    maxlengthTxt: 'Il vous reste {count} caractères',
-    placeholder: 'Saisissez votre texte...',
-  },
- };

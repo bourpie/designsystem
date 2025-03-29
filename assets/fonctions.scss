@@ -1,0 +1,5 @@
+/** Retourne la taille en REM */
+/** ex: font-size: rem(16px); */
+@function rem($size) {
+    @return #{$size/16px}rem;
+}
