@@ -5,6 +5,8 @@ sharedStyles.replaceSync(`
     font-family: var(--qc-font-family-open-sans, 'Open Sans', sans-serif);
     display: block;
     position: relative;
+    line-height: 1.5rem;
+
   }
   
   .label {
@@ -12,6 +14,7 @@ sharedStyles.replaceSync(`
     margin-bottom: 0.25rem;
     font-weight: var(--qc-font-weight-bold, 700);
     color: var(--qc-bleu-fonce, #223654);
+    font-size: var(--font-size, 1rem);
   }
   
   .select-container {
@@ -21,19 +24,19 @@ sharedStyles.replaceSync(`
   
   /* Tailles pour le select */
   .select-container.sm {
-    max-width: 9.75rem; /* 156px */
+    max-width: 3.875rem; /* 62px - identique à QcInput */
   }
   
   .select-container.md {
-    max-width: 21.375rem; /* 342px */
+    max-width: 9.75rem; /* 156px - identique à QcInput */
   }
   
   .select-container.lg {
-    max-width: 33rem; /* 528px */
+    max-width: 15.625rem; /* 250px - identique à QcInput */
   }
   
   .select-container.xl {
-    max-width: 100%;
+    max-width: 33rem; /* 528px - identique à QcInput */
   }
   
   .select-trigger {
@@ -134,6 +137,9 @@ sharedStyles.replaceSync(`
   .label.required:after {
     content: ' *';
     color: var(--qc-rouge, #CB381F);
+    font-size: var(--font-size, 1rem);
+    font-weight: var(--qc-font-weight-bold, 700);
+    margin-left: .5rem;
   }
 `);
 

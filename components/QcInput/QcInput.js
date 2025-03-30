@@ -16,7 +16,7 @@ sharedStyles.replaceSync(`
 
    label {
        display: block;
-       color: var(--qc-bleu-fonce);
+       color: var(--qc-bleu-fonce, #223654);
        font-weight: bold;
        font-size: 1rem;
    }
@@ -53,22 +53,22 @@ sharedStyles.replaceSync(`
 
    .input.input-sm {
        width: 100%;
-       max-width: 3.875rem;
+       max-width: 3.875rem; /* Champs petit (jusqu’à 5 caractères) - 63px */
    }
 
    .input.input-md {
        width: 100%;
-       max-width: 9.75rem;
+       max-width: 9.75rem; /* Champs moyen (jusqu’à 16 caractères) - 156px */
    }
 
    .input.input-lg {
        width: 100%;
-       max-width: 15.625rem;
+       max-width: 15.625rem; /* Champs large (jusqu’à 26 caractères) - 250px */
    }
 
    .input.input-xl {
        width: 100%;
-       max-width: 33rem;
+       max-width: 33rem; /* Champs extra-large (jusqu’à 58 caractères) - 528px */
    }
 
    .input.input-multi {
