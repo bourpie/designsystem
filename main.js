@@ -1,3 +1,5 @@
+import './assets/css/variables.css'
+
 import './styles/globals.css'
 
 import { QcBouton } from './components/QcBouton/QcBouton.js'
@@ -27,3 +29,5 @@ import { QcAriane } from './components/QcAriane/QcAriane.js'
 import { QcTag } from './components/QcTag/QcTag.js'
 
 import { QcInput } from './components/QcInput/QcInput.js'
+
+import { QcSelect } from './components/QcListe/QcListe.js'
