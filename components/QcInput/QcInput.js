@@ -4,14 +4,7 @@ sharedStyles.replaceSync(`
        display: block;
        position: relative;
        line-height: 1.5rem;
-       --font-size: 1rem;
-       --qc-bleu-fonce: #223654;
-       --qc-gris-moyen: #6B778A;
-       --qc-bleu-clair: #4A98D9;
-       --qc-rouge: #CB381F;
-       --qc-gris-pale: #F1F1F2;
-       --qc-font-weight-medium: 500;
-       --qc-font-weight-semi-bold: 600;
+       font-size: var(--qc-font-size, 1rem);
    }
 
    label {
@@ -23,7 +16,7 @@ sharedStyles.replaceSync(`
 
    .has-error.required label:after {
        content: '*';
-       color: var(--qc-rouge);
+       color: var(--qc-rouge, #CB381F);
        font-size: 1rem;
        font-weight: bold;
        margin-left: .5rem;
@@ -36,19 +29,19 @@ sharedStyles.replaceSync(`
    .input {
        padding: 0 .5rem;
        margin: .25rem 0;
-       border: 1px solid var(--qc-gris-moyen);
-       color: var(--qc-bleu-fonce);
+       border: 1px solid var(--qc-gris-moyen, #6B778A);
+       color: var(--qc-bleu-fonce, #223654);
        height: 2.5rem;
    }
 
    .input::placeholder {
-       color: var(--qc-gris-moyen);
+       color: var(--qc-gris-moyen, #6B778A);
        font-size: 1rem;
    }
 
    .input:focus {
-       outline: 2px solid var(--qc-bleu-clair);
-       border: 2px solid var(--qc-bleu-fonce);
+       outline: 2px solid var(--qc-bleu-clair, #4A98D9);
+       border: 2px solid var(--qc-bleu-fonce, #223654);
    }
 
    .input.input-sm {
@@ -79,13 +72,13 @@ sharedStyles.replaceSync(`
    }
 
    .has-error .input {
-       border-color: var(--qc-rouge);
+       border-color: var(--qc-rouge, #CB381F);
        border-width: 2px;
    }
 
    .input-aide {
        font-size: 0.875rem;
-       color: var(--qc-bleu-fonce);
+       color: var(--qc-bleu-fonce, #223654);
    }
 
    .input-info-container {
@@ -105,21 +98,21 @@ sharedStyles.replaceSync(`
    }
 
    .error-message {
-       color: var(--qc-rouge);
-       font-weight: var(--qc-font-weight-semi-bold);
+       color: var(--qc-rouge, #CB381F);
+       font-weight: var(--qc-font-weight-semi-bold, 600);
    }
 
    .champ-requis {
        color: var(--qc-rouge);
        font-size: 1rem;
-       font-weight: var(--qc-font-weight-semi-bold);
+       font-weight: var(--qc-font-weight-semi-bold, 600);
        margin-left: .5rem;
    }
 
    [disabled] {
-       background-color: var(--qc-gris-pale);
-       color: var(--qc-gris-moyen);
-       border: 1px solid var(--qc-gris-moyen);
+       background-color: var(--qc-gris-pale, #F1F1F2);
+       color: var(--qc-gris-moyen, #6B778A);
+       border: 1px solid var(--qc-gris-moyen, #6B778A);
    }
 
    .input-info-container {
@@ -128,7 +121,7 @@ sharedStyles.replaceSync(`
    }
 
    .maxLength-info {
-       color: var(--qc-bleu-fonce);
+       color: var(--qc-bleu-fonce, #223654);
        flex: 1 0 50%;
        font-size: 14px;
        line-height: 20px;
