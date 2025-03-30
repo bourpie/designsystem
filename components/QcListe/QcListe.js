@@ -2,50 +2,63 @@
 const sharedStyles = new CSSStyleSheet();
 sharedStyles.replaceSync(`
   :host {
+    font-family: var(--qc-font-family-open-sans, 'Open Sans', sans-serif);
     display: block;
     position: relative;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --qc-bleu-fonce: #223654;
-    --qc-gris-moyen: #6B778A;
-    --qc-bleu-clair: #4A98D9;
-    --qc-rouge: #CB381F;
-    --qc-gris-pale: #F1F1F2;
-    --qc-font-weight-medium: 500;
-    --qc-font-weight-semi-bold: 600;
   }
   
   .label {
     display: block;
     margin-bottom: 0.25rem;
-    font-weight: bold;
-    color: var(--qc-bleu-fonce);
+    font-weight: var(--qc-font-weight-bold, 700);
+    color: var(--qc-bleu-fonce, #223654);
   }
   
   .select-container {
     position: relative;
+    width: 100%;
+  }
+  
+  /* Tailles pour le select */
+  .select-container.sm {
+    max-width: 9.75rem; /* 156px */
+  }
+  
+  .select-container.md {
+    max-width: 21.375rem; /* 342px */
+  }
+  
+  .select-container.lg {
+    max-width: 33rem; /* 528px */
+  }
+  
+  .select-container.xl {
+    max-width: 100%;
   }
   
   .select-trigger {
     padding: 0.5rem;
-    border: 1px solid var(--qc-gris-moyen);
+    border: 1px solid var(--qc-gris-moyen, #6B778A);
     background-color: white;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 2.5rem;
-    color: var(--qc-bleu-fonce);
+    color: var(--qc-bleu-fonce, #223654);
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .select-trigger[aria-disabled="true"] {
-    background-color: var(--qc-gris-pale);
-    color: var(--qc-gris-moyen);
+    background-color: var(--qc-gris-pale, #F1F1F2);
+    color: var(--qc-gris-moyen, #6B778A);
     cursor: not-allowed;
   }
   
   .select-trigger:focus {
-    outline: 2px solid var(--qc-bleu-clair);
-    border-color: var(--qc-bleu-fonce);
+    outline: 2px solid var(--qc-bleu-clair, #4A98D9);
+    border-color: var(--qc-bleu-fonce, #223654);
   }
   
   .dropdown {
@@ -54,7 +67,7 @@ sharedStyles.replaceSync(`
     max-height: 200px;
     overflow-y: auto;
     background-color: white;
-    border: 1px solid var(--qc-gris-moyen);
+    border: 1px solid var(--qc-gris-moyen, #6B778A);
     border-top: none;
     z-index: 10;
     display: none;
@@ -71,21 +84,21 @@ sharedStyles.replaceSync(`
   }
   
   .option[aria-disabled="true"] {
-    color: var(--qc-gris-moyen);
+    color: var(--qc-gris-moyen, #6B778A);
     cursor: not-allowed;
   }
   
   .option[aria-selected="true"] {
-    background-color: var(--qc-bleu-clair);
+    background-color: var(--qc-bleu-clair, #4A98D9);
     color: white;
   }
   
   .option:hover:not([aria-disabled="true"]) {
-    background-color: var(--qc-gris-pale);
+    background-color: var(--qc-gris-pale, #F1F1F2);
   }
   
   .arrow {
-    border: solid var(--qc-bleu-fonce);
+    border: solid var(--qc-bleu-fonce, #223654);
     border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 3px;
@@ -99,7 +112,7 @@ sharedStyles.replaceSync(`
   
   /* Style pour l'option placeholder grisée */
   .placeholder {
-    color: var(--qc-gris-moyen);
+    color: var(--qc-gris-moyen, #6B778A);
   }
 
   /* Visually hidden input pour intégration formulaire */
@@ -112,21 +125,21 @@ sharedStyles.replaceSync(`
   
   /* Style pour l'erreur */
   .error-message {
-    color: var(--qc-rouge);
-    font-weight: var(--qc-font-weight-medium);
+    color: var(--qc-rouge, #CB381F);
+    font-weight: var(--qc-font-weight-medium, 500);
     margin-top: 0.25rem;
   }
   
   /* Label required */
   .label.required:after {
     content: ' *';
-    color: var(--qc-rouge);
+    color: var(--qc-rouge, #CB381F);
   }
 `);
 
 class QcListe extends HTMLElement {
     static get observedAttributes() {
-      return ['placeholder', 'disabled', 'value', 'label', 'name', 'required', 'error', 'errorMsg'];
+      return ['placeholder', 'disabled', 'value', 'label', 'name', 'required', 'error', 'errorMsg', 'size'];
     }
   
     constructor() {
@@ -138,6 +151,7 @@ class QcListe extends HTMLElement {
       this._selectedIndex = -1;
       this._value = '';
       this._label = '';
+      this._size = this.getAttribute('size') || 'md'; // Taille par défaut: medium
     }
   
     connectedCallback() {
@@ -168,6 +182,10 @@ class QcListe extends HTMLElement {
         case 'required':
           this._updateRequired();
           break;
+        case 'size':
+          this._size = newValue || 'md';
+          this._updateSize();
+          break;
         case 'error':
         case 'errorMsg':
           this._render(); // Re-rendre pour ajouter/supprimer le message d'erreur
@@ -185,6 +203,16 @@ class QcListe extends HTMLElement {
       this._value = val;
       this.setAttribute('value', val);
       this._updateSelection();
+    }
+    
+    get size() {
+      return this._size;
+    }
+    
+    set size(val) {
+      this._size = val;
+      this.setAttribute('size', val);
+      this._updateSize();
     }
   
     // Analyser les options à partir des slot ou options-attribute
@@ -217,15 +245,16 @@ class QcListe extends HTMLElement {
       const placeholder = this.getAttribute('placeholder') || 'Sélectionner';
       const hasError = this.hasAttribute('error');
       const errorMsg = this.getAttribute('errorMsg') || 'Ce champ contient une erreur';
+      this._size = this.getAttribute('size') || 'md';
       
       // Trouver l'option sélectionnée
       const selectedOption = this._options.find(opt => opt.value === this._value);
       
       this.shadowRoot.innerHTML = `
-        <label id="label-${this._uniqueId}" class="label ${required ? 'required' : ''}">${this._label}</label>
+        <label for="input-${this._uniqueId}" id="label-${this._uniqueId}" class="label ${required ? 'required' : ''}">${this._label}</label>
         
-        <div class="select-container">
-          <input type="hidden" name="${name}" value="${this._value}" class="hidden-input" />
+        <div class="select-container ${this._size}">
+          <input id="input-${this._uniqueId}" type="hidden" name="${name}" value="${this._value}" class="hidden-input" />
           
           <div class="select-trigger" 
                role="combobox"
@@ -507,6 +536,24 @@ class QcListe extends HTMLElement {
     
     _updateRequired() {
       this._updateLabel();
+    }
+    
+    _updateSize() {
+      if (!this.shadowRoot) return;
+      
+      const container = this.shadowRoot.querySelector('.select-container');
+      if (container) {
+        // Supprimer toutes les classes de taille
+        container.classList.remove('sm', 'md', 'lg', 'xl');
+        
+        // Ajouter la classe correspondant à la taille actuelle
+        if (['sm', 'md', 'lg', 'xl'].includes(this._size)) {
+          container.classList.add(this._size);
+        } else {
+          // Valeur par défaut si la taille n'est pas reconnue
+          container.classList.add('md');
+        }
+      }
     }
 }
   
